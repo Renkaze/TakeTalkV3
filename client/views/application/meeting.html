@@ -1,11 +1,11 @@
 <template name="meeting">
-<div class="page-head">
+<!-- <div class="page-head">
     <h2>{{meeting}}</h2>
-</div>
+</div> -->
 <div class="main-content">
     <div class="row">
         <!-- ********************************************* -->
-        <!-- Bloc d'affichage des sujets à l'ordre du jour -->
+        <!-- Bloc d'affichage des sujets ï¿½ l'ordre du jour -->
         <!-- ********************************************* -->
         <div class="col-md-4">
             <div class="panel panel-default panel-heading-fullwidth panel-primary">
@@ -18,7 +18,7 @@
                                 <p><a href="{{reportLink}}" title="Collaborative document" target="_blank">Link of the report</a></p>
                             </div>
                         {{/if}}
-                        <!-- Liste des sujets à l'ordre du jour -->
+                        <!-- Liste des sujets ï¿½ l'ordre du jour -->
                         {{#each ordres}}
                             <div class="col-md-11" style="padding-right:0; margin-bottom:-10px">
                                 <div class="list-group">
@@ -37,14 +37,14 @@
             </div>
         </div>
         <!-- ****************************************** -->
-        <!-- Bloc d'affichage des interventions prévues -->
+        <!-- Bloc d'affichage des interventions prï¿½vues -->
         <!-- ****************************************** -->
         <div class="col-md-4">
             <div class="panel panel-default panel-heading-fullwidth panel-primary">
                 <div class="panel-heading"><span class="title">People lining up</span></div>
                 <div class="panel-body">
                     <div class="row">
-                        <!-- Bouton pour créer une demande d'intervention -->
+                        <!-- Bouton pour crï¿½er une demande d'intervention -->
                         <div class="col-md-4">
                             <input type="button" class="btn btn-primary" role="button" id="talkCancel" value="{{talk}}">
                         </div>
@@ -185,7 +185,7 @@
 </div>
 
 <!-- **************************************** -->
-<!-- Modal d'ajout d'un participant extérieur -->
+<!-- Modal d'ajout d'un participant extï¿½rieur -->
 <!-- **************************************** -->
 <div class="modal fade" id="invitationModal" tabindex="-1" role="dialog" aria-labelledby="invitationModalLabel">
     <div class="modal-dialog" role="document">
@@ -220,7 +220,7 @@
 </div>
 
 <!-- ************************************************************************************************************* -->
-<!-- Modal de notification qui s'affiche sur le dashboard d'un intervenant auquel l'animateur a supprimé le speech -->
+<!-- Modal de notification qui s'affiche sur le dashboard d'un intervenant auquel l'animateur a supprimï¿½ le speech -->
 <!-- ************************************************************************************************************* -->
 <div class="modal fade" id="speech-delete-modal" tabindex="-1" role="dialog" aria-labelledby="speech-delete-label">
     <div class="modal-dialog" role="document">
