@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="TakeTalk is an application to manage your meetings by coordinate time speech">
-    <link rel="icon" href="/public/favicon2.jpeg">
+    <link rel="icon" href="/public/favicon.jpeg">
     <title>TakeTalk | The new meeting manager</title>
 
     <!--[if lt IE 9]>
@@ -16,10 +16,11 @@
 
     <div class="am-wrapper am-nosidebar-left">
       <nav class="navbar navbar-default navbar-fixed-top am-top-header" style="background-color:#00838F">
+      <nav class="navbar navbar-default navbar-fixed-top am-top-header">
         <div class="container-fluid">
           <div class="navbar-header">
             <div class="page-title">
-              <a href="{{pathFor route='home'}}" class="navbar-brand title-font">TakeTalk</a>
+              <a href="{{pathFor route='home'}}" class="navbar-brand title-font"><img src="/LOGO.png" height="" width="100%" style="display:inline"></a>
             </div>
           </div>
           <a href="#" data-toggle="collapse" data-target="#am-navbar-collapse" class="am-toggle-top-header-menu collapsed">
@@ -30,7 +31,6 @@
               <li><a href="{{pathFor route='home'}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
               <li><a href="{{pathFor route='tutorial'}}">Tutorial</a></li>
               <li><a href="{{pathFor route='downloads'}}">Downloads</a></li>
-              <li><h2>{{meeting}}</h2></li>
               <li><a href="{{pathFor route='groups'}}">Groups</a></li>
 
 
@@ -47,6 +47,16 @@
         </li>
       -->
     </ul>
+    <ul class="nav navbar-text navbar-right">
+
+        <li class="navbar-text">
+          {{#if isAnimator}}Meeting Duration : / {{/if}}
+        </li>
+          <li class="navbar-text h4">
+            {{meeting}}
+          </li>
+
+      </ul>
     <!-- tom start-->
 
     <ul class="nav navbar-nav navbar-right">
@@ -69,8 +79,6 @@
 $(document).ready(function(){
   //initialize the javascript
   //App.init();
-
-  //Runs prettify
   prettyPrint();
 });
 </script>
