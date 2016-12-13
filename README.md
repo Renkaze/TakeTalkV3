@@ -7,17 +7,14 @@ Fonctionne sur tout type de support.
 
 ## Installation
 
-Installer node.js et Meteor. 
+Installer node.js et Meteor.
 Aller sur le dossier en console, taper meteor, c'est fait !
 Votre appli est maintenant fonctionnelle sur le localhost.
 
 ## Tutoriel
 
-Le tutoriel est disponible sur: https://github.com/bertrandquequeville/taketalk/wiki/Tutoriel
+Le tutoriel est disponible sur: 
 
-## Contribuez !
-
-Vous pouvez contribuer sur cette page, merci d'avance !
 
 ## Histoire
 
@@ -25,7 +22,7 @@ Projet créé sous la direction de Laurent Poligny, dans le cadre d'un projet en
 
 ## Auteurs
 
-POLIGNY Laurent - SMAIL Arezki - EL GAAD Hasnae - GLAVAS Karlo - CORBEAU Théodore - HAZEM Amar
+POLIGNY Laurent - FORET Franck - BERRIAU Thomas - CONTOZ Lionel
 
 </content>
 </snippet>
