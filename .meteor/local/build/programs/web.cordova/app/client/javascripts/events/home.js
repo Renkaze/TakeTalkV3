@@ -5,4 +5,5 @@ Template.home.events({
         Router.go('create');
     }
 });
+
 }).call(this);

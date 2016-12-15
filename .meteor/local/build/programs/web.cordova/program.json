@@ -530,6 +530,50 @@
       "hash": "a39281b5524d8e16a23ef8389cd04f40863d6697"
     },
     {
+      "path": "packages/gwendall_body-events.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/gwendall_body-events.js?0acf199d9d803259828d6796e375cabdfaa099d7",
+      "sourceMap": "packages/gwendall_body-events.js.map",
+      "sourceMapUrl": "/packages/0acf199d9d803259828d6796e375cabdfaa099d7.map",
+      "size": 6404,
+      "hash": "0acf199d9d803259828d6796e375cabdfaa099d7"
+    },
+    {
+      "path": "packages/lai_collection-extensions.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/lai_collection-extensions.js?4c22dc1f9cf9c2e914d344ba03a4c8416a6c595c",
+      "sourceMap": "packages/lai_collection-extensions.js.map",
+      "sourceMapUrl": "/packages/4c22dc1f9cf9c2e914d344ba03a4c8416a6c595c.map",
+      "size": 16005,
+      "hash": "4c22dc1f9cf9c2e914d344ba03a4c8416a6c595c"
+    },
+    {
+      "path": "packages/dburles_mongo-collection-instances.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/dburles_mongo-collection-instances.js?649a5a305710dc32a0aa0c3bb3f2ea23b5eb0fb9",
+      "sourceMap": "packages/dburles_mongo-collection-instances.js.map",
+      "sourceMapUrl": "/packages/649a5a305710dc32a0aa0c3bb3f2ea23b5eb0fb9.map",
+      "size": 5113,
+      "hash": "649a5a305710dc32a0aa0c3bb3f2ea23b5eb0fb9"
+    },
+    {
+      "path": "packages/babrahams_editable-text.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/babrahams_editable-text.js?ae25791c478e2bbbf18dc235e1c31c9cc3fbf169",
+      "sourceMap": "packages/babrahams_editable-text.js.map",
+      "sourceMapUrl": "/packages/ae25791c478e2bbbf18dc235e1c31c9cc3fbf169.map",
+      "size": 140259,
+      "hash": "ae25791c478e2bbbf18dc235e1c31c9cc3fbf169"
+    },
+    {
       "path": "packages/webapp.js",
       "where": "client",
       "type": "js",
@@ -596,6 +640,17 @@
       "hash": "b50bb1bd905d2cc3d6182ee28c096df0cc24a725"
     },
     {
+      "path": "packages/djedi_sanitize-html.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/djedi_sanitize-html.js?726d6a6bf3828027228986d49596b8b404206873",
+      "sourceMap": "packages/djedi_sanitize-html.js.map",
+      "sourceMapUrl": "/packages/726d6a6bf3828027228986d49596b8b404206873.map",
+      "size": 779,
+      "hash": "726d6a6bf3828027228986d49596b8b404206873"
+    },
+    {
       "path": "packages/url.js",
       "where": "client",
       "type": "js",
@@ -633,9 +688,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/global-imports.js?51a5dcb65ea1d91ff318e6049a1b48ea8be91c87",
-      "size": 978,
-      "hash": "51a5dcb65ea1d91ff318e6049a1b48ea8be91c87"
+      "url": "/packages/global-imports.js?6be135d41b75fd1446c6964125226bb9610f8eb4",
+      "size": 1106,
+      "hash": "6be135d41b75fd1446c6964125226bb9610f8eb4"
     },
     {
       "path": "app/client/views/animator/template.create.js",
@@ -686,11 +741,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/application/template.meeting.js?e31270499d28fbf67b3b2db897fae04916fdf03a",
+      "url": "/app/client/views/application/template.meeting.js?6df8566f3550a73e7b8ffb993e019f3ec2a6e7d9",
       "sourceMap": "app/client/views/application/template.meeting.js.map",
-      "sourceMapUrl": "/app/client/views/application/e31270499d28fbf67b3b2db897fae04916fdf03a.map",
-      "size": 19253,
-      "hash": "e31270499d28fbf67b3b2db897fae04916fdf03a"
+      "sourceMapUrl": "/app/client/views/application/6df8566f3550a73e7b8ffb993e019f3ec2a6e7d9.map",
+      "size": 16035,
+      "hash": "6df8566f3550a73e7b8ffb993e019f3ec2a6e7d9"
     },
     {
       "path": "app/client/views/application/template.tutorial.js",
@@ -719,22 +774,22 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/participants/template.lineup.js?4aaabb74b1e771059611dcc44deb0657ff255ed3",
+      "url": "/app/client/views/participants/template.lineup.js?c6a9defda4e1367a057517a2fa473d43cbc35874",
       "sourceMap": "app/client/views/participants/template.lineup.js.map",
-      "sourceMapUrl": "/app/client/views/participants/4aaabb74b1e771059611dcc44deb0657ff255ed3.map",
-      "size": 5477,
-      "hash": "4aaabb74b1e771059611dcc44deb0657ff255ed3"
+      "sourceMapUrl": "/app/client/views/participants/c6a9defda4e1367a057517a2fa473d43cbc35874.map",
+      "size": 5297,
+      "hash": "c6a9defda4e1367a057517a2fa473d43cbc35874"
     },
     {
       "path": "app/client/views/template.layout.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/template.layout.js?f3ed886564e58d367f51753e7cc408de8f79f45b",
+      "url": "/app/client/views/template.layout.js?0882f7ab5a642fba77011d54ace7157aee0bb96b",
       "sourceMap": "app/client/views/template.layout.js.map",
-      "sourceMapUrl": "/app/client/views/f3ed886564e58d367f51753e7cc408de8f79f45b.map",
-      "size": 4466,
-      "hash": "f3ed886564e58d367f51753e7cc408de8f79f45b"
+      "sourceMapUrl": "/app/client/views/0882f7ab5a642fba77011d54ace7157aee0bb96b.map",
+      "size": 4012,
+      "hash": "0882f7ab5a642fba77011d54ace7157aee0bb96b"
     },
     {
       "path": "app/client/javascripts/lib/01-jquery.min.js",
@@ -873,11 +928,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/javascripts/events/home.js?91993a57e69e09220801b57bae3b47c9aa779d17",
+      "url": "/app/client/javascripts/events/home.js?bb3d65ed990eea5db926c9b2f8ac332f3b588935",
       "sourceMap": "app/client/javascripts/events/home.js.map",
-      "sourceMapUrl": "/app/client/javascripts/events/91993a57e69e09220801b57bae3b47c9aa779d17.map",
-      "size": 222,
-      "hash": "91993a57e69e09220801b57bae3b47c9aa779d17"
+      "sourceMapUrl": "/app/client/javascripts/events/bb3d65ed990eea5db926c9b2f8ac332f3b588935.map",
+      "size": 223,
+      "hash": "bb3d65ed990eea5db926c9b2f8ac332f3b588935"
     },
     {
       "path": "app/client/javascripts/events/join.js",
@@ -895,33 +950,33 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/javascripts/events/lineup.js?9addd10c6d135343788b9f9328f67c52c96dfc5e",
+      "url": "/app/client/javascripts/events/lineup.js?c2b643a7c8784ccb1465a6dc3386321c59db9881",
       "sourceMap": "app/client/javascripts/events/lineup.js.map",
-      "sourceMapUrl": "/app/client/javascripts/events/9addd10c6d135343788b9f9328f67c52c96dfc5e.map",
-      "size": 2801,
-      "hash": "9addd10c6d135343788b9f9328f67c52c96dfc5e"
+      "sourceMapUrl": "/app/client/javascripts/events/c2b643a7c8784ccb1465a6dc3386321c59db9881.map",
+      "size": 2837,
+      "hash": "c2b643a7c8784ccb1465a6dc3386321c59db9881"
     },
     {
       "path": "app/client/javascripts/events/meeting.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/javascripts/events/meeting.js?20bef329d3f07033ab51c6e070c412f1d1454eb5",
+      "url": "/app/client/javascripts/events/meeting.js?b091afe75393a761c69e275b93c850558010ee93",
       "sourceMap": "app/client/javascripts/events/meeting.js.map",
-      "sourceMapUrl": "/app/client/javascripts/events/20bef329d3f07033ab51c6e070c412f1d1454eb5.map",
-      "size": 15725,
-      "hash": "20bef329d3f07033ab51c6e070c412f1d1454eb5"
+      "sourceMapUrl": "/app/client/javascripts/events/b091afe75393a761c69e275b93c850558010ee93.map",
+      "size": 13790,
+      "hash": "b091afe75393a761c69e275b93c850558010ee93"
     },
     {
       "path": "app/collections/Meetings.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/collections/Meetings.js?8531a59b64a7782713d5c70f879de30056c069ee",
+      "url": "/app/collections/Meetings.js?b93f851f9bdb4a75a876112ddef2293ea86a87a7",
       "sourceMap": "app/collections/Meetings.js.map",
-      "sourceMapUrl": "/app/collections/8531a59b64a7782713d5c70f879de30056c069ee.map",
-      "size": 265,
-      "hash": "8531a59b64a7782713d5c70f879de30056c069ee"
+      "sourceMapUrl": "/app/collections/b93f851f9bdb4a75a876112ddef2293ea86a87a7.map",
+      "size": 286,
+      "hash": "b93f851f9bdb4a75a876112ddef2293ea86a87a7"
     },
     {
       "path": "app/collections/Speeches.js",
@@ -961,11 +1016,11 @@
       "where": "client",
       "type": "css",
       "cacheable": true,
-      "url": "/merged-stylesheets.css?4ed3618d10862deebe66e2ad05c8d7d149fd33ff",
+      "url": "/merged-stylesheets.css?93036820545159fd247f411f3fe4c6d9d4a27cdf",
       "sourceMap": "merged-stylesheets.css.map",
-      "sourceMapUrl": "/4ed3618d10862deebe66e2ad05c8d7d149fd33ff.map",
-      "size": 429556,
-      "hash": "4ed3618d10862deebe66e2ad05c8d7d149fd33ff"
+      "sourceMapUrl": "/93036820545159fd247f411f3fe4c6d9d4a27cdf.map",
+      "size": 429915,
+      "hash": "93036820545159fd247f411f3fe4c6d9d4a27cdf"
     },
     {
       "path": "app/Presentation_V1.pdf",
@@ -1090,8 +1145,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Bold-webfont.svg",
-      "size": 118259,
-      "hash": "5a6a63870c020200db4d664aa4c45e021a000749"
+      "size": 120088,
+      "hash": "9bcc1f7934aec57f0c74f31a69e12214726f8421"
     },
     {
       "path": "app/fonts/OpenSans-Bold-webfont.woff",
@@ -1117,8 +1172,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-BoldItalic-webfont.svg",
-      "size": 121112,
-      "hash": "f5afa7aa8284c543aab60526ac6d814df69dc7d1"
+      "size": 122941,
+      "hash": "6f3586ace42c1cea260ca72da26dd7f095fcd0be"
     },
     {
       "path": "app/fonts/OpenSans-BoldItalic-webfont.woff",
@@ -1144,8 +1199,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Italic-webfont.svg",
-      "size": 122495,
-      "hash": "9edb8e027cfb6ca4af27caea837f34e4349cddf7"
+      "size": 124324,
+      "hash": "90881b118ec435c062a214216c2be542b6721ceb"
     },
     {
       "path": "app/fonts/OpenSans-Italic-webfont.woff",
@@ -1171,8 +1226,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Light-webfont.svg",
-      "size": 117270,
-      "hash": "0e1b5e663900cdbb72da8a08f0f7909c8d2c980e"
+      "size": 119100,
+      "hash": "68e413fa7a5bda62f330d0d452069fa886a1b512"
     },
     {
       "path": "app/fonts/OpenSans-Light-webfont.woff",
@@ -1198,8 +1253,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-LightItalic-webfont.svg",
-      "size": 122968,
-      "hash": "7fa9bac5f0e338506cda852e84df0fe1927585a7"
+      "size": 124802,
+      "hash": "dd4f719ffa74e56766870e16c8cfb8af7bde533d"
     },
     {
       "path": "app/fonts/OpenSans-LightItalic-webfont.woff",
@@ -1225,8 +1280,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Regular-webfont.svg",
-      "size": 119399,
-      "hash": "3ef5f272f68816f72f197f45f420507baf552599"
+      "size": 121229,
+      "hash": "1e27b6fdd08744d6bbde8f7b13d926361adf0a0d"
     },
     {
       "path": "app/fonts/OpenSans-Regular-webfont.woff",
@@ -1297,8 +1352,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/glyphicons-halflings-regular.svg",
-      "size": 108738,
-      "hash": "de51a8494180a6db074af2dee2383f0a363c5b08"
+      "size": 109025,
+      "hash": "4dcf0ab896f5417047f881de91bad10dcbda48c6"
     },
     {
       "path": "app/fonts/glyphicons-halflings-regular.ttf",

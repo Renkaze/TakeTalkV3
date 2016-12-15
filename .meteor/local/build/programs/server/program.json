@@ -7,7 +7,7 @@
       "path": "packages/underscore.js"
     },
     {
-      "node_modules": "npm/meteor/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/meteor/1.1.9/npm/node_modules",
       "sourceMap": "packages/meteor.js.map",
       "path": "packages/meteor.js"
     },
@@ -20,7 +20,7 @@
       "path": "packages/insecure.js"
     },
     {
-      "node_modules": "npm/email/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/email/1.0.7/npm/node_modules",
       "sourceMap": "packages/email.js.map",
       "path": "packages/email.js"
     },
@@ -33,7 +33,7 @@
       "path": "packages/ejson.js"
     },
     {
-      "node_modules": "npm/logging/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/logging/1.0.8/npm/node_modules",
       "sourceMap": "packages/logging.js.map",
       "path": "packages/logging.js"
     },
@@ -122,7 +122,7 @@
       "path": "packages/webapp-hashing.js"
     },
     {
-      "node_modules": "npm/webapp/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/webapp/1.2.2/npm/node_modules",
       "sourceMap": "packages/webapp.js.map",
       "path": "packages/webapp.js"
     },
@@ -161,7 +161,7 @@
       "path": "packages/iron_location.js"
     },
     {
-      "node_modules": "npm/npm-mongo/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/npm-mongo/1.4.39_1/npm/node_modules",
       "sourceMap": "packages/npm-mongo.js.map",
       "path": "packages/npm-mongo.js"
     },
@@ -186,12 +186,12 @@
       "path": "packages/ddp-common.js"
     },
     {
-      "node_modules": "npm/ddp-client/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/ddp-client/1.2.1/npm/node_modules",
       "sourceMap": "packages/ddp-client.js.map",
       "path": "packages/ddp-client.js"
     },
     {
-      "node_modules": "npm/babel-compiler/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/babel-compiler/5.8.24_1/npm/node_modules",
       "sourceMap": "packages/babel-compiler.js.map",
       "path": "packages/babel-compiler.js"
     },
@@ -208,17 +208,17 @@
       "path": "packages/babel-runtime.js"
     },
     {
-      "node_modules": "npm/promise/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/promise/0.5.0/npm/node_modules",
       "sourceMap": "packages/promise.js.map",
       "path": "packages/promise.js"
     },
     {
-      "node_modules": "npm/ecmascript-collections/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/ecmascript-collections/0.1.6/npm/node_modules",
       "sourceMap": "packages/ecmascript-collections.js.map",
       "path": "packages/ecmascript-collections.js"
     },
     {
-      "node_modules": "npm/ddp-server/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/ddp-server/1.2.1/npm/node_modules",
       "sourceMap": "packages/ddp-server.js.map",
       "path": "packages/ddp-server.js"
     },
@@ -231,7 +231,7 @@
       "path": "packages/binary-heap.js"
     },
     {
-      "node_modules": "npm/mongo/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/mongo/1.1.2/npm/node_modules",
       "sourceMap": "packages/mongo.js.map",
       "path": "packages/mongo.js"
     },
@@ -244,7 +244,7 @@
       "path": "packages/iron_controller.js"
     },
     {
-      "node_modules": "npm/iron_router/node_modules",
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/iron_router/1.0.7/npm/node_modules",
       "sourceMap": "packages/iron_router.js.map",
       "path": "packages/iron_router.js",
       "assets": {
@@ -280,6 +280,27 @@
       "path": "packages/mrt_jquery-ui.js"
     },
     {
+      "sourceMap": "packages/gwendall_body-events.js.map",
+      "path": "packages/gwendall_body-events.js"
+    },
+    {
+      "sourceMap": "packages/lai_collection-extensions.js.map",
+      "path": "packages/lai_collection-extensions.js"
+    },
+    {
+      "sourceMap": "packages/dburles_mongo-collection-instances.js.map",
+      "path": "packages/dburles_mongo-collection-instances.js"
+    },
+    {
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/djedi_sanitize-html/1.11.3/npm/node_modules",
+      "sourceMap": "packages/djedi_sanitize-html.js.map",
+      "path": "packages/djedi_sanitize-html.js"
+    },
+    {
+      "sourceMap": "packages/babrahams_editable-text.js.map",
+      "path": "packages/babrahams_editable-text.js"
+    },
+    {
       "sourceMap": "packages/livedata.js.map",
       "path": "packages/livedata.js"
     },
@@ -313,6 +334,10 @@
     {
       "sourceMap": "app/collections/Users.js.map",
       "path": "app/collections/Users.js"
+    },
+    {
+      "sourceMap": "app/server/fixtures.js.map",
+      "path": "app/server/fixtures.js"
     },
     {
       "sourceMap": "app/server/methods.js.map",

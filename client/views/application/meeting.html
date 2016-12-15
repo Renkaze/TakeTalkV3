@@ -11,11 +11,8 @@
       <div class="panel panel-default panel-heading-fullwidth panel-primary">
         <div class="panel-heading"><span class="title">Meeting Report</span></div>
         <div class="panel-body">
-          <div id="froala-editor">
-
-          </div>
+            <textarea class="editableText" rows="8" cols="100" ></textarea>
         </div>
-
       </div>
     </div>
 
@@ -58,15 +55,15 @@
                         ({{timeLeft}}/{{time}})
                         {{/if}}
                       </h4>
-                      <p class="list-group-item-text">
+                      <!-- <p class="list-group-item-text">
                         Subject: {{orderChoose}}
                         {{#if isSubject _id}}
                         <br/>Keywords: {{subject}}
                         {{/if}}
-                      </p>
+                      </p> -->
                       {{#if isAnimator}}
                       <!-- Actions possibles en rapport avec une intervention -->
-                      <div style="position:absolute; left:365px; bottom:38px;">
+                      <div style="position:absolute; left:365px; bottom:20px;">
                         <div class="input-group speechRemove" speech-id="{{_id}}">
                           <button type="button" class="btn btn-danger btn-xs remove-speech">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
@@ -96,16 +93,14 @@
             <div class="row">
               {{#each users}}
               <!-- Liste des intervenant -->
-              <div class="col-md-11" style="padding-right:0; margin-bottom:-10px">
+              <div class="col-md-11" style="padding-right:0">
                 <div class="list-group">
-                  <div class="list-group-item">
                     <h4 class="list-group-item-heading">{{name}}</h4>
                     <p>
                       {{#each paroles}}
                       {{>parole}}
                       {{/each}}
                     </p>
-                  </div>
                 </div>
               </div>
               <!-- Actions possibles en rapport avec l'intervenant -->
@@ -125,19 +120,17 @@
       </div>
       <!--End People on meeting -->
 
-      <!--Start Agenda-->
+      <!--Start Agenda
       <div class="row-md-4">
         <div class="panel panel-default panel-heading-fullwidth panel-primary">
           <div class="panel-heading"><span class="title">Agenda</span></div>
           <div class="panel-body">
             <div class="row">
               {{#if isReportLink}}
-              <!-- Lien du document collaboratif -->
               <div class="col-md-12">
                 <p><a href="{{reportLink}}" title="Collaborative document" target="_blank">Link of the report</a></p>
               </div>
               {{/if}}
-              <!-- Liste des sujets � l'ordre du jour -->
               {{#each ordres}}
               <div class="col-md-11" style="padding-right:0; margin-bottom:-10px">
                 <div class="list-group">
@@ -146,16 +139,14 @@
                   </div>
                 </div>
               </div>
-              <!-- Actions possibles en rapport avec un sujet -->
               <div class="col-md-1" style="padding-right:0">
-                <!-- Actions -->
               </div>
               {{/each}}
             </div>
           </div>
         </div>
       </div>
-        <!--End Agenda-->
+    End Agenda-->
     </div>
   </div> <!-- row des 3 colonnes -->
 
@@ -265,5 +256,5 @@
 </template>
 
 <template name="parole">
-  <span>{{order}} : {{displayTime time}}</span><br/>
+  <span>Speech Duration : {{displayTime time}}</span><br/>
 </template>
