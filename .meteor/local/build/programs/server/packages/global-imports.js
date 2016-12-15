@@ -14,7 +14,12 @@ EJSON = Package.ejson.EJSON;
 Spacebars = Package.spacebars.Spacebars;
 check = Package.check.check;
 Match = Package.check.Match;
+<<<<<<< HEAD
 NpmModuleBcrypt = Package['npm-bcrypt'].NpmModuleBcrypt;
+=======
+EditableText = Package['babrahams:editable-text'].EditableText;
+sanitizeHtml = Package['djedi:sanitize-html'].sanitizeHtml;
+>>>>>>> ajout zone de text riche
 Iron = Package['iron:core'].Iron;
 Meteor = Package.meteor.Meteor;
 global = Package.meteor.global;

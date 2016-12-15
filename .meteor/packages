@@ -20,6 +20,7 @@ ejson@1.0.13
 spacebars
 check@1.2.4
 mrt:jquery-ui
+<<<<<<< HEAD
 standard-minifier-css
 standard-minifier-js
 shell-server
@@ -27,3 +28,6 @@ stylus
 ian:accounts-ui-bootstrap-3
 npm-bcrypt@0.8.7
 accounts-password
+=======
+babrahams:editable-text
+>>>>>>> ajout zone de text riche

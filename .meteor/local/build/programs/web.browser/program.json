@@ -635,6 +635,50 @@
       "hash": "ff6fc743201f60385f5a7a6168c915bfc58b6901"
     },
     {
+      "path": "packages/gwendall_body-events.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/gwendall_body-events.js?0acf199d9d803259828d6796e375cabdfaa099d7",
+      "sourceMap": "packages/gwendall_body-events.js.map",
+      "sourceMapUrl": "/packages/0acf199d9d803259828d6796e375cabdfaa099d7.map",
+      "size": 6404,
+      "hash": "0acf199d9d803259828d6796e375cabdfaa099d7"
+    },
+    {
+      "path": "packages/lai_collection-extensions.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/lai_collection-extensions.js?4c22dc1f9cf9c2e914d344ba03a4c8416a6c595c",
+      "sourceMap": "packages/lai_collection-extensions.js.map",
+      "sourceMapUrl": "/packages/4c22dc1f9cf9c2e914d344ba03a4c8416a6c595c.map",
+      "size": 16005,
+      "hash": "4c22dc1f9cf9c2e914d344ba03a4c8416a6c595c"
+    },
+    {
+      "path": "packages/dburles_mongo-collection-instances.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/dburles_mongo-collection-instances.js?649a5a305710dc32a0aa0c3bb3f2ea23b5eb0fb9",
+      "sourceMap": "packages/dburles_mongo-collection-instances.js.map",
+      "sourceMapUrl": "/packages/649a5a305710dc32a0aa0c3bb3f2ea23b5eb0fb9.map",
+      "size": 5113,
+      "hash": "649a5a305710dc32a0aa0c3bb3f2ea23b5eb0fb9"
+    },
+    {
+      "path": "packages/babrahams_editable-text.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/babrahams_editable-text.js?ae25791c478e2bbbf18dc235e1c31c9cc3fbf169",
+      "sourceMap": "packages/babrahams_editable-text.js.map",
+      "sourceMapUrl": "/packages/ae25791c478e2bbbf18dc235e1c31c9cc3fbf169.map",
+      "size": 140259,
+      "hash": "ae25791c478e2bbbf18dc235e1c31c9cc3fbf169"
+    },
+    {
       "path": "packages/webapp.js",
       "where": "client",
       "type": "js",
@@ -673,6 +717,17 @@
       "hash": "2f56943306c7e900ed9f4d894b87f534ebffeaeb"
     },
     {
+      "path": "packages/djedi_sanitize-html.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/djedi_sanitize-html.js?726d6a6bf3828027228986d49596b8b404206873",
+      "sourceMap": "packages/djedi_sanitize-html.js.map",
+      "sourceMapUrl": "/packages/726d6a6bf3828027228986d49596b8b404206873.map",
+      "size": 779,
+      "hash": "726d6a6bf3828027228986d49596b8b404206873"
+    },
+    {
       "path": "packages/autoupdate.js",
       "where": "client",
       "type": "js",
@@ -686,9 +741,15 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/packages/global-imports.js?hash=90f0b00ebbe3637d4a296cce64bd454db6d3db1c",
       "size": 1148,
       "hash": "90f0b00ebbe3637d4a296cce64bd454db6d3db1c"
+=======
+      "url": "/packages/global-imports.js?3621c14662c1aecb9c67bf370bace2ac79852b35",
+      "size": 1065,
+      "hash": "3621c14662c1aecb9c67bf370bace2ac79852b35"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/client/views/animator/template.create.js",
@@ -758,9 +819,17 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/app/client/views/application/template.meeting.js?hash=c8e54fdb89436ddbf94badb77bcdcb062e8ff6ef",
       "size": 19153,
       "hash": "c8e54fdb89436ddbf94badb77bcdcb062e8ff6ef"
+=======
+      "url": "/app/client/views/application/template.meeting.js?6df8566f3550a73e7b8ffb993e019f3ec2a6e7d9",
+      "sourceMap": "app/client/views/application/template.meeting.js.map",
+      "sourceMapUrl": "/app/client/views/application/6df8566f3550a73e7b8ffb993e019f3ec2a6e7d9.map",
+      "size": 16035,
+      "hash": "6df8566f3550a73e7b8ffb993e019f3ec2a6e7d9"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/client/views/application/template.tutorial.js",
@@ -812,18 +881,34 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/app/client/views/participants/template.lineup.js?hash=8523ad30314ead58107339ae79d33089e89dbb61",
       "size": 5455,
       "hash": "8523ad30314ead58107339ae79d33089e89dbb61"
+=======
+      "url": "/app/client/views/participants/template.lineup.js?c6a9defda4e1367a057517a2fa473d43cbc35874",
+      "sourceMap": "app/client/views/participants/template.lineup.js.map",
+      "sourceMapUrl": "/app/client/views/participants/c6a9defda4e1367a057517a2fa473d43cbc35874.map",
+      "size": 5297,
+      "hash": "c6a9defda4e1367a057517a2fa473d43cbc35874"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/client/views/template.layout.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/app/client/views/template.layout.js?hash=0e1124b0a67d632230c45c8b2d41fa529c91dba2",
       "size": 4298,
       "hash": "0e1124b0a67d632230c45c8b2d41fa529c91dba2"
+=======
+      "url": "/app/client/views/template.layout.js?0882f7ab5a642fba77011d54ace7157aee0bb96b",
+      "sourceMap": "app/client/views/template.layout.js.map",
+      "sourceMapUrl": "/app/client/views/0882f7ab5a642fba77011d54ace7157aee0bb96b.map",
+      "size": 4012,
+      "hash": "0882f7ab5a642fba77011d54ace7157aee0bb96b"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/client/javascripts/lib/01-jquery.min.js",
@@ -956,9 +1041,17 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/app/client/javascripts/events/home.js?hash=19fc43ecbe16b803e6c099321b05df844a67c435",
       "size": 223,
       "hash": "19fc43ecbe16b803e6c099321b05df844a67c435"
+=======
+      "url": "/app/client/javascripts/events/home.js?bb3d65ed990eea5db926c9b2f8ac332f3b588935",
+      "sourceMap": "app/client/javascripts/events/home.js.map",
+      "sourceMapUrl": "/app/client/javascripts/events/bb3d65ed990eea5db926c9b2f8ac332f3b588935.map",
+      "size": 223,
+      "hash": "bb3d65ed990eea5db926c9b2f8ac332f3b588935"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/client/javascripts/events/join.js",
@@ -974,15 +1067,24 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/app/client/javascripts/events/lineup.js?hash=fbc83e66556ef1374629b3b16290aaa803ac2d21",
       "size": 2801,
       "hash": "fbc83e66556ef1374629b3b16290aaa803ac2d21"
+=======
+      "url": "/app/client/javascripts/events/lineup.js?c2b643a7c8784ccb1465a6dc3386321c59db9881",
+      "sourceMap": "app/client/javascripts/events/lineup.js.map",
+      "sourceMapUrl": "/app/client/javascripts/events/c2b643a7c8784ccb1465a6dc3386321c59db9881.map",
+      "size": 2837,
+      "hash": "c2b643a7c8784ccb1465a6dc3386321c59db9881"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/client/javascripts/events/meeting.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/app/client/javascripts/events/meeting.js?hash=cc5de24928c7a4357fb309800202192cbc080099",
       "size": 15725,
       "hash": "cc5de24928c7a4357fb309800202192cbc080099"
@@ -1031,15 +1133,30 @@
       "url": "/app/collections/Groups.js?hash=459cdcfa6cee9df51fb377a7b8e24cd8a3c49298",
       "size": 1001,
       "hash": "459cdcfa6cee9df51fb377a7b8e24cd8a3c49298"
+=======
+      "url": "/app/client/javascripts/events/meeting.js?b091afe75393a761c69e275b93c850558010ee93",
+      "sourceMap": "app/client/javascripts/events/meeting.js.map",
+      "sourceMapUrl": "/app/client/javascripts/events/b091afe75393a761c69e275b93c850558010ee93.map",
+      "size": 13790,
+      "hash": "b091afe75393a761c69e275b93c850558010ee93"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/collections/Meetings.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/app/collections/Meetings.js?hash=e061c620061ed6b192096949f74c2004c0553740",
       "size": 266,
       "hash": "e061c620061ed6b192096949f74c2004c0553740"
+=======
+      "url": "/app/collections/Meetings.js?b93f851f9bdb4a75a876112ddef2293ea86a87a7",
+      "sourceMap": "app/collections/Meetings.js.map",
+      "sourceMapUrl": "/app/collections/b93f851f9bdb4a75a876112ddef2293ea86a87a7.map",
+      "size": 286,
+      "hash": "b93f851f9bdb4a75a876112ddef2293ea86a87a7"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/collections/Speeches.js",
@@ -1091,11 +1208,19 @@
       "where": "client",
       "type": "css",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/merged-stylesheets.css?hash=98c08df6e2e39d0442db3c0e883de645ec6e3171",
       "sourceMap": "merged-stylesheets.css.map",
       "sourceMapUrl": "/98c08df6e2e39d0442db3c0e883de645ec6e3171.map",
       "size": 431389,
       "hash": "98c08df6e2e39d0442db3c0e883de645ec6e3171"
+=======
+      "url": "/merged-stylesheets.css?93036820545159fd247f411f3fe4c6d9d4a27cdf",
+      "sourceMap": "merged-stylesheets.css.map",
+      "sourceMapUrl": "/93036820545159fd247f411f3fe4c6d9d4a27cdf.map",
+      "size": 429915,
+      "hash": "93036820545159fd247f411f3fe4c6d9d4a27cdf"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/Presentation_V1.pdf",
@@ -1221,7 +1346,11 @@
       "cacheable": false,
       "url": "/fonts/OpenSans-Bold-webfont.svg",
       "size": 120088,
+<<<<<<< HEAD
       "hash": "e34021d46721f99c4b9dd82c8246d7c0394e7227"
+=======
+      "hash": "9bcc1f7934aec57f0c74f31a69e12214726f8421"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/fonts/OpenSans-Bold-webfont.woff",
@@ -1248,7 +1377,11 @@
       "cacheable": false,
       "url": "/fonts/OpenSans-BoldItalic-webfont.svg",
       "size": 122941,
+<<<<<<< HEAD
       "hash": "290145de3bd375376d6a147faf9b460a54a879f8"
+=======
+      "hash": "6f3586ace42c1cea260ca72da26dd7f095fcd0be"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/fonts/OpenSans-BoldItalic-webfont.woff",
@@ -1275,7 +1408,11 @@
       "cacheable": false,
       "url": "/fonts/OpenSans-Italic-webfont.svg",
       "size": 124324,
+<<<<<<< HEAD
       "hash": "a04d45ccf5e35497f0fb145cb567fd7b45b75b1c"
+=======
+      "hash": "90881b118ec435c062a214216c2be542b6721ceb"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/fonts/OpenSans-Italic-webfont.woff",
@@ -1302,7 +1439,11 @@
       "cacheable": false,
       "url": "/fonts/OpenSans-Light-webfont.svg",
       "size": 119100,
+<<<<<<< HEAD
       "hash": "e4540ddec1a09ae2a152dbe4612a4410f55cf2ff"
+=======
+      "hash": "68e413fa7a5bda62f330d0d452069fa886a1b512"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/fonts/OpenSans-Light-webfont.woff",
@@ -1329,7 +1470,11 @@
       "cacheable": false,
       "url": "/fonts/OpenSans-LightItalic-webfont.svg",
       "size": 124802,
+<<<<<<< HEAD
       "hash": "78ea4250f31d13aade366be9cf5039a4e951de7e"
+=======
+      "hash": "dd4f719ffa74e56766870e16c8cfb8af7bde533d"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/fonts/OpenSans-LightItalic-webfont.woff",
@@ -1356,7 +1501,11 @@
       "cacheable": false,
       "url": "/fonts/OpenSans-Regular-webfont.svg",
       "size": 121229,
+<<<<<<< HEAD
       "hash": "9aa3daf84b07cee719b302e2333b76f01fc475cb"
+=======
+      "hash": "1e27b6fdd08744d6bbde8f7b13d926361adf0a0d"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/fonts/OpenSans-Regular-webfont.woff",
@@ -1428,7 +1577,11 @@
       "cacheable": false,
       "url": "/fonts/glyphicons-halflings-regular.svg",
       "size": 109025,
+<<<<<<< HEAD
       "hash": "c5a029a138d8ea5237d92ddd80e8e21b4c42aea8"
+=======
+      "hash": "4dcf0ab896f5417047f881de91bad10dcbda48c6"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "app/fonts/glyphicons-halflings-regular.ttf",

@@ -9,7 +9,7 @@ Template.lineup.events({
     /** A click on lineup creates a speech and goes back to the meeting page */
     'click .lineUp': function(e, t) {
         e.preventDefault();
-		var order = t.find("#order").value;
+		      //var order = t.find("#order").value;
         var submitTime = t.find(".timeButton:checked").value;
         var userId = $(e.target).attr("user-id");
         var rank = 1;
@@ -19,7 +19,7 @@ Template.lineup.events({
         if (speeches.length > 0) {
             rank = speeches[0].rank+1;
         }
-		
+
         if (submitTime == 'rapide') {
             submitTime = "intervention rapide"
         }
@@ -33,7 +33,7 @@ Template.lineup.events({
                 subject: t.find("#keywords").value,
                 timeLeft: 0,
                 time: 0,
-				orderChoose: order,
+				        //orderChoose: order,
                 timeString: submitTime,
                 status: "pending",
                 user: userId,
@@ -45,7 +45,7 @@ Template.lineup.events({
                 subject: t.find("#keywords").value,
                 timeLeft: 0,
                 time: submitTime,
-				orderChoose: order,
+				        //orderChoose: order,
                 timeString: "",
                 status: "pending",
                 user: userId,
@@ -74,9 +74,9 @@ Template.lineup.helpers ({
     },
 
     //Retourne l'ordre du jour
-    ordres: function () {
-        return Session.get("ordres");
-    },
+    // ordres: function () {
+    //     return Session.get("ordres");
+    // },
 
     //Retourne vrai si dse utilisateurs ont été ajoutés en local
     hasGuest: function () {
@@ -91,4 +91,5 @@ Template.lineup.helpers ({
         return Users.findOne({_id: Session.get("userId")});
     }
 });
+
 }).call(this);

@@ -15,7 +15,12 @@ EJSON = Package.ejson.EJSON;
 Spacebars = Package.spacebars.Spacebars;
 check = Package.check.check;
 Match = Package.check.Match;
+<<<<<<< HEAD
 accountsUIBootstrap3 = Package['ian:accounts-ui-bootstrap-3'].accountsUIBootstrap3;
+=======
+EditableText = Package['babrahams:editable-text'].EditableText;
+sanitizeHtml = Package['babrahams:editable-text'].sanitizeHtml;
+>>>>>>> ajout zone de text riche
 Iron = Package['iron:core'].Iron;
 Meteor = Package.meteor.Meteor;
 global = Package.meteor.global;

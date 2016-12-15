@@ -1,9 +1,8 @@
 (function(){/** The collection that contains the meetings */
 Meetings = new Mongo.Collection("meetings");
 
-/*
- Exemple :
 
+<<<<<<< HEAD
  name: 'test',
  status: "ongoing",
  ordres: ['ordre1', 'ordre2', 'ordre3'],
@@ -11,5 +10,15 @@ Meetings = new Mongo.Collection("meetings");
  _id: id
  pwd : ""
  */
+=======
+ // Exemple :
+ //
+ // name: 'test',
+ // status: "ongoing",
+ // ordres: ['ordre1', 'ordre2', 'ordre3'],
+ // ordreTimes: [90, 130, 268],
+ // _id: id,
+ // pwd : "",
+>>>>>>> ajout zone de text riche
 
 }).call(this);

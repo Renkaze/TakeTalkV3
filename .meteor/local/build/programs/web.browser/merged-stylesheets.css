@@ -13,6 +13,7 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
+<<<<<<< HEAD
 #login-dropdown-list .dropdown-menu {
   min-width: 300px;
   padding: 15px;
@@ -114,6 +115,32 @@
 .btn-Twitter {
   color: #fff;
   background-color: #4099ff;
+=======
+.wide-text-edit,
+.text-area-edit {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+}
+
+.editable-text {
+  cursor: default;
+}
+
+.editable-text-save-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.editable-text-save-button:hover {
+  background: #eee;
+>>>>>>> ajout zone de text riche
 }
 
 .nano {

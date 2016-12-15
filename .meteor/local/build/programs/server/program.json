@@ -6,7 +6,12 @@
       "path": "packages/underscore.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/meteor/node_modules",
+=======
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/meteor/1.1.9/npm/node_modules",
+      "sourceMap": "packages/meteor.js.map",
+>>>>>>> ajout zone de text riche
       "path": "packages/meteor.js"
     },
     {
@@ -18,6 +23,7 @@
       "path": "packages/modules-runtime.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/modules/node_modules",
       "path": "packages/modules.js"
     },
@@ -36,6 +42,11 @@
     {
       "sourceMap": "packages/ecmascript.js.map",
       "path": "packages/ecmascript.js"
+=======
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/email/1.0.7/npm/node_modules",
+      "sourceMap": "packages/email.js.map",
+      "path": "packages/email.js"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "packages/base64.js"
@@ -44,7 +55,12 @@
       "path": "packages/ejson.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/logging/node_modules",
+=======
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/logging/1.0.8/npm/node_modules",
+      "sourceMap": "packages/logging.js.map",
+>>>>>>> ajout zone de text riche
       "path": "packages/logging.js"
     },
     {
@@ -118,7 +134,11 @@
       "path": "packages/webapp-hashing.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/webapp/node_modules",
+=======
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/webapp/1.2.2/npm/node_modules",
+>>>>>>> ajout zone de text riche
       "sourceMap": "packages/webapp.js.map",
       "path": "packages/webapp.js"
     },
@@ -150,7 +170,12 @@
       "path": "packages/iron_location.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/npm-mongo/node_modules",
+=======
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/npm-mongo/1.4.39_1/npm/node_modules",
+      "sourceMap": "packages/npm-mongo.js.map",
+>>>>>>> ajout zone de text riche
       "path": "packages/npm-mongo.js"
     },
     {
@@ -169,11 +194,22 @@
       "path": "packages/ddp-common.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/ddp-client/node_modules",
       "path": "packages/ddp-client.js"
     },
     {
       "path": "packages/rate-limit.js"
+=======
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/ddp-client/1.2.1/npm/node_modules",
+      "sourceMap": "packages/ddp-client.js.map",
+      "path": "packages/ddp-client.js"
+    },
+    {
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/babel-compiler/5.8.24_1/npm/node_modules",
+      "sourceMap": "packages/babel-compiler.js.map",
+      "path": "packages/babel-compiler.js"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "packages/ddp-rate-limiter.js"
@@ -182,7 +218,25 @@
       "path": "packages/callback-hook.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/ddp-server/node_modules",
+=======
+      "sourceMap": "packages/babel-runtime.js.map",
+      "path": "packages/babel-runtime.js"
+    },
+    {
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/promise/0.5.0/npm/node_modules",
+      "sourceMap": "packages/promise.js.map",
+      "path": "packages/promise.js"
+    },
+    {
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/ecmascript-collections/0.1.6/npm/node_modules",
+      "sourceMap": "packages/ecmascript-collections.js.map",
+      "path": "packages/ecmascript-collections.js"
+    },
+    {
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/ddp-server/1.2.1/npm/node_modules",
+>>>>>>> ajout zone de text riche
       "sourceMap": "packages/ddp-server.js.map",
       "path": "packages/ddp-server.js"
     },
@@ -197,7 +251,11 @@
       "path": "packages/binary-heap.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/mongo/node_modules",
+=======
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/mongo/1.1.2/npm/node_modules",
+>>>>>>> ajout zone de text riche
       "sourceMap": "packages/mongo.js.map",
       "path": "packages/mongo.js"
     },
@@ -209,8 +267,21 @@
       "path": "packages/iron_controller.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/iron_router/node_modules",
       "path": "packages/iron_router.js"
+=======
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/iron_router/1.0.7/npm/node_modules",
+      "sourceMap": "packages/iron_router.js.map",
+      "path": "packages/iron_router.js",
+      "assets": {
+        "lib/templates.html": "assets/packages/iron_router/lib/templates.html"
+      }
+    },
+    {
+      "sourceMap": "packages/standard-minifiers.js.map",
+      "path": "packages/standard-minifiers.js"
+>>>>>>> ajout zone de text riche
     },
     {
       "path": "packages/meteor-base.js"
@@ -231,6 +302,7 @@
       "path": "packages/mrt_jquery-ui.js"
     },
     {
+<<<<<<< HEAD
       "path": "packages/standard-minifier-css.js"
     },
     {
@@ -265,6 +337,30 @@
       "path": "packages/ian_accounts-ui-bootstrap-3.js"
     },
     {
+=======
+      "sourceMap": "packages/gwendall_body-events.js.map",
+      "path": "packages/gwendall_body-events.js"
+    },
+    {
+      "sourceMap": "packages/lai_collection-extensions.js.map",
+      "path": "packages/lai_collection-extensions.js"
+    },
+    {
+      "sourceMap": "packages/dburles_mongo-collection-instances.js.map",
+      "path": "packages/dburles_mongo-collection-instances.js"
+    },
+    {
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/djedi_sanitize-html/1.11.3/npm/node_modules",
+      "sourceMap": "packages/djedi_sanitize-html.js.map",
+      "path": "packages/djedi_sanitize-html.js"
+    },
+    {
+      "sourceMap": "packages/babrahams_editable-text.js.map",
+      "path": "packages/babrahams_editable-text.js"
+    },
+    {
+      "sourceMap": "packages/livedata.js.map",
+>>>>>>> ajout zone de text riche
       "path": "packages/livedata.js"
     },
     {
@@ -305,7 +401,15 @@
       "path": "app/collections/Users.js"
     },
     {
+<<<<<<< HEAD
       "node_modules": "npm/node_modules",
+=======
+      "sourceMap": "app/server/fixtures.js.map",
+      "path": "app/server/fixtures.js"
+    },
+    {
+      "sourceMap": "app/server/methods.js.map",
+>>>>>>> ajout zone de text riche
       "path": "app/server/methods.js"
     },
     {

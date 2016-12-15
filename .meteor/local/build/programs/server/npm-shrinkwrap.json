@@ -13,9 +13,20 @@
       "resolved": "https://registry.npmjs.org/asap/-/asap-2.0.5.tgz"
     },
     "fibers": {
+<<<<<<< HEAD
       "version": "1.0.15",
       "from": "fibers@1.0.15",
       "resolved": "https://registry.npmjs.org/fibers/-/fibers-1.0.15.tgz"
+=======
+      "version": "1.0.5",
+      "from": "https://github.com/meteor/node-fibers/tarball/d519f0c5971c33d99c902dad346b817e84bab001",
+      "resolved": "https://github.com/meteor/node-fibers/tarball/d519f0c5971c33d99c902dad346b817e84bab001"
+    },
+    "has-ansi": {
+      "version": "0.1.0",
+      "from": "has-ansi@>=0.1.0 <0.2.0",
+      "resolved": "https://registry.npmjs.org/has-ansi/-/has-ansi-0.1.0.tgz"
+>>>>>>> ajout zone de text riche
     },
     "meteor-promise": {
       "version": "0.8.0",
