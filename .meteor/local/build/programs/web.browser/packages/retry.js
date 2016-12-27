@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var _ = Package.underscore._;
 var Random = Package.random.Random;
 
@@ -98,8 +100,11 @@ _.extend(Retry.prototype, {                                                // 26
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package.retry = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package.retry = {}, {
   Retry: Retry
-};
+});
 
 })();

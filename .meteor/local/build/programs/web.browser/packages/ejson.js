@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var _ = Package.underscore._;
 var Base64 = Package.base64.Base64;
 
@@ -686,9 +688,12 @@ EJSON._canonicalStringify = function (value, options) {                         
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package.ejson = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package.ejson = {}, {
   EJSON: EJSON,
   EJSONTest: EJSONTest
-};
+});
 
 })();

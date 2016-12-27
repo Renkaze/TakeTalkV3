@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var $ = Package.jquery.$;
 var jQuery = Package.jquery.jQuery;
 
@@ -23,8 +25,8 @@ var jQuery = Package.jquery.jQuery;
 //                                                                   //
 ///////////////////////////////////////////////////////////////////////
                                                                      //
-(function () {                                                       // 1
-                                                                     // 2
+(function () {
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                     //
 // packages/mrt:jquery-ui/lib/jquery-ui-1.9.2.custom.js                                                                //
@@ -14912,9 +14914,9 @@ $.effects.effect.transfer = function( o, done ) {                               
 })(jQuery);                                                                                                            // 14879
                                                                                                                        // 14880
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                     // 14890
-}).call(this);                                                       // 14891
-                                                                     // 14892
+
+}).call(this);
+
 ///////////////////////////////////////////////////////////////////////
 
 }).call(this);

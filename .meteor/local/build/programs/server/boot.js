@@ -7,9 +7,11 @@ var sourcemap_support = require('source-map-support');
 
 var bootUtils = require('./boot-utils.js');
 var files = require('./mini-files.js');
+var npmRequire = require('./npm-require.js').require;
+var Profile = require('./profile.js').Profile;
 
 // This code is duplicated in tools/main.js.
-var MIN_NODE_VERSION = 'v0.10.40';
+var MIN_NODE_VERSION = 'v0.10.41';
 
 if (require('semver').lt(process.version, MIN_NODE_VERSION)) {
   process.stderr.write(
@@ -20,7 +22,7 @@ if (require('semver').lt(process.version, MIN_NODE_VERSION)) {
 // read our control files
 var serverJsonPath = path.resolve(process.argv[2]);
 var serverDir = path.dirname(serverJsonPath);
-var serverJson = JSON.parse(fs.readFileSync(serverJsonPath, 'utf8'));
+var serverJson = require("./server-json.js");
 var configJson =
   JSON.parse(fs.readFileSync(path.resolve(serverDir, 'config.json'), 'utf8'));
 
@@ -31,14 +33,9 @@ __meteor_bootstrap__ = {
   configJson: configJson };
 __meteor_runtime_config__ = { meteorRelease: configJson.meteorRelease };
 
-
-// connect (and some other NPM modules) use $NODE_ENV to make some decisions;
-// eg, if $NODE_ENV is not production, they send stack traces on error. connect
-// considers 'development' to be the default mode, but that's less safe than
-// assuming 'production' to be the default. If you really want development mode,
-// set it in your wrapper script (eg, run-app.js).
-if (!process.env.NODE_ENV)
-  process.env.NODE_ENV = 'production';
+if (!process.env.APP_ID) {
+  process.env.APP_ID = configJson.appId;
+}
 
 // Map from load path to its source map.
 var parsedSourceMaps = {};
@@ -100,11 +97,6 @@ sourcemap_support.install({
   wrapCallSite: wrapCallSite
 });
 
-// Only enabled by default in development.
-if (process.env.METEOR_SHELL_DIR) {
-  require('./shell-server.js').listen(process.env.METEOR_SHELL_DIR);
-}
-
 // As a replacement to the old keepalives mechanism, check for a running
 // parent every few seconds. Exit if the parent is not running.
 //
@@ -132,10 +124,34 @@ var startCheckForLiveParent = function (parentPid) {
   }
 };
 
-
-Fiber(function () {
+var loadServerBundles = Profile("Load server bundles", function () {
   _.each(serverJson.load, function (fileInfo) {
     var code = fs.readFileSync(path.resolve(serverDir, fileInfo.path));
+    var nonLocalNodeModulesPaths = [];
+
+    function addNodeModulesPath(path) {
+      nonLocalNodeModulesPaths.push(
+        files.pathResolve(serverDir, path)
+      );
+    }
+
+    if (typeof fileInfo.node_modules === "string") {
+      addNodeModulesPath(fileInfo.node_modules);
+    } else if (fileInfo.node_modules) {
+      _.each(fileInfo.node_modules, function (info, path) {
+        if (! info.local) {
+          addNodeModulesPath(path);
+        }
+      });
+    }
+
+    function statOrNull(path) {
+      try {
+        return fs.statSync(path);
+      } catch (e) {
+        return null;
+      }
+    }
 
     var Npm = {
       /**
@@ -145,21 +161,30 @@ Fiber(function () {
        * @locus Server
        * @memberOf Npm
        */
-      require: function (name) {
-        if (! fileInfo.node_modules) {
+      require: Profile(function getBucketName(name) {
+        return "Npm.require(" + JSON.stringify(name) + ")";
+      }, function (name) {
+        if (nonLocalNodeModulesPaths.length === 0) {
           return require(name);
         }
 
-        var nodeModuleBase = path.resolve(serverDir,
-          files.convertToOSPath(fileInfo.node_modules));
-        var nodeModuleDir = path.resolve(nodeModuleBase, name);
+        var fullPath;
 
-        // If the user does `Npm.require('foo/bar')`, then we should resolve to
-        // the package's node modules if `foo` was one of the modules we
-        // installed.  (`foo/bar` might be implemented as `foo/bar.js` so we
-        // can't just naively see if all of nodeModuleDir exists.
-        if (fs.existsSync(path.resolve(nodeModuleBase, name.split("/")[0]))) {
-          return require(nodeModuleDir);
+        nonLocalNodeModulesPaths.some(function (nodeModuleBase) {
+          var packageBase = files.convertToOSPath(files.pathResolve(
+            nodeModuleBase,
+            name.split("/", 1)[0]
+          ));
+
+          if (statOrNull(packageBase)) {
+            return fullPath = files.convertToOSPath(
+              files.pathResolve(nodeModuleBase, name)
+            );
+          }
+        });
+
+        if (fullPath) {
+          return require(fullPath);
         }
 
         try {
@@ -177,7 +202,7 @@ Fiber(function () {
               "'. Did you forget to call 'Npm.depends' in package.js " +
               "within the '" + packageName + "' package?");
           }
-      }
+      })
     };
     var getAsset = function (assetPath, encoding, callback) {
       var fut;
@@ -218,11 +243,34 @@ Fiber(function () {
       },
       getBinary: function (assetPath, callback) {
         return getAsset(assetPath, undefined, callback);
-      }
+      },
+      /**
+       * @summary Get the absolute path to the static server asset. Note that assets are read-only.
+       * @locus Server [Not in build plugins]
+       * @memberOf Assets
+       * @param {String} assetPath The path of the asset, relative to the application's `private` subdirectory.
+       */
+      absoluteFilePath: function (assetPath) {
+        if (!fileInfo.assets || !_.has(fileInfo.assets, assetPath)) {
+          throw new Error("Unknown asset: " + assetPath);
+        }
+
+        assetPath = files.convertToStandardPath(assetPath);
+        var filePath = path.join(serverDir, fileInfo.assets[assetPath]);
+        return files.convertToOSPath(filePath);
+      },
     };
 
+    var isModulesRuntime =
+      fileInfo.path === "packages/modules-runtime.js";
+
+    var wrapParts = ["(function(Npm,Assets"];
+    if (isModulesRuntime) {
+      wrapParts.push(",npmRequire,Profile");
+    }
     // \n is necessary in case final line is a //-comment
-    var wrapped = "(function(Npm, Assets){" + code + "\n})";
+    wrapParts.push("){", code, "\n})");
+    var wrapped = wrapParts.join("");
 
     // It is safer to use the absolute path when source map is present as
     // different tooling, such as node-inspector, can get confused on relative
@@ -239,18 +287,27 @@ Fiber(function () {
     // causes it to print out a descriptive error message on parse error. It's
     // what require() uses to generate its errors.
     var func = require('vm').runInThisContext(wrapped, scriptPath, true);
-    func.call(global, Npm, Assets); // Coffeescript
-  });
+    var args = [Npm, Assets];
+    if (isModulesRuntime) {
+      args.push(npmRequire, Profile);
+    }
 
+    Profile(fileInfo.path, func).apply(global, args);
+  });
+});
+
+var callStartupHooks = Profile("Call Meteor.startup hooks", function () {
   // run the user startup hooks.  other calls to startup() during this can still
   // add hooks to the end.
   while (__meteor_bootstrap__.startupHooks.length) {
     var hook = __meteor_bootstrap__.startupHooks.shift();
-    hook();
+    Profile.time(hook.stack || "(unknown)", hook);
   }
   // Setting this to null tells Meteor.startup to call hooks immediately.
   __meteor_bootstrap__.startupHooks = null;
+});
 
+var runMain = Profile("Run main()", function () {
   // find and run main()
   // XXX hack. we should know the package that contains main.
   var mains = [];
@@ -280,4 +337,12 @@ Fiber(function () {
   if (process.env.METEOR_PARENT_PID) {
     startCheckForLiveParent(process.env.METEOR_PARENT_PID);
   }
+});
+
+Fiber(function () {
+  Profile.run("Server startup", function () {
+    loadServerBundles();
+    callStartupHooks();
+    runMain();
+  });
 }).run();

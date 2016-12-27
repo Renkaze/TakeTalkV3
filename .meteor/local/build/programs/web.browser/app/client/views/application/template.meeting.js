@@ -3,22 +3,22 @@ Template.__checkName("meeting");
 Template["meeting"] = new Template("Template.meeting", (function() {
   var view = this;
   return [ HTML.Raw('<!-- <div class="page-head">\n    <h2>{{meeting}}</h2>\n</div> -->\n'), HTML.DIV({
-    "class": "main-content"
+    class: "main-content"
   }, "\n    ", HTML.DIV({
-    "class": "row"
+    class: "row"
   }, "\n        ", HTML.Raw("<!-- ********************************************* -->"), "\n        ", HTML.Raw("<!-- Bloc d'affichage des sujets � l'ordre du jour -->"), "\n        ", HTML.Raw("<!-- ********************************************* -->"), "\n        ", HTML.DIV({
-    "class": "col-md-4"
+    class: "col-md-4"
   }, "\n            ", HTML.DIV({
-    "class": "panel panel-default panel-heading-fullwidth panel-primary"
+    class: "panel panel-default panel-heading-fullwidth panel-primary"
   }, "\n                ", HTML.Raw('<div class="panel-heading"><span class="title">Agenda</span></div>'), "\n                ", HTML.DIV({
-    "class": "panel-body"
+    class: "panel-body"
   }, "\n                    ", HTML.DIV({
-    "class": "row"
+    class: "row"
   }, "\n                        ", Blaze.If(function() {
     return Spacebars.call(view.lookup("isReportLink"));
   }, function() {
     return [ "\n                            ", HTML.Comment(" Lien du document collaboratif "), "\n                            ", HTML.DIV({
-      "class": "col-md-12"
+      class: "col-md-12"
     }, "\n                                ", HTML.P(HTML.A({
       href: function() {
         return Spacebars.mustache(view.lookup("reportLink"));
@@ -30,29 +30,29 @@ Template["meeting"] = new Template("Template.meeting", (function() {
     return Spacebars.call(view.lookup("ordres"));
   }, function() {
     return [ "\n                            ", HTML.DIV({
-      "class": "col-md-11",
+      class: "col-md-11",
       style: "padding-right:0; margin-bottom:-10px"
     }, "\n                                ", HTML.DIV({
-      "class": "list-group"
+      class: "list-group"
     }, "\n                                    ", HTML.DIV({
-      "class": "list-group-item"
+      class: "list-group-item"
     }, "\n                                        ", Spacebars.include(view.lookupTemplate("ordre")), "\n                                    "), "\n                                "), "\n                            "), "\n                            ", HTML.Comment(" Actions possibles en rapport avec un sujet "), "\n                            ", HTML.DIV({
-      "class": "col-md-1",
+      class: "col-md-1",
       style: "padding-right:0"
     }, "\n                                ", HTML.Comment(" Actions "), "\n                            "), "\n                        " ];
   }), "\n                    "), "\n                "), "\n            "), "\n        "), "\n        ", HTML.Raw("<!-- ****************************************** -->"), "\n        ", HTML.Raw("<!-- Bloc d'affichage des interventions pr�vues -->"), "\n        ", HTML.Raw("<!-- ****************************************** -->"), "\n        ", HTML.DIV({
-    "class": "col-md-4"
+    class: "col-md-4"
   }, "\n            ", HTML.DIV({
-    "class": "panel panel-default panel-heading-fullwidth panel-primary"
+    class: "panel panel-default panel-heading-fullwidth panel-primary"
   }, "\n                ", HTML.Raw('<div class="panel-heading"><span class="title">People lining up</span></div>'), "\n                ", HTML.DIV({
-    "class": "panel-body"
+    class: "panel-body"
   }, "\n                    ", HTML.DIV({
-    "class": "row"
+    class: "row"
   }, "\n                        ", HTML.Raw("<!-- Bouton pour cr�er une demande d'intervention -->"), "\n                        ", HTML.DIV({
-    "class": "col-md-4"
+    class: "col-md-4"
   }, "\n                            ", HTML.INPUT({
     type: "button",
-    "class": "btn btn-primary",
+    class: "btn btn-primary",
     role: "button",
     id: "talkCancel",
     value: function() {
@@ -62,10 +62,10 @@ Template["meeting"] = new Template("Template.meeting", (function() {
     return Spacebars.call(view.lookup("isAnimator"));
   }, function() {
     return [ "\n                            ", HTML.Comment(" Boutons de gestion du don de temps de parole "), "\n                            ", HTML.DIV({
-      "class": "col-md-8 text-right"
+      class: "col-md-8 text-right"
     }, "\n                                ", HTML.INPUT(HTML.Attrs({
       type: "button",
-      "class": "btn btn-primary",
+      class: "btn btn-primary",
       role: "button",
       id: "waitProceed",
       value: function() {
@@ -75,7 +75,7 @@ Template["meeting"] = new Template("Template.meeting", (function() {
       return Spacebars.attrMustache(view.lookup("disabled"));
     })), "\n                                ", HTML.INPUT(HTML.Attrs({
       type: "button",
-      "class": "btn btn-primary",
+      class: "btn btn-primary",
       role: "button",
       id: "next",
       value: "Next"
@@ -83,13 +83,13 @@ Template["meeting"] = new Template("Template.meeting", (function() {
       return Spacebars.attrMustache(view.lookup("disabled"));
     })), "\n                            "), "\n                        " ];
   }), "\n                    "), "\n                    ", HTML.DIV({
-    "class": "row",
+    class: "row",
     id: "speech-list"
   }, "\n                        ", HTML.Raw('<div style="margin-top:10px"></div>'), "\n                        ", Blaze.Each(function() {
     return Spacebars.call(view.lookup("speeches"));
   }, function() {
     return [ "\n                            ", HTML.DIV({
-      "class": function() {
+      class: function() {
         return [ "speech-item ", Blaze.If(function() {
           return Spacebars.call(view.lookup("status"));
         }, function() {
@@ -99,9 +99,9 @@ Template["meeting"] = new Template("Template.meeting", (function() {
     }, "\n                              ", HTML.DIV({
       style: "margin-bottom:-10px; position:relative;"
     }, "\n                                  ", HTML.Comment(" Liste des interventions "), "\n                                  ", HTML.DIV({
-      "class": "list-group"
+      class: "list-group"
     }, "\n                                      ", HTML.DIV({
-      "class": function() {
+      class: function() {
         return [ "list-group-item", Blaze.If(function() {
           return Spacebars.call(view.lookup("status"));
         }, function() {
@@ -109,7 +109,7 @@ Template["meeting"] = new Template("Template.meeting", (function() {
         }) ];
       }
     }, "\n                                          ", HTML.H4({
-      "class": "list-group-item-heading"
+      class: "list-group-item-heading"
     }, "\n                                            ", Blaze.View("lookup:user", function() {
       return Spacebars.mustache(view.lookup("user"));
     }), "\n                                            ", Blaze.If(function() {
@@ -125,7 +125,7 @@ Template["meeting"] = new Template("Template.meeting", (function() {
         return Spacebars.mustache(view.lookup("time"));
       }), ")\n                                            " ];
     }), "\n                                          "), "\n                                          ", HTML.P({
-      "class": "list-group-item-text"
+      class: "list-group-item-text"
     }, "\n                                              Subject: ", Blaze.View("lookup:orderChoose", function() {
       return Spacebars.mustache(view.lookup("orderChoose"));
     }), "\n                                              ", Blaze.If(function() {
@@ -140,38 +140,38 @@ Template["meeting"] = new Template("Template.meeting", (function() {
       return [ "\n                                              ", HTML.Comment(" Actions possibles en rapport avec une intervention "), "\n                                              ", HTML.DIV({
         style: "position:absolute; left:365px; bottom:38px;"
       }, "\n                                                  ", HTML.DIV({
-        "class": "input-group speechRemove",
+        class: "input-group speechRemove",
         "speech-id": function() {
           return Spacebars.mustache(view.lookup("_id"));
         }
       }, "\n                                                      ", HTML.BUTTON({
         type: "button",
-        "class": "btn btn-danger btn-xs remove-speech"
+        class: "btn btn-danger btn-xs remove-speech"
       }, "\n                                                          ", HTML.SPAN({
-        "class": "glyphicon glyphicon-remove",
+        class: "glyphicon glyphicon-remove",
         "aria-hidden": "true"
       }), "\n                                                      "), "\n                                                  "), "\n                                              "), "\n                                          " ];
     }), "\n                                      "), "\n                                  "), "\n                                "), "\n                            "), "\n                        " ];
   }), "\n                    "), "\n                "), " ", HTML.Raw("<!-- panel-body -->"), "\n            "), "\n        "), "\n        ", HTML.Raw("<!-- ************************************************************** -->"), "\n        ", HTML.Raw("<!-- Bloc d'affichage des utilisateurs participants dans le meeting -->"), "\n        ", HTML.Raw("<!-- ************************************************************** -->"), "\n        ", HTML.DIV({
-    "class": "col-md-4"
+    class: "col-md-4"
   }, "\n            ", HTML.DIV({
-    "class": "panel panel-default panel-heading-fullwidth panel-primary"
+    class: "panel panel-default panel-heading-fullwidth panel-primary"
   }, "\n                ", HTML.Raw('<div class="panel-heading"><span class="title">People on this meeting</span></div>'), "\n                    ", HTML.DIV({
-    "class": "panel-body"
+    class: "panel-body"
   }, "\n                        ", HTML.DIV({
-    "class": "row"
+    class: "row"
   }, "\n                        ", Blaze.Each(function() {
     return Spacebars.call(view.lookup("users"));
   }, function() {
     return [ "\n                        ", HTML.Comment(" Liste des intervenant "), "\n                            ", HTML.DIV({
-      "class": "col-md-11",
+      class: "col-md-11",
       style: "padding-right:0; margin-bottom:-10px"
     }, "\n                                ", HTML.DIV({
-      "class": "list-group"
+      class: "list-group"
     }, "\n                                    ", HTML.DIV({
-      "class": "list-group-item"
+      class: "list-group-item"
     }, "\n                                        ", HTML.H4({
-      "class": "list-group-item-heading"
+      class: "list-group-item-heading"
     }, Blaze.View("lookup:name", function() {
       return Spacebars.mustache(view.lookup("name"));
     })), "\n                                        ", HTML.P("\n                                            ", Blaze.Each(function() {
@@ -179,21 +179,21 @@ Template["meeting"] = new Template("Template.meeting", (function() {
     }, function() {
       return [ "\n                                                ", Spacebars.include(view.lookupTemplate("parole")), "\n                                            " ];
     }), "\n                                        "), "\n                                    "), "\n                                "), "\n                            "), "\n                            ", HTML.Comment(" Actions possibles en rapport avec l'intervenant "), "\n                            ", HTML.DIV({
-      "class": "col-md-1",
+      class: "col-md-1",
       style: "padding-left:0"
     }, "\n                                ", Blaze.If(function() {
       return Spacebars.dataMustache(view.lookup("isSessionGuest"), view.lookup("name"));
     }, function() {
       return [ "\n                                    ", HTML.DIV({
-        "class": "input-group guestRemove",
+        class: "input-group guestRemove",
         guest: function() {
           return Spacebars.mustache(view.lookup("name"));
         }
       }, "\n                                        ", HTML.BUTTON({
         type: "button",
-        "class": "btn btn-danger btn-xs removeGuest"
+        class: "btn btn-danger btn-xs removeGuest"
       }, "\n                                            ", HTML.SPAN({
-        "class": "glyphicon glyphicon-remove",
+        class: "glyphicon glyphicon-remove",
         "aria-hidden": "true"
       }), "\n                                        "), "\n                                    "), "\n                                " ];
     }), "\n                            "), "\n                        " ];
@@ -201,28 +201,28 @@ Template["meeting"] = new Template("Template.meeting", (function() {
     return Spacebars.call(view.lookup("isAnimator"));
   }, function() {
     return [ "\n    ", HTML.DIV({
-      "class": "row"
+      class: "row"
     }, "\n        ", HTML.DIV({
-      "class": "col-md-6 col-md-offset-6"
+      class: "col-md-6 col-md-offset-6"
     }, "\n            ", HTML.DIV({
-      "class": "panel panel-default panel-transparent"
+      class: "panel panel-default panel-transparent"
     }, "\n                ", HTML.DIV({
-      "class": "panel-body"
+      class: "panel-body"
     }, "\n                    ", HTML.P({
-      "class": "text-right"
+      class: "text-right"
     }, "\n                        ", HTML.BUTTON({
       type: "button",
-      "class": "btn btn-primary",
+      class: "btn btn-primary",
       "data-toggle": "modal",
       "data-target": "#localModal"
     }, "Add local participant"), "\n                        ", HTML.BUTTON({
       type: "button",
-      "class": "btn btn-primary",
+      class: "btn btn-primary",
       "data-toggle": "modal",
       "data-target": "#invitationModal"
     }, "Invite participants"), "\n                        ", HTML.BUTTON({
       type: "button",
-      "class": "btn btn-danger",
+      class: "btn btn-danger",
       role: "button",
       id: "closeMeeting"
     }, "Close meeting"), "\n                    "), "\n                "), "\n            "), "\n        "), "\n    "), "\n    " ];
@@ -233,7 +233,7 @@ Template.__checkName("ordre");
 Template["ordre"] = new Template("Template.ordre", (function() {
   var view = this;
   return HTML.H4({
-    "class": "list-group-item-heading"
+    class: "list-group-item-heading"
   }, HTML.B(Blaze.View("lookup:ordre", function() {
     return Spacebars.mustache(view.lookup("ordre"));
   })), " - ", Blaze.If(function() {

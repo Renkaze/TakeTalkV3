@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var _ = Package.underscore._;
 var Tracker = Package.tracker.Tracker;
 var Deps = Package.tracker.Deps;
@@ -24,277 +26,269 @@ var urlToHashStyle, urlFromHashStyle, fixHashPath, State, Location;
 
 (function(){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                                 //
-// packages/iron_location/packages/iron_location.js                                                                //
-//                                                                                                                 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                                   //
-(function () {                                                                                                     // 1
-                                                                                                                   // 2
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 3
-//                                                                                                          //     // 4
-// packages/iron:location/lib/utils.js                                                                      //     // 5
-//                                                                                                          //     // 6
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 7
-                                                                                                            //     // 8
-var Url = Iron.Url;                                                                                         // 1   // 9
-var HASH_PARAM_NAME='__hash__';                                                                             // 2   // 10
-                                                                                                            // 3   // 11
-/**                                                                                                         // 4   // 12
- * Given:                                                                                                   // 5   // 13
- *   http://host:port/some/pathname/?query=string#bar                                                       // 6   // 14
- *                                                                                                          // 7   // 15
- * Return:                                                                                                  // 8   // 16
- *   http://host:port#!some/pathname/?query=string&__hash__=bar                                             // 9   // 17
- */                                                                                                         // 10  // 18
-urlToHashStyle = function (url) {                                                                           // 11  // 19
-  var parts = Url.parse(url);                                                                               // 12  // 20
-  var hash = parts.hash && parts.hash.replace('#', '');                                                     // 13  // 21
-  var search = parts.search;                                                                                // 14  // 22
-  var pathname = parts.pathname;                                                                            // 15  // 23
-  var root = parts.rootUrl;                                                                                 // 16  // 24
-                                                                                                            // 17  // 25
-  // do we have another hash value that isn't a path?                                                       // 18  // 26
-  if (hash && hash.charAt(0) !== '!') {                                                                     // 19  // 27
-    var hashQueryString = HASH_PARAM_NAME + '=' + hash;                                                     // 20  // 28
-    search = search ? (search + '&') : '?';                                                                 // 21  // 29
-    search += hashQueryString;                                                                              // 22  // 30
-    hash = '';                                                                                              // 23  // 31
-  }                                                                                                         // 24  // 32
-                                                                                                            // 25  // 33
-  // if we don't already have a path on the hash create one                                                 // 26  // 34
-  if (! hash && pathname) {                                                                                 // 27  // 35
-    hash = '#!' + pathname.substring(1);                                                                    // 28  // 36
-  } else if (hash) {                                                                                        // 29  // 37
-    hash = '#' + hash;                                                                                      // 30  // 38
-  }                                                                                                         // 31  // 39
-                                                                                                            // 32  // 40
-  return [                                                                                                  // 33  // 41
-    root,                                                                                                   // 34  // 42
-    hash,                                                                                                   // 35  // 43
-    search                                                                                                  // 36  // 44
-  ].join('');                                                                                               // 37  // 45
-};                                                                                                          // 38  // 46
-                                                                                                            // 39  // 47
-/**                                                                                                         // 40  // 48
- * Given a url that uses the hash style (see above), return a new url that uses                             // 41  // 49
- * the hash path as a normal pathname.                                                                      // 42  // 50
- *                                                                                                          // 43  // 51
- * Given:                                                                                                   // 44  // 52
- *   http://host:port#!some/pathname/?query=string&__hash__=bar                                             // 45  // 53
- *                                                                                                          // 46  // 54
- * Return:                                                                                                  // 47  // 55
- *   http://host:port/some/pathname/?query=string#bar                                                       // 48  // 56
- */                                                                                                         // 49  // 57
-urlFromHashStyle = function (url) {                                                                         // 50  // 58
-  var parts = Url.parse(url);                                                                               // 51  // 59
-  var pathname = parts.hash && parts.hash.replace('#!', '/');                                               // 52  // 60
-  var search = parts.search;                                                                                // 53  // 61
-  var root = parts.rootUrl;                                                                                 // 54  // 62
-  var hash;                                                                                                 // 55  // 63
-                                                                                                            // 56  // 64
-  // see if there's a __hash__=value in the query string in which case put it                               // 57  // 65
-  // back in the normal hash position and delete it from the search string.                                 // 58  // 66
-  if (_.has(parts.queryObject, HASH_PARAM_NAME)) {                                                          // 59  // 67
-    hash = '#' + parts.queryObject[HASH_PARAM_NAME];                                                        // 60  // 68
-    delete parts.queryObject[HASH_PARAM_NAME];                                                              // 61  // 69
-  } else {                                                                                                  // 62  // 70
-    hash = '';                                                                                              // 63  // 71
-  }                                                                                                         // 64  // 72
-                                                                                                            // 65  // 73
-  return [                                                                                                  // 66  // 74
-    root,                                                                                                   // 67  // 75
-    pathname,                                                                                               // 68  // 76
-    Url.toQueryString(parts.queryObject),                                                                   // 69  // 77
-    hash                                                                                                    // 70  // 78
-  ].join('');                                                                                               // 71  // 79
-};                                                                                                          // 72  // 80
-                                                                                                            // 73  // 81
-/**                                                                                                         // 74  // 82
- * Fix up a pathname intended for use with a hash path by moving any hash                                   // 75  // 83
- * fragments into the query string.                                                                         // 76  // 84
- */                                                                                                         // 77  // 85
-fixHashPath = function (pathname) {                                                                         // 78  // 86
-  var parts = Url.parse(pathname);                                                                          // 79  // 87
-  var query = parts.queryObject;                                                                            // 80  // 88
-                                                                                                            // 81  // 89
-  // if there's a hash in the path move that to the query string                                            // 82  // 90
-  if (parts.hash) {                                                                                         // 83  // 91
-    query[HASH_PARAM_NAME] = parts.hash.replace('#', '')                                                    // 84  // 92
-  }                                                                                                         // 85  // 93
-                                                                                                            // 86  // 94
-  return [                                                                                                  // 87  // 95
-    '!',                                                                                                    // 88  // 96
-    parts.pathname.substring(1),                                                                            // 89  // 97
-    Url.toQueryString(query)                                                                                // 90  // 98
-  ].join('');                                                                                               // 91  // 99
-};                                                                                                          // 92  // 100
-                                                                                                            // 93  // 101
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 102
-                                                                                                                   // 103
-}).call(this);                                                                                                     // 104
-                                                                                                                   // 105
-                                                                                                                   // 106
-                                                                                                                   // 107
-                                                                                                                   // 108
-                                                                                                                   // 109
-                                                                                                                   // 110
-(function () {                                                                                                     // 111
-                                                                                                                   // 112
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 113
-//                                                                                                          //     // 114
-// packages/iron:location/lib/state.js                                                                      //     // 115
-//                                                                                                          //     // 116
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 117
-                                                                                                            //     // 118
-var Url = Iron.Url;                                                                                         // 1   // 119
-                                                                                                            // 2   // 120
-State = function (url, options) {                                                                           // 3   // 121
-  _.extend(this, Url.parse(url), {options: options || {}});                                                 // 4   // 122
-};                                                                                                          // 5   // 123
-                                                                                                            // 6   // 124
-// XXX: should this compare options (e.g. history.state?)                                                   // 7   // 125
-State.prototype.equals = function (other) {                                                                 // 8   // 126
-  if (!other)                                                                                               // 9   // 127
-    return false;                                                                                           // 10  // 128
-                                                                                                            // 11  // 129
-  if (!(other instanceof State))                                                                            // 12  // 130
-    return false;                                                                                           // 13  // 131
-                                                                                                            // 14  // 132
-  if (other.pathname == this.pathname &&                                                                    // 15  // 133
-     other.search == this.search &&                                                                         // 16  // 134
-     other.hash == this.hash &&                                                                             // 17  // 135
-     other.options.historyState === this.options.historyState)                                              // 18  // 136
-    return true;                                                                                            // 19  // 137
-                                                                                                            // 20  // 138
-  return false;                                                                                             // 21  // 139
-};                                                                                                          // 22  // 140
-                                                                                                            // 23  // 141
-State.prototype.isCancelled = function () {                                                                 // 24  // 142
-  return !!this._isCancelled;                                                                               // 25  // 143
-};                                                                                                          // 26  // 144
-                                                                                                            // 27  // 145
-State.prototype.cancelUrlChange = function () {                                                             // 28  // 146
-  this._isCancelled = true;                                                                                 // 29  // 147
-};                                                                                                          // 30  // 148
-                                                                                                            // 31  // 149
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 150
-                                                                                                                   // 151
-}).call(this);                                                                                                     // 152
-                                                                                                                   // 153
-                                                                                                                   // 154
-                                                                                                                   // 155
-                                                                                                                   // 156
-                                                                                                                   // 157
-                                                                                                                   // 158
-(function () {                                                                                                     // 159
-                                                                                                                   // 160
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 161
-//                                                                                                          //     // 162
-// packages/iron:location/lib/location.js                                                                   //     // 163
-//                                                                                                          //     // 164
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 165
-                                                                                                            //     // 166
-/*****************************************************************************/                             // 1   // 167
-/* Imports */                                                                                               // 2   // 168
-/*****************************************************************************/                             // 3   // 169
-var Url = Iron.Url;                                                                                         // 4   // 170
-                                                                                                            // 5   // 171
-/*****************************************************************************/                             // 6   // 172
-/* Private */                                                                                               // 7   // 173
-/*****************************************************************************/                             // 8   // 174
-var current = null;                                                                                         // 9   // 175
-var dep = new Deps.Dependency;                                                                              // 10  // 176
-var handlers = {go: [], popState: []};                                                                      // 11  // 177
-                                                                                                            // 12  // 178
-var isIE9 = function () {                                                                                   // 13  // 179
-  return /MSIE 9/.test(navigator.appVersion);                                                               // 14  // 180
-};                                                                                                          // 15  // 181
-                                                                                                            // 16  // 182
-var isIE8 = function () {                                                                                   // 17  // 183
-  return /MSIE 8/.test(navigator.appVersion);                                                               // 18  // 184
-};                                                                                                          // 19  // 185
-                                                                                                            // 20  // 186
-var usingAppcache = function() {                                                                            // 21  // 187
-  return !! Package.appcache;                                                                               // 22  // 188
-}                                                                                                           // 23  // 189
-                                                                                                            // 24  // 190
-var replaceStateUndefined = function() {                                                                    // 25  // 191
-  return (typeof history === "undefined")  || (typeof history.pushState !== "function");                    // 26  // 192
-}                                                                                                           // 27  // 193
-                                                                                                            // 28  // 194
-var shouldUseHashPaths = function () {                                                                      // 29  // 195
-  return Location.options.useHashPaths || isIE8() || isIE9() || usingAppcache() || replaceStateUndefined(); // 30  // 196
-};                                                                                                          // 31  // 197
-                                                                                                            // 32  // 198
-var isUsingHashPaths = function () {                                                                        // 33  // 199
-  return !!Location.options.useHashPaths;                                                                   // 34  // 200
-};                                                                                                          // 35  // 201
-                                                                                                            // 36  // 202
-var runHandlers = function(name, state) {                                                                   // 37  // 203
-  _.each(handlers[name], function(cb) {                                                                     // 38  // 204
-    cb.call(state);                                                                                         // 39  // 205
-  });                                                                                                       // 40  // 206
-}                                                                                                           // 41  // 207
-                                                                                                            // 42  // 208
-var set = function (state) {                                                                                // 43  // 209
-  if (!(state instanceof State))                                                                            // 44  // 210
-    throw new Error("Expected a State instance");                                                           // 45  // 211
-                                                                                                            // 46  // 212
-  if (!state.equals(current)) {                                                                             // 47  // 213
-    current = state;                                                                                        // 48  // 214
-    dep.changed();                                                                                          // 49  // 215
-                                                                                                            // 50  // 216
-    // return true to indicate state was set to a new value.                                                // 51  // 217
-    return true;                                                                                            // 52  // 218
-  }                                                                                                         // 53  // 219
-                                                                                                            // 54  // 220
-  // state not set                                                                                          // 55  // 221
-  return false;                                                                                             // 56  // 222
-};                                                                                                          // 57  // 223
-                                                                                                            // 58  // 224
-var setStateFromEventHandler = function () {                                                                // 59  // 225
-  var href = location.href;                                                                                 // 60  // 226
-  var state;                                                                                                // 61  // 227
-                                                                                                            // 62  // 228
-  if (isUsingHashPaths()) {                                                                                 // 63  // 229
-    state = new State(urlFromHashStyle(href));                                                              // 64  // 230
-  } else {                                                                                                  // 65  // 231
-    state = new State(href, {historyState: history.state});                                                 // 66  // 232
-  }                                                                                                         // 67  // 233
-                                                                                                            // 68  // 234
-  runHandlers('popState', state);                                                                           // 69  // 235
-  set(state);                                                                                               // 70  // 236
-};                                                                                                          // 71  // 237
-                                                                                                            // 72  // 238
-var fireOnClick = function (e) {                                                                            // 73  // 239
-  var handler = onClickHandler;                                                                             // 74  // 240
-  handler && handler(e);                                                                                    // 75  // 241
-};                                                                                                          // 76  // 242
-                                                                                                            // 77  // 243
-/**                                                                                                         // 78  // 244
- * Go to a url.                                                                                             // 79  // 245
- */                                                                                                         // 80  // 246
-var go = function (url, options) {                                                                          // 81  // 247
-  options = options || {};                                                                                  // 82  // 248
-                                                                                                            // 83  // 249
-  var state = new State(url, options);                                                                      // 84  // 250
-                                                                                                            // 85  // 251
-  runHandlers('go', state);                                                                                 // 86  // 252
-                                                                                                            // 87  // 253
-  if (set(state)) {                                                                                         // 88  // 254
-    Deps.afterFlush(function () {                                                                           // 89  // 255
-      // if after we've flushed if nobody has cancelled the state then change                               // 90  // 256
-      // the url.                                                                                           // 91  // 257
-      if (!state.isCancelled()) {                                                                           // 92  // 258
-        if (isUsingHashPaths()) {                                                                           // 93  // 259
-          location.hash = fixHashPath(url);                                                                 // 94  // 260
-        } else {                                                                                            // 95  // 261
-          if (options.replaceState === true)                                                                // 96  // 262
-            history.replaceState(options.historyState, null, url);                                          // 97  // 263
-          else                                                                                              // 98  // 264
-            history.pushState(options.historyState, null, url);                                             // 99  // 265
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                          //
+// packages/iron_location/lib/utils.js                                                                      //
+//                                                                                                          //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                            //
+var Url = Iron.Url;                                                                                         // 1
+var HASH_PARAM_NAME='__hash__';                                                                             // 2
+                                                                                                            // 3
+/**                                                                                                         // 4
+ * Given:                                                                                                   // 5
+ *   http://host:port/some/pathname/?query=string#bar                                                       // 6
+ *                                                                                                          // 7
+ * Return:                                                                                                  // 8
+ *   http://host:port#!some/pathname/?query=string&__hash__=bar                                             // 9
+ */                                                                                                         // 10
+urlToHashStyle = function (url) {                                                                           // 11
+  var parts = Url.parse(url);                                                                               // 12
+  var hash = parts.hash && parts.hash.replace('#', '');                                                     // 13
+  var search = parts.search;                                                                                // 14
+  var pathname = parts.pathname;                                                                            // 15
+  var root = parts.rootUrl;                                                                                 // 16
+                                                                                                            // 17
+  // do we have another hash value that isn't a path?                                                       // 18
+  if (hash && hash.charAt(0) !== '!') {                                                                     // 19
+    var hashQueryString = HASH_PARAM_NAME + '=' + hash;                                                     // 20
+    search = search ? (search + '&') : '?';                                                                 // 21
+    search += hashQueryString;                                                                              // 22
+    hash = '';                                                                                              // 23
+  }                                                                                                         // 24
+                                                                                                            // 25
+  // if we don't already have a path on the hash create one                                                 // 26
+  if (! hash && pathname) {                                                                                 // 27
+    hash = '#!' + pathname.substring(1);                                                                    // 28
+  } else if (hash) {                                                                                        // 29
+    hash = '#' + hash;                                                                                      // 30
+  }                                                                                                         // 31
+                                                                                                            // 32
+  return [                                                                                                  // 33
+    root,                                                                                                   // 34
+    hash,                                                                                                   // 35
+    search                                                                                                  // 36
+  ].join('');                                                                                               // 37
+};                                                                                                          // 38
+                                                                                                            // 39
+/**                                                                                                         // 40
+ * Given a url that uses the hash style (see above), return a new url that uses                             // 41
+ * the hash path as a normal pathname.                                                                      // 42
+ *                                                                                                          // 43
+ * Given:                                                                                                   // 44
+ *   http://host:port#!some/pathname/?query=string&__hash__=bar                                             // 45
+ *                                                                                                          // 46
+ * Return:                                                                                                  // 47
+ *   http://host:port/some/pathname/?query=string#bar                                                       // 48
+ */                                                                                                         // 49
+urlFromHashStyle = function (url) {                                                                         // 50
+  var parts = Url.parse(url);                                                                               // 51
+  var pathname = parts.hash && parts.hash.replace('#!', '/');                                               // 52
+  var search = parts.search;                                                                                // 53
+  var root = parts.rootUrl;                                                                                 // 54
+  var hash;                                                                                                 // 55
+                                                                                                            // 56
+  // see if there's a __hash__=value in the query string in which case put it                               // 57
+  // back in the normal hash position and delete it from the search string.                                 // 58
+  if (_.has(parts.queryObject, HASH_PARAM_NAME)) {                                                          // 59
+    hash = '#' + parts.queryObject[HASH_PARAM_NAME];                                                        // 60
+    delete parts.queryObject[HASH_PARAM_NAME];                                                              // 61
+  } else {                                                                                                  // 62
+    hash = '';                                                                                              // 63
+  }                                                                                                         // 64
+                                                                                                            // 65
+  return [                                                                                                  // 66
+    root,                                                                                                   // 67
+    pathname,                                                                                               // 68
+    Url.toQueryString(parts.queryObject),                                                                   // 69
+    hash                                                                                                    // 70
+  ].join('');                                                                                               // 71
+};                                                                                                          // 72
+                                                                                                            // 73
+/**                                                                                                         // 74
+ * Fix up a pathname intended for use with a hash path by moving any hash                                   // 75
+ * fragments into the query string.                                                                         // 76
+ */                                                                                                         // 77
+fixHashPath = function (pathname) {                                                                         // 78
+  var parts = Url.parse(pathname);                                                                          // 79
+  var query = parts.queryObject;                                                                            // 80
+                                                                                                            // 81
+  // if there's a hash in the path move that to the query string                                            // 82
+  if (parts.hash) {                                                                                         // 83
+    query[HASH_PARAM_NAME] = parts.hash.replace('#', '')                                                    // 84
+  }                                                                                                         // 85
+                                                                                                            // 86
+  return [                                                                                                  // 87
+    '!',                                                                                                    // 88
+    parts.pathname.substring(1),                                                                            // 89
+    Url.toQueryString(query)                                                                                // 90
+  ].join('');                                                                                               // 91
+};                                                                                                          // 92
+                                                                                                            // 93
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function(){
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                          //
+// packages/iron_location/lib/state.js                                                                      //
+//                                                                                                          //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                            //
+var Url = Iron.Url;                                                                                         // 1
+                                                                                                            // 2
+State = function (url, options) {                                                                           // 3
+  _.extend(this, Url.parse(url), {options: options || {}});                                                 // 4
+};                                                                                                          // 5
+                                                                                                            // 6
+// XXX: should this compare options (e.g. history.state?)                                                   // 7
+State.prototype.equals = function (other) {                                                                 // 8
+  if (!other)                                                                                               // 9
+    return false;                                                                                           // 10
+                                                                                                            // 11
+  if (!(other instanceof State))                                                                            // 12
+    return false;                                                                                           // 13
+                                                                                                            // 14
+  if (other.pathname == this.pathname &&                                                                    // 15
+     other.search == this.search &&                                                                         // 16
+     other.hash == this.hash &&                                                                             // 17
+     other.options.historyState === this.options.historyState)                                              // 18
+    return true;                                                                                            // 19
+                                                                                                            // 20
+  return false;                                                                                             // 21
+};                                                                                                          // 22
+                                                                                                            // 23
+State.prototype.isCancelled = function () {                                                                 // 24
+  return !!this._isCancelled;                                                                               // 25
+};                                                                                                          // 26
+                                                                                                            // 27
+State.prototype.cancelUrlChange = function () {                                                             // 28
+  this._isCancelled = true;                                                                                 // 29
+};                                                                                                          // 30
+                                                                                                            // 31
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function(){
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                          //
+// packages/iron_location/lib/location.js                                                                   //
+//                                                                                                          //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                            //
+/*****************************************************************************/                             // 1
+/* Imports */                                                                                               // 2
+/*****************************************************************************/                             // 3
+var Url = Iron.Url;                                                                                         // 4
+                                                                                                            // 5
+/*****************************************************************************/                             // 6
+/* Private */                                                                                               // 7
+/*****************************************************************************/                             // 8
+var current = null;                                                                                         // 9
+var dep = new Deps.Dependency;                                                                              // 10
+var handlers = {go: [], popState: []};                                                                      // 11
+                                                                                                            // 12
+var isIE9 = function () {                                                                                   // 13
+  return /MSIE 9/.test(navigator.appVersion);                                                               // 14
+};                                                                                                          // 15
+                                                                                                            // 16
+var isIE8 = function () {                                                                                   // 17
+  return /MSIE 8/.test(navigator.appVersion);                                                               // 18
+};                                                                                                          // 19
+                                                                                                            // 20
+var usingAppcache = function() {                                                                            // 21
+  return !! Package.appcache;                                                                               // 22
+}                                                                                                           // 23
+                                                                                                            // 24
+var replaceStateUndefined = function() {                                                                    // 25
+  return (typeof history === "undefined")  || (typeof history.pushState !== "function");                    // 26
+}                                                                                                           // 27
+                                                                                                            // 28
+var shouldUseHashPaths = function () {                                                                      // 29
+  return Location.options.useHashPaths || isIE8() || isIE9() || usingAppcache() || replaceStateUndefined();
+};                                                                                                          // 31
+                                                                                                            // 32
+var isUsingHashPaths = function () {                                                                        // 33
+  return !!Location.options.useHashPaths;                                                                   // 34
+};                                                                                                          // 35
+                                                                                                            // 36
+var runHandlers = function(name, state) {                                                                   // 37
+  _.each(handlers[name], function(cb) {                                                                     // 38
+    cb.call(state);                                                                                         // 39
+  });                                                                                                       // 40
+}                                                                                                           // 41
+                                                                                                            // 42
+var set = function (state) {                                                                                // 43
+  if (!(state instanceof State))                                                                            // 44
+    throw new Error("Expected a State instance");                                                           // 45
+                                                                                                            // 46
+  if (!state.equals(current)) {                                                                             // 47
+    current = state;                                                                                        // 48
+    dep.changed();                                                                                          // 49
+                                                                                                            // 50
+    // return true to indicate state was set to a new value.                                                // 51
+    return true;                                                                                            // 52
+  }                                                                                                         // 53
+                                                                                                            // 54
+  // state not set                                                                                          // 55
+  return false;                                                                                             // 56
+};                                                                                                          // 57
+                                                                                                            // 58
+var setStateFromEventHandler = function () {                                                                // 59
+  var href = location.href;                                                                                 // 60
+  var state;                                                                                                // 61
+                                                                                                            // 62
+  if (isUsingHashPaths()) {                                                                                 // 63
+    state = new State(urlFromHashStyle(href));                                                              // 64
+  } else {                                                                                                  // 65
+    state = new State(href, {historyState: history.state});                                                 // 66
+  }                                                                                                         // 67
+                                                                                                            // 68
+  runHandlers('popState', state);                                                                           // 69
+  set(state);                                                                                               // 70
+};                                                                                                          // 71
+                                                                                                            // 72
+var fireOnClick = function (e) {                                                                            // 73
+  var handler = onClickHandler;                                                                             // 74
+  handler && handler(e);                                                                                    // 75
+};                                                                                                          // 76
+                                                                                                            // 77
+/**                                                                                                         // 78
+ * Go to a url.                                                                                             // 79
+ */                                                                                                         // 80
+var go = function (url, options) {                                                                          // 81
+  options = options || {};                                                                                  // 82
+                                                                                                            // 83
+  var state = new State(url, options);                                                                      // 84
+                                                                                                            // 85
+  runHandlers('go', state);                                                                                 // 86
+                                                                                                            // 87
+  if (set(state)) {                                                                                         // 88
+    Deps.afterFlush(function () {                                                                           // 89
+      // if after we've flushed if nobody has cancelled the state then change                               // 90
+      // the url.                                                                                           // 91
+      if (!state.isCancelled()) {                                                                           // 92
+        if (isUsingHashPaths()) {                                                                           // 93
+          location.hash = fixHashPath(url);                                                                 // 94
+        } else {                                                                                            // 95
+          if (options.replaceState === true)                                                                // 96
+            history.replaceState(options.historyState, null, url);                                          // 97
+          else                                                                                              // 98
+            history.pushState(options.historyState, null, url);                                             // 99
         }                                                                                                   // 100
       }                                                                                                     // 101
     });                                                                                                     // 102
@@ -493,20 +487,19 @@ Location.start();                                                               
 /*****************************************************************************/                             // 295
 Iron.Location = Location;                                                                                   // 296
                                                                                                             // 297
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 464
-                                                                                                                   // 465
-}).call(this);                                                                                                     // 466
-                                                                                                                   // 467
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
 
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package['iron:location'] = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package['iron:location'] = {}, {
   urlToHashStyle: urlToHashStyle,
   urlFromHashStyle: urlFromHashStyle
-};
+});
 
 })();

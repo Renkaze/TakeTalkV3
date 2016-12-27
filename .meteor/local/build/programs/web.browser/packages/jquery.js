@@ -12,11 +12,43 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
+var meteorInstall = Package.modules.meteorInstall;
+var Buffer = Package.modules.Buffer;
+var process = Package.modules.process;
 
 /* Package-scope variables */
 var $, jQuery;
 
-(function(){
+var require = meteorInstall({"node_modules":{"meteor":{"jquery":{"main.js":["jquery","./jquery.js",function(require,exports){
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                   //
+// packages/jquery/main.js                                                                                           //
+//                                                                                                                   //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                                     //
+var global = this;                                                                                                   // 1
+                                                                                                                     // 2
+try {                                                                                                                // 3
+  var jQuery = require("jquery");                                                                                    // 4
+} catch (e) {                                                                                                        // 5
+  jQuery = require("./jquery.js");                                                                                   // 6
+}                                                                                                                    // 7
+                                                                                                                     // 8
+// Provide values for the exported variables of the jquery package.                                                  // 9
+exports.$ = exports.jQuery = jQuery;                                                                                 // 10
+                                                                                                                     // 11
+// There's no stopping legacy code from referring to window.$ or                                                     // 12
+// window.jQuery, so we have to keep defining those properties globally,                                             // 13
+// but at least the exports of this package will be reliable.                                                        // 14
+global.$ = global.$ || jQuery;                                                                                       // 15
+global.jQuery = global.jQuery || jQuery;                                                                             // 16
+                                                                                                                     // 17
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}],"jquery.js":function(require,exports,module){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                   //
@@ -10373,36 +10405,17 @@ return jQuery;                                                                  
                                                                                                                      // 10347
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-}).call(this);
-
-
-
-
-
-
-(function(){
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                                   //
-// packages/jquery/post.js                                                                                           //
-//                                                                                                                   //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                                     //
-// Put jQuery and $ in our exported package-scope variables and remove window.$.                                     // 1
-// (Sadly, we don't call noConflict(true), which would also remove                                                   // 2
-// window.jQuery, because bootstrap very specifically relies on window.jQuery.)                                      // 3
-$ = jQuery = window.jQuery.noConflict();                                                                             // 4
-                                                                                                                     // 5
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-}).call(this);
-
+}}}}},{"extensions":[".js",".json"]});
+var exports = require("./node_modules/meteor/jquery/main.js");
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package.jquery = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package.jquery = exports, {
   $: $,
   jQuery: jQuery
-};
+});
 
 })();

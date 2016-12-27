@@ -3,31 +3,31 @@ Template.__checkName("join");
 Template["join"] = new Template("Template.join", (function() {
   var view = this;
   return HTML.DIV({
-    "class": "main-content"
+    class: "main-content"
   }, HTML.DIV({
-    "class": "row"
+    class: "row"
   }, HTML.DIV({
-    "class": "col-md-8 col-md-offset-2"
+    class: "col-md-8 col-md-offset-2"
   }, "\n    ", HTML.DIV({
-    "class": "panel panel-default"
+    class: "panel panel-default"
   }, "\n        ", HTML.Raw('<div class="panel-heading"><span class="title">Join a meeting</span></div>'), "\n        ", HTML.DIV({
-    "class": "panel-body"
+    class: "panel-body"
   }, "\n            ", Blaze.If(function() {
     return Spacebars.call(view.lookup("joinError"));
   }, function() {
     return [ "\n                ", HTML.Comment(" Alerte d�clanch�e lors d'une erreur lors du remplissage du formulaire "), "\n                ", HTML.DIV({
       role: "alert",
-      "class": "alert alert-danger alert-dismissible"
+      class: "alert alert-danger alert-dismissible"
     }, "\n                    ", HTML.BUTTON({
       type: "button",
       "data-dismiss": "alert",
       "aria-label": "Close",
-      "class": "close"
+      class: "close"
     }, HTML.SPAN({
       "aria-hidden": "true",
-      "class": "s7-close"
+      class: "s7-close"
     })), "\n                    ", HTML.SPAN({
-      "class": "icon s7-close-circle"
+      class: "icon s7-close-circle"
     }), "\n                    ", HTML.STRONG("!"), " ", Blaze.View("lookup:joinError", function() {
       return Spacebars.mustache(view.lookup("joinError"));
     }), "\n                "), "\n            " ];

@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 
 /* Package-scope variables */
 var LaunchScreen;
@@ -50,22 +52,23 @@ LaunchScreen = {                                                          // 7
         return;                                                           // 24
                                                                           // 25
       if (! released) {                                                   // 26
-        holdCount--;                                                      // 27
-        if (holdCount === 0 &&                                            // 28
+        released = true;                                                  // 27
+        holdCount--;                                                      // 28
+        if (holdCount === 0 &&                                            // 29
             typeof navigator !== 'undefined' && navigator.splashscreen) {
-          alreadyHidden = true;                                           // 30
-          navigator.splashscreen.hide();                                  // 31
-        }                                                                 // 32
-      }                                                                   // 33
-    };                                                                    // 34
-                                                                          // 35
-    // Returns a launch screen handle with a release method               // 36
-    return {                                                              // 37
-      release: release                                                    // 38
-    };                                                                    // 39
-  }                                                                       // 40
-};                                                                        // 41
-                                                                          // 42
+          alreadyHidden = true;                                           // 31
+          navigator.splashscreen.hide();                                  // 32
+        }                                                                 // 33
+      }                                                                   // 34
+    };                                                                    // 35
+                                                                          // 36
+    // Returns a launch screen handle with a release method               // 37
+    return {                                                              // 38
+      release: release                                                    // 39
+    };                                                                    // 40
+  }                                                                       // 41
+};                                                                        // 42
+                                                                          // 43
 ////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -125,8 +128,11 @@ Meteor.startup(function () {                                              // 9
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package['launch-screen'] = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package['launch-screen'] = {}, {
   LaunchScreen: LaunchScreen
-};
+});
 
 })();

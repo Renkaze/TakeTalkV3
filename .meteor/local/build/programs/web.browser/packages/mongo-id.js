@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var EJSON = Package.ejson.EJSON;
 var IdMap = Package['id-map'].IdMap;
 var Random = Package.random.Random;
@@ -130,8 +132,11 @@ MongoID.idParse = function (id) {                                               
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package['mongo-id'] = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package['mongo-id'] = {}, {
   MongoID: MongoID
-};
+});
 
 })();

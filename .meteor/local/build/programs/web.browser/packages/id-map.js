@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var _ = Package.underscore._;
 var EJSON = Package.ejson.EJSON;
 
@@ -111,8 +113,11 @@ _.extend(IdMap.prototype, {                                                   //
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package['id-map'] = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package['id-map'] = {}, {
   IdMap: IdMap
-};
+});
 
 })();

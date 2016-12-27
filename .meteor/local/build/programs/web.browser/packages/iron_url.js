@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var _ = Package.underscore._;
 var Iron = Package['iron:core'].Iron;
 
@@ -20,119 +22,111 @@ var compilePath, Url;
 
 (function(){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                                 //
-// packages/iron_url/packages/iron_url.js                                                                          //
-//                                                                                                                 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                                   //
-(function () {                                                                                                     // 1
-                                                                                                                   // 2
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 3
-//                                                                                                          //     // 4
-// packages/iron:url/lib/compiler.js                                                                        //     // 5
-//                                                                                                          //     // 6
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 7
-                                                                                                            //     // 8
-/*                                                                                                          // 1   // 9
-Based on https://github.com/pillarjs/path-to-regexp                                                         // 2   // 10
-                                                                                                            // 3   // 11
-The MIT License (MIT)                                                                                       // 4   // 12
-                                                                                                            // 5   // 13
-Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)                                                     // 6   // 14
-                                                                                                            // 7   // 15
-Permission is hereby granted, free of charge, to any person obtaining a copy                                // 8   // 16
-of this software and associated documentation files (the "Software"), to deal                               // 9   // 17
-in the Software without restriction, including without limitation the rights                                // 10  // 18
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell                                   // 11  // 19
-copies of the Software, and to permit persons to whom the Software is                                       // 12  // 20
-furnished to do so, subject to the following conditions:                                                    // 13  // 21
-                                                                                                            // 14  // 22
-The above copyright notice and this permission notice shall be included in                                  // 15  // 23
-all copies or substantial portions of the Software.                                                         // 16  // 24
-                                                                                                            // 17  // 25
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR                                  // 18  // 26
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,                                    // 19  // 27
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE                                 // 20  // 28
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER                                      // 21  // 29
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,                               // 22  // 30
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN                                   // 23  // 31
-THE SOFTWARE.                                                                                               // 24  // 32
-*/                                                                                                          // 25  // 33
-                                                                                                            // 26  // 34
-var typeOf = function (o) { return Object.prototype.toString.call(o); };                                    // 27  // 35
-                                                                                                            // 28  // 36
-/**                                                                                                         // 29  // 37
- * The main path matching regexp utility.                                                                   // 30  // 38
- *                                                                                                          // 31  // 39
- * @type {RegExp}                                                                                           // 32  // 40
- */                                                                                                         // 33  // 41
-var PATH_REGEXP = new RegExp([                                                                              // 34  // 42
-  // Match already escaped characters that would otherwise incorrectly appear                               // 35  // 43
-  // in future matches. This allows the user to escape special characters that                              // 36  // 44
-  // shouldn't be transformed.                                                                              // 37  // 45
-  '(\\\\.)',                                                                                                // 38  // 46
-  // Match Express-style parameters and un-named parameters with a prefix                                   // 39  // 47
-  // and optional suffixes. Matches appear as:                                                              // 40  // 48
-  //                                                                                                        // 41  // 49
-  // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?"]                                                // 42  // 50
-  // "/route(\\d+)" => [undefined, undefined, undefined, "\d+", undefined]                                  // 43  // 51
-  '([\\/.])?(?:\\:(\\w+)(?:\\(((?:\\\\.|[^)])*)\\))?|\\(((?:\\\\.|[^)])*)\\))([+*?])?',                     // 44  // 52
-  // Match regexp special characters that should always be escaped.                                         // 45  // 53
-  '([.+*?=^!:${}()[\\]|\\/])'                                                                               // 46  // 54
-].join('|'), 'g');                                                                                          // 47  // 55
-                                                                                                            // 48  // 56
-/**                                                                                                         // 49  // 57
- * Escape the capturing group by escaping special characters and meaning.                                   // 50  // 58
- *                                                                                                          // 51  // 59
- * @param  {String} group                                                                                   // 52  // 60
- * @return {String}                                                                                         // 53  // 61
- */                                                                                                         // 54  // 62
-function escapeGroup (group) {                                                                              // 55  // 63
-  return group.replace(/([=!:$\/()])/g, '\\$1');                                                            // 56  // 64
-}                                                                                                           // 57  // 65
-                                                                                                            // 58  // 66
-/**                                                                                                         // 59  // 67
- * Attach the keys as a property of the regexp.                                                             // 60  // 68
- *                                                                                                          // 61  // 69
- * @param  {RegExp} re                                                                                      // 62  // 70
- * @param  {Array}  keys                                                                                    // 63  // 71
- * @return {RegExp}                                                                                         // 64  // 72
- */                                                                                                         // 65  // 73
-var attachKeys = function (re, keys) {                                                                      // 66  // 74
-  re.keys = keys;                                                                                           // 67  // 75
-                                                                                                            // 68  // 76
-  return re;                                                                                                // 69  // 77
-};                                                                                                          // 70  // 78
-                                                                                                            // 71  // 79
-/**                                                                                                         // 72  // 80
- * Normalize the given path string, returning a regular expression.                                         // 73  // 81
- *                                                                                                          // 74  // 82
- * An empty array should be passed in, which will contain the placeholder key                               // 75  // 83
- * names. For example `/user/:id` will then contain `["id"]`.                                               // 76  // 84
- *                                                                                                          // 77  // 85
- * @param  {(String|RegExp|Array)} path                                                                     // 78  // 86
- * @param  {Array}                 keys                                                                     // 79  // 87
- * @param  {Object}                options                                                                  // 80  // 88
- * @return {RegExp}                                                                                         // 81  // 89
- */                                                                                                         // 82  // 90
-function pathtoRegexp (path, keys, options) {                                                               // 83  // 91
-  if (keys && typeOf(keys) !== '[object Array]') {                                                          // 84  // 92
-    options = keys;                                                                                         // 85  // 93
-    keys = null;                                                                                            // 86  // 94
-  }                                                                                                         // 87  // 95
-                                                                                                            // 88  // 96
-  keys = keys || [];                                                                                        // 89  // 97
-  options = options || {};                                                                                  // 90  // 98
-                                                                                                            // 91  // 99
-  var strict = options.strict;                                                                              // 92  // 100
-  var end = options.end !== false;                                                                          // 93  // 101
-  var flags = options.sensitive ? '' : 'i';                                                                 // 94  // 102
-  var index = 0;                                                                                            // 95  // 103
-                                                                                                            // 96  // 104
-  if (path instanceof RegExp) {                                                                             // 97  // 105
-    // Match all capturing groups of a regexp.                                                              // 98  // 106
-    var groups = path.source.match(/\((?!\?)/g) || [];                                                      // 99  // 107
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                          //
+// packages/iron_url/lib/compiler.js                                                                        //
+//                                                                                                          //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                            //
+/*                                                                                                          // 1
+Based on https://github.com/pillarjs/path-to-regexp                                                         // 2
+                                                                                                            // 3
+The MIT License (MIT)                                                                                       // 4
+                                                                                                            // 5
+Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)                                                     // 6
+                                                                                                            // 7
+Permission is hereby granted, free of charge, to any person obtaining a copy                                // 8
+of this software and associated documentation files (the "Software"), to deal                               // 9
+in the Software without restriction, including without limitation the rights                                // 10
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell                                   // 11
+copies of the Software, and to permit persons to whom the Software is                                       // 12
+furnished to do so, subject to the following conditions:                                                    // 13
+                                                                                                            // 14
+The above copyright notice and this permission notice shall be included in                                  // 15
+all copies or substantial portions of the Software.                                                         // 16
+                                                                                                            // 17
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR                                  // 18
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,                                    // 19
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE                                 // 20
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER                                      // 21
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,                               // 22
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN                                   // 23
+THE SOFTWARE.                                                                                               // 24
+*/                                                                                                          // 25
+                                                                                                            // 26
+var typeOf = function (o) { return Object.prototype.toString.call(o); };                                    // 27
+                                                                                                            // 28
+/**                                                                                                         // 29
+ * The main path matching regexp utility.                                                                   // 30
+ *                                                                                                          // 31
+ * @type {RegExp}                                                                                           // 32
+ */                                                                                                         // 33
+var PATH_REGEXP = new RegExp([                                                                              // 34
+  // Match already escaped characters that would otherwise incorrectly appear                               // 35
+  // in future matches. This allows the user to escape special characters that                              // 36
+  // shouldn't be transformed.                                                                              // 37
+  '(\\\\.)',                                                                                                // 38
+  // Match Express-style parameters and un-named parameters with a prefix                                   // 39
+  // and optional suffixes. Matches appear as:                                                              // 40
+  //                                                                                                        // 41
+  // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?"]                                                // 42
+  // "/route(\\d+)" => [undefined, undefined, undefined, "\d+", undefined]                                  // 43
+  '([\\/.])?(?:\\:(\\w+)(?:\\(((?:\\\\.|[^)])*)\\))?|\\(((?:\\\\.|[^)])*)\\))([+*?])?',                     // 44
+  // Match regexp special characters that should always be escaped.                                         // 45
+  '([.+*?=^!:${}()[\\]|\\/])'                                                                               // 46
+].join('|'), 'g');                                                                                          // 47
+                                                                                                            // 48
+/**                                                                                                         // 49
+ * Escape the capturing group by escaping special characters and meaning.                                   // 50
+ *                                                                                                          // 51
+ * @param  {String} group                                                                                   // 52
+ * @return {String}                                                                                         // 53
+ */                                                                                                         // 54
+function escapeGroup (group) {                                                                              // 55
+  return group.replace(/([=!:$\/()])/g, '\\$1');                                                            // 56
+}                                                                                                           // 57
+                                                                                                            // 58
+/**                                                                                                         // 59
+ * Attach the keys as a property of the regexp.                                                             // 60
+ *                                                                                                          // 61
+ * @param  {RegExp} re                                                                                      // 62
+ * @param  {Array}  keys                                                                                    // 63
+ * @return {RegExp}                                                                                         // 64
+ */                                                                                                         // 65
+var attachKeys = function (re, keys) {                                                                      // 66
+  re.keys = keys;                                                                                           // 67
+                                                                                                            // 68
+  return re;                                                                                                // 69
+};                                                                                                          // 70
+                                                                                                            // 71
+/**                                                                                                         // 72
+ * Normalize the given path string, returning a regular expression.                                         // 73
+ *                                                                                                          // 74
+ * An empty array should be passed in, which will contain the placeholder key                               // 75
+ * names. For example `/user/:id` will then contain `["id"]`.                                               // 76
+ *                                                                                                          // 77
+ * @param  {(String|RegExp|Array)} path                                                                     // 78
+ * @param  {Array}                 keys                                                                     // 79
+ * @param  {Object}                options                                                                  // 80
+ * @return {RegExp}                                                                                         // 81
+ */                                                                                                         // 82
+function pathtoRegexp (path, keys, options) {                                                               // 83
+  if (keys && typeOf(keys) !== '[object Array]') {                                                          // 84
+    options = keys;                                                                                         // 85
+    keys = null;                                                                                            // 86
+  }                                                                                                         // 87
+                                                                                                            // 88
+  keys = keys || [];                                                                                        // 89
+  options = options || {};                                                                                  // 90
+                                                                                                            // 91
+  var strict = options.strict;                                                                              // 92
+  var end = options.end !== false;                                                                          // 93
+  var flags = options.sensitive ? '' : 'i';                                                                 // 94
+  var index = 0;                                                                                            // 95
+                                                                                                            // 96
+  if (path instanceof RegExp) {                                                                             // 97
+    // Match all capturing groups of a regexp.                                                              // 98
+    var groups = path.source.match(/\((?!\?)/g) || [];                                                      // 99
                                                                                                             // 100
     // Map all the matches to their numeric keys and push into the keys.                                    // 101
     keys.push.apply(keys, groups.map(function (match, index) {                                              // 102
@@ -161,7 +155,7 @@ function pathtoRegexp (path, keys, options) {                                   
   }                                                                                                         // 125
                                                                                                             // 126
   // Alter the path string into a usable regexp.                                                            // 127
-  path = path.replace(PATH_REGEXP, function (match, escaped, prefix, key, capture, group, suffix, escape) { // 128
+  path = path.replace(PATH_REGEXP, function (match, escaped, prefix, key, capture, group, suffix, escape) {
     // Avoiding re-escaping escaped characters.                                                             // 129
     if (escaped) {                                                                                          // 130
       return escaped;                                                                                       // 131
@@ -227,122 +221,122 @@ function pathtoRegexp (path, keys, options) {                                   
                                                                                                             // 191
 compilePath = pathtoRegexp;                                                                                 // 192
                                                                                                             // 193
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 202
-                                                                                                                   // 203
-}).call(this);                                                                                                     // 204
-                                                                                                                   // 205
-                                                                                                                   // 206
-                                                                                                                   // 207
-                                                                                                                   // 208
-                                                                                                                   // 209
-                                                                                                                   // 210
-(function () {                                                                                                     // 211
-                                                                                                                   // 212
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 213
-//                                                                                                          //     // 214
-// packages/iron:url/lib/url.js                                                                             //     // 215
-//                                                                                                          //     // 216
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 217
-                                                                                                            //     // 218
-/*****************************************************************************/                             // 1   // 219
-/* Imports */                                                                                               // 2   // 220
-/*****************************************************************************/                             // 3   // 221
-var warn = Iron.utils.warn;                                                                                 // 4   // 222
-                                                                                                            // 5   // 223
-/*****************************************************************************/                             // 6   // 224
-/* Url */                                                                                                   // 7   // 225
-/*****************************************************************************/                             // 8   // 226
-function safeDecodeURIComponent (val) {                                                                     // 9   // 227
-  try {                                                                                                     // 10  // 228
-    return decodeURIComponent(val).replace(/\+/g, ' ');                                                     // 11  // 229
-  } catch (e) {                                                                                             // 12  // 230
-    if (e.constructor == URIError) {                                                                        // 13  // 231
-      warn("Tried to decode an invalid URI component: " + JSON.stringify(val) + " " + e.stack);             // 14  // 232
-    }                                                                                                       // 15  // 233
-                                                                                                            // 16  // 234
-    return undefined;                                                                                       // 17  // 235
-  }                                                                                                         // 18  // 236
-}                                                                                                           // 19  // 237
-                                                                                                            // 20  // 238
-function safeDecodeURI (val) {                                                                              // 21  // 239
-  try {                                                                                                     // 22  // 240
-    return decodeURI(val).replace(/\+/g, ' ');                                                              // 23  // 241
-  } catch (e) {                                                                                             // 24  // 242
-    if (e.constructor == URIError) {                                                                        // 25  // 243
-      warn("Tried to decode an invalid URI: " + JSON.stringify(val) + " " + e.stack);                       // 26  // 244
-    }                                                                                                       // 27  // 245
-                                                                                                            // 28  // 246
-    return undefined;                                                                                       // 29  // 247
-  }                                                                                                         // 30  // 248
-}                                                                                                           // 31  // 249
-                                                                                                            // 32  // 250
-/**                                                                                                         // 33  // 251
- * Url utilities and the ability to compile a url into a regular expression.                                // 34  // 252
- */                                                                                                         // 35  // 253
-Url = function (url, options) {                                                                             // 36  // 254
-  options = options || {};                                                                                  // 37  // 255
-  this.options = options;                                                                                   // 38  // 256
-  this.keys = [];                                                                                           // 39  // 257
-  this.regexp = compilePath(url, this.keys, options);                                                       // 40  // 258
-  this._originalPath = url;                                                                                 // 41  // 259
-  _.extend(this, Url.parse(url));                                                                           // 42  // 260
-};                                                                                                          // 43  // 261
-                                                                                                            // 44  // 262
-/**                                                                                                         // 45  // 263
- * Given a relative or absolute path return                                                                 // 46  // 264
- * a relative path with a leading forward slash and                                                         // 47  // 265
- * no search string or hash fragment                                                                        // 48  // 266
- *                                                                                                          // 49  // 267
- * @param {String} path                                                                                     // 50  // 268
- * @return {String}                                                                                         // 51  // 269
- */                                                                                                         // 52  // 270
-Url.normalize = function (url) {                                                                            // 53  // 271
-  if (url instanceof RegExp)                                                                                // 54  // 272
-    return url;                                                                                             // 55  // 273
-  else if (typeof url !== 'string')                                                                         // 56  // 274
-    return '/';                                                                                             // 57  // 275
-                                                                                                            // 58  // 276
-  var parts = Url.parse(url);                                                                               // 59  // 277
-  var pathname = parts.pathname;                                                                            // 60  // 278
-                                                                                                            // 61  // 279
-  if (pathname.charAt(0) !== '/')                                                                           // 62  // 280
-    pathname = '/' + pathname;                                                                              // 63  // 281
-                                                                                                            // 64  // 282
-  if (pathname.length > 1 && pathname.charAt(pathname.length - 1) === '/') {                                // 65  // 283
-    pathname = pathname.slice(0, pathname.length - 1);                                                      // 66  // 284
-  }                                                                                                         // 67  // 285
-                                                                                                            // 68  // 286
-  return pathname;                                                                                          // 69  // 287
-};                                                                                                          // 70  // 288
-                                                                                                            // 71  // 289
-/**                                                                                                         // 72  // 290
- * Returns true if both a and b are of the same origin.                                                     // 73  // 291
- */                                                                                                         // 74  // 292
-Url.isSameOrigin = function (a, b) {                                                                        // 75  // 293
-  var aParts = Url.parse(a);                                                                                // 76  // 294
-  var bParts = Url.parse(b);                                                                                // 77  // 295
-  var result = aParts.origin === bParts.origin;                                                             // 78  // 296
-  return result;                                                                                            // 79  // 297
-};                                                                                                          // 80  // 298
-                                                                                                            // 81  // 299
-/**                                                                                                         // 82  // 300
- * Given a query string return an object of key value pairs.                                                // 83  // 301
- *                                                                                                          // 84  // 302
- * "?p1=value1&p2=value2 => {p1: value1, p2: value2}                                                        // 85  // 303
- */                                                                                                         // 86  // 304
-Url.fromQueryString = function (query) {                                                                    // 87  // 305
-  if (!query)                                                                                               // 88  // 306
-    return {};                                                                                              // 89  // 307
-                                                                                                            // 90  // 308
-  if (typeof query !== 'string')                                                                            // 91  // 309
-    throw new Error("expected string");                                                                     // 92  // 310
-                                                                                                            // 93  // 311
-  // get rid of the leading question mark                                                                   // 94  // 312
-  if (query.charAt(0) === '?')                                                                              // 95  // 313
-    query = query.slice(1);                                                                                 // 96  // 314
-                                                                                                            // 97  // 315
-  var keyValuePairs = query.split('&');                                                                     // 98  // 316
-  var result = {};                                                                                          // 99  // 317
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function(){
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                          //
+// packages/iron_url/lib/url.js                                                                             //
+//                                                                                                          //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                            //
+/*****************************************************************************/                             // 1
+/* Imports */                                                                                               // 2
+/*****************************************************************************/                             // 3
+var warn = Iron.utils.warn;                                                                                 // 4
+                                                                                                            // 5
+/*****************************************************************************/                             // 6
+/* Url */                                                                                                   // 7
+/*****************************************************************************/                             // 8
+function safeDecodeURIComponent (val) {                                                                     // 9
+  try {                                                                                                     // 10
+    return decodeURIComponent(val.replace(/\+/g, ' '));                                                     // 11
+  } catch (e) {                                                                                             // 12
+    if (e.constructor == URIError) {                                                                        // 13
+      warn("Tried to decode an invalid URI component: " + JSON.stringify(val) + " " + e.stack);             // 14
+    }                                                                                                       // 15
+                                                                                                            // 16
+    return undefined;                                                                                       // 17
+  }                                                                                                         // 18
+}                                                                                                           // 19
+                                                                                                            // 20
+function safeDecodeURI (val) {                                                                              // 21
+  try {                                                                                                     // 22
+    return decodeURI(val.replace(/\+/g, ' '));                                                              // 23
+  } catch (e) {                                                                                             // 24
+    if (e.constructor == URIError) {                                                                        // 25
+      warn("Tried to decode an invalid URI: " + JSON.stringify(val) + " " + e.stack);                       // 26
+    }                                                                                                       // 27
+                                                                                                            // 28
+    return undefined;                                                                                       // 29
+  }                                                                                                         // 30
+}                                                                                                           // 31
+                                                                                                            // 32
+/**                                                                                                         // 33
+ * Url utilities and the ability to compile a url into a regular expression.                                // 34
+ */                                                                                                         // 35
+Url = function (url, options) {                                                                             // 36
+  options = options || {};                                                                                  // 37
+  this.options = options;                                                                                   // 38
+  this.keys = [];                                                                                           // 39
+  this.regexp = compilePath(url, this.keys, options);                                                       // 40
+  this._originalPath = url;                                                                                 // 41
+  _.extend(this, Url.parse(url));                                                                           // 42
+};                                                                                                          // 43
+                                                                                                            // 44
+/**                                                                                                         // 45
+ * Given a relative or absolute path return                                                                 // 46
+ * a relative path with a leading forward slash and                                                         // 47
+ * no search string or hash fragment                                                                        // 48
+ *                                                                                                          // 49
+ * @param {String} path                                                                                     // 50
+ * @return {String}                                                                                         // 51
+ */                                                                                                         // 52
+Url.normalize = function (url) {                                                                            // 53
+  if (url instanceof RegExp)                                                                                // 54
+    return url;                                                                                             // 55
+  else if (typeof url !== 'string')                                                                         // 56
+    return '/';                                                                                             // 57
+                                                                                                            // 58
+  var parts = Url.parse(url);                                                                               // 59
+  var pathname = parts.pathname;                                                                            // 60
+                                                                                                            // 61
+  if (pathname.charAt(0) !== '/')                                                                           // 62
+    pathname = '/' + pathname;                                                                              // 63
+                                                                                                            // 64
+  if (pathname.length > 1 && pathname.charAt(pathname.length - 1) === '/') {                                // 65
+    pathname = pathname.slice(0, pathname.length - 1);                                                      // 66
+  }                                                                                                         // 67
+                                                                                                            // 68
+  return pathname;                                                                                          // 69
+};                                                                                                          // 70
+                                                                                                            // 71
+/**                                                                                                         // 72
+ * Returns true if both a and b are of the same origin.                                                     // 73
+ */                                                                                                         // 74
+Url.isSameOrigin = function (a, b) {                                                                        // 75
+  var aParts = Url.parse(a);                                                                                // 76
+  var bParts = Url.parse(b);                                                                                // 77
+  var result = aParts.origin === bParts.origin;                                                             // 78
+  return result;                                                                                            // 79
+};                                                                                                          // 80
+                                                                                                            // 81
+/**                                                                                                         // 82
+ * Given a query string return an object of key value pairs.                                                // 83
+ *                                                                                                          // 84
+ * "?p1=value1&p2=value2 => {p1: value1, p2: value2}                                                        // 85
+ */                                                                                                         // 86
+Url.fromQueryString = function (query) {                                                                    // 87
+  if (!query)                                                                                               // 88
+    return {};                                                                                              // 89
+                                                                                                            // 90
+  if (typeof query !== 'string')                                                                            // 91
+    throw new Error("expected string");                                                                     // 92
+                                                                                                            // 93
+  // get rid of the leading question mark                                                                   // 94
+  if (query.charAt(0) === '?')                                                                              // 95
+    query = query.slice(1);                                                                                 // 96
+                                                                                                            // 97
+  var keyValuePairs = query.split('&');                                                                     // 98
+  var result = {};                                                                                          // 99
   var parts;                                                                                                // 100
                                                                                                             // 101
   _.each(keyValuePairs, function (pair) {                                                                   // 102
@@ -378,7 +372,7 @@ Url.toQueryString = function (queryObject) {                                    
   _.each(queryObject, function (value, key) {                                                               // 132
     if (_.isArray(value)) {                                                                                 // 133
       _.each(value, function(valuePart) {                                                                   // 134
-        result.push(encodeURIComponent(key + '[]') + '=' + encodeURIComponent(valuePart));                  // 135
+        result.push(encodeURIComponent(key) + '[]=' + encodeURIComponent(valuePart));                       // 135
       });                                                                                                   // 136
     } else {                                                                                                // 137
       result.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));                               // 138
@@ -567,72 +561,69 @@ Url.prototype.resolve = function (params, options) {                            
         /(\/)?(\.)?:(\w+)(?:(\(.*?\)))?(\?)?/g,                                                             // 321
         function (match, slash, format, key, capture, optional, offset) {                                   // 322
           slash = slash || '';                                                                              // 323
-          value = params[key];                                                                              // 324
-          isValueDefined = typeof value !== 'undefined';                                                    // 325
-                                                                                                            // 326
-          if (optional && !isValueDefined) {                                                                // 327
-            value = '';                                                                                     // 328
-          } else if (!isValueDefined) {                                                                     // 329
-            missingParams.push(key);                                                                        // 330
-            return;                                                                                         // 331
-          }                                                                                                 // 332
-                                                                                                            // 333
-          value = _.isFunction(value) ? value.call(params) : value;                                         // 334
-          var escapedValue = _.map(String(value).split('/'), function (segment) {                           // 335
-            return encodeURIComponent(segment);                                                             // 336
-          }).join('/');                                                                                     // 337
-          return slash + escapedValue                                                                       // 338
-        }                                                                                                   // 339
-      )                                                                                                     // 340
-      .replace(                                                                                             // 341
-        /\*/g,                                                                                              // 342
-        function (match) {                                                                                  // 343
-          if (typeof params[wildCardCount] === 'undefined') {                                               // 344
-            throw new Error(                                                                                // 345
-              'You are trying to access a wild card parameter at index ' +                                  // 346
-              wildCardCount +                                                                               // 347
-              ' but the value of params at that index is undefined');                                       // 348
-          }                                                                                                 // 349
-                                                                                                            // 350
-          var paramValue = String(params[wildCardCount++]);                                                 // 351
-          return _.map(paramValue.split('/'), function (segment) {                                          // 352
-            return encodeURIComponent(segment);                                                             // 353
-          }).join('/');                                                                                     // 354
-        }                                                                                                   // 355
-      );                                                                                                    // 356
-                                                                                                            // 357
-    query = Url.toQueryString(query);                                                                       // 358
-                                                                                                            // 359
-    path = path + query;                                                                                    // 360
-                                                                                                            // 361
-    if (hash) {                                                                                             // 362
-      hash = encodeURI(hash.replace('#', ''));                                                              // 363
-      path = path + '#' + hash;                                                                             // 364
-    }                                                                                                       // 365
-  }                                                                                                         // 366
-                                                                                                            // 367
-  // Because of optional possibly empty segments we normalize path here                                     // 368
-  path = path.replace(/\/+/g, '/'); // Multiple / -> one /                                                  // 369
-  path = path.replace(/^(.+)\/$/g, '$1'); // Removal of trailing /                                          // 370
-                                                                                                            // 371
-  if (missingParams.length == 0)                                                                            // 372
-    return path;                                                                                            // 373
-  else if (options.throwOnMissingParams === true)                                                           // 374
+          format = format || '';                                                                            // 324
+          value = params[key];                                                                              // 325
+          isValueDefined = typeof value !== 'undefined';                                                    // 326
+                                                                                                            // 327
+          if (optional && !isValueDefined) {                                                                // 328
+            value = '';                                                                                     // 329
+          } else if (!isValueDefined) {                                                                     // 330
+            missingParams.push(key);                                                                        // 331
+            return;                                                                                         // 332
+          }                                                                                                 // 333
+                                                                                                            // 334
+          value = _.isFunction(value) ? value.call(params) : value;                                         // 335
+          var escapedValue = _.map(String(value).split('/'), function (segment) {                           // 336
+            return encodeURIComponent(segment);                                                             // 337
+          }).join('/');                                                                                     // 338
+          return slash + format + escapedValue;                                                             // 339
+        }                                                                                                   // 340
+      )                                                                                                     // 341
+      .replace(                                                                                             // 342
+        /\*/g,                                                                                              // 343
+        function (match) {                                                                                  // 344
+          if (typeof params[wildCardCount] === 'undefined') {                                               // 345
+            throw new Error(                                                                                // 346
+              'You are trying to access a wild card parameter at index ' +                                  // 347
+              wildCardCount +                                                                               // 348
+              ' but the value of params at that index is undefined');                                       // 349
+          }                                                                                                 // 350
+                                                                                                            // 351
+          var paramValue = String(params[wildCardCount++]);                                                 // 352
+          return _.map(paramValue.split('/'), function (segment) {                                          // 353
+            return encodeURIComponent(segment);                                                             // 354
+          }).join('/');                                                                                     // 355
+        }                                                                                                   // 356
+      );                                                                                                    // 357
+                                                                                                            // 358
+    query = Url.toQueryString(query);                                                                       // 359
+                                                                                                            // 360
+    path = path + query;                                                                                    // 361
+                                                                                                            // 362
+    if (hash) {                                                                                             // 363
+      hash = encodeURI(hash.replace('#', ''));                                                              // 364
+      path = path + '#' + hash;                                                                             // 365
+    }                                                                                                       // 366
+  }                                                                                                         // 367
+                                                                                                            // 368
+  // Because of optional possibly empty segments we normalize path here                                     // 369
+  path = path.replace(/\/+/g, '/'); // Multiple / -> one /                                                  // 370
+  path = path.replace(/^(.+)\/$/g, '$1'); // Removal of trailing /                                          // 371
+                                                                                                            // 372
+  if (missingParams.length == 0)                                                                            // 373
+    return path;                                                                                            // 374
+  else if (options.throwOnMissingParams === true)                                                           // 375
     throw new Error("Missing required parameters on path " + JSON.stringify(this._originalPath) + ". The missing params are: " + JSON.stringify(missingParams) + ". The params object passed in was: " + JSON.stringify(originalParams) + ".");
-  else                                                                                                      // 376
-    return null;                                                                                            // 377
-};                                                                                                          // 378
-                                                                                                            // 379
-/*****************************************************************************/                             // 380
-/* Namespacing */                                                                                           // 381
-/*****************************************************************************/                             // 382
-Iron.Url = Url;                                                                                             // 383
-                                                                                                            // 384
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////     // 603
-                                                                                                                   // 604
-}).call(this);                                                                                                     // 605
-                                                                                                                   // 606
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  else                                                                                                      // 377
+    return null;                                                                                            // 378
+};                                                                                                          // 379
+                                                                                                            // 380
+/*****************************************************************************/                             // 381
+/* Namespacing */                                                                                           // 382
+/*****************************************************************************/                             // 383
+Iron.Url = Url;                                                                                             // 384
+                                                                                                            // 385
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
 

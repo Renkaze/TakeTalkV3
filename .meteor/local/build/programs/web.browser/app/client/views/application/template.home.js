@@ -3,20 +3,20 @@ Template.__checkName("home");
 Template["home"] = new Template("Template.home", (function() {
   var view = this;
   return HTML.DIV({
-    "class": "main-content"
+    class: "main-content"
   }, "\n    ", HTML.DIV({
-    "class": "row"
+    class: "row"
   }, "\n        ", HTML.DIV({
-    "class": "col-xs-12 col-md-6 col-md-offset-3"
+    class: "col-xs-12 col-md-6 col-md-offset-3"
   }, "\n            ", HTML.DIV({
-    "class": "panel panel-default"
+    class: "panel panel-default"
   }, "\n                ", HTML.Raw('<div class="panel-heading"><span class="title">TakeTalk is your new companion app!</span></div>'), "\n                ", HTML.DIV({
-    "class": "panel-body"
+    class: "panel-body"
   }, "\n                    ", HTML.Raw("<p>With TakeTalk manage your contributors' speech time to make the best out of your meetings!</p>"), "\n                    ", HTML.DIV({
-    "class": "spacer text-right"
+    class: "spacer text-right"
   }, "\n                        ", HTML.BUTTON({
     type: "button",
-    "class": "btn btn-space btn-primary btn-rounded btn-lg",
+    class: "btn btn-space btn-primary btn-rounded btn-lg",
     id: "open"
   }, "\n                            ", HTML.A({
     style: "color:#fff",

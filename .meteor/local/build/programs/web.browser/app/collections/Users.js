@@ -1,5 +1,5 @@
 (function(){/** The collection that contains the users */
-Users = new Mongo.Collection("users");
+//Users = new Mongo.Collection("users");
 
 /*
 Exemple :
@@ -10,4 +10,5 @@ Exemple :
  meeting: id,
  _id: 'testAnimator'
 */
+
 }).call(this);

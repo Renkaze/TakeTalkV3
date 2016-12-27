@@ -14,6 +14,15 @@ Router.route('/create', {name: 'create'});
 /** The route to the downloads page */
 Router.route('/downloads', {name: 'downloads'});
 
+//TOM
+/** The route to the group page **/
+Router.route('/groups', {name:'groups'});
+Router.route('/groupSubmit', {name:'groupSubmit'});
+
+
+//TOM FIN
+
+
 /** The route to the create page
 Router.route('/create', function () {
   this.render('create');

@@ -3,29 +3,29 @@ Template.__checkName("lineup");
 Template["lineup"] = new Template("Template.lineup", (function() {
   var view = this;
   return HTML.DIV({
-    "class": "main-content"
+    class: "main-content"
   }, "\n    ", HTML.DIV({
-    "class": "row"
+    class: "row"
   }, "\n        ", HTML.DIV({
-    "class": "col-md-8 col-md-offset-2"
+    class: "col-md-8 col-md-offset-2"
   }, "\n            ", HTML.DIV({
-    "class": "panel panel-default"
+    class: "panel panel-default"
   }, "\n                ", HTML.Raw('<div class="panel-heading"><span class="title">Line up to talk</span></div>'), "\n                ", HTML.DIV({
-    "class": "panel-body"
+    class: "panel-body"
   }, "\n                    ", HTML.FORM({
     role: "form"
   }, "\n                        ", HTML.DIV({
-    "class": "form-group"
+    class: "form-group"
   }, "\n                            ", HTML.Raw('<label for="order">Order</label>'), "\n                            ", HTML.SELECT({
     name: "order",
     id: "order",
-    "class": "form-control"
+    class: "form-control"
   }, "\n                                ", Blaze.Each(function() {
     return Spacebars.call(view.lookup("ordres"));
   }, function() {
     return [ "\n                                    ", Spacebars.include(view.lookupTemplate("selectOrdre")), "\n                                " ];
   }), "\n                            "), "\n                        "), "\n\n                        ", HTML.Raw("<!-- Les informations importantes de la prise de parole de l'intervenant -->"), "\n                        ", HTML.Raw('<div class="form-group">\n                            <label for="keywords">Keywords</label>\n                            <input id="keywords" name="keywords" type="text" class="form-control" autofocus="">\n                        </div>'), "\n\n                        ", HTML.Raw('<div class="form-group">\n                            <label style="padding-right:5em">Speach time</label>\n                            <div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="300" value="300" checked="">\n                                <label for="300">5 minutes</label>\n                            </div>\n                            <div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="600" value="600">\n                                <label for="600">10 minutes</label>\n                            </div>\n                            <div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="plus" value="plus">\n                                <label for="plus">10 minutes +</label>\n                            </div>\n                            <div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="rapide" value="rapide">\n                                <label for="rapide">Quick line up</label>\n                            </div>\n                        </div>'), "\n\n                        ", HTML.DIV({
-    "class": "spacer text-right"
+    class: "spacer text-right"
   }, "\n                            ", Blaze.If(function() {
     return Spacebars.call(view.lookup("hasGuest"));
   }, function() {
@@ -37,7 +37,7 @@ Template["lineup"] = new Template("Template.lineup", (function() {
       str: " "
     }), "\n                                ", HTML.BUTTON({
       type: "submit",
-      "class": "btn btn-space btn-success lineUp",
+      class: "btn btn-space btn-success lineUp",
       "user-id": function() {
         return Spacebars.mustache(Spacebars.dot(view.lookup("currentUser"), "_id"));
       }
@@ -51,7 +51,7 @@ Template["lineup"] = new Template("Template.lineup", (function() {
   }, function() {
     return [ "\n                                ", HTML.BUTTON({
       type: "submit",
-      "class": "btn btn-space btn-success lineUp",
+      class: "btn btn-space btn-success lineUp",
       "user-id": function() {
         return Spacebars.mustache(Spacebars.dot(view.lookup("currentUser"), "_id"));
       }
@@ -64,7 +64,7 @@ Template["guestButton"] = new Template("Template.guestButton", (function() {
   var view = this;
   return HTML.BUTTON({
     type: "submit",
-    "class": "btn btn-space btn-success lineUp",
+    class: "btn btn-space btn-success lineUp",
     "user-id": function() {
       return Spacebars.mustache(view.lookup("name"));
     }

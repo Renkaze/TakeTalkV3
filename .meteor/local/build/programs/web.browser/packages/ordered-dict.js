@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var _ = Package.underscore._;
 
 /* Package-scope variables */
@@ -242,8 +244,11 @@ OrderedDict.BREAK = {"break": true};                                            
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package['ordered-dict'] = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package['ordered-dict'] = {}, {
   OrderedDict: OrderedDict
-};
+});
 
 })();
