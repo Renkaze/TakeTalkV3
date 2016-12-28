@@ -252,6 +252,10 @@
       }
     },
     {
+      "sourceMap": "packages/twbs_bootstrap.js.map",
+      "path": "packages/twbs_bootstrap.js"
+    },
+    {
       "sourceMap": "packages/standard-minifiers.js.map",
       "path": "packages/standard-minifiers.js"
     },
@@ -276,29 +280,13 @@
       "path": "packages/reload.js"
     },
     {
-      "sourceMap": "packages/mrt_jquery-ui.js.map",
-      "path": "packages/mrt_jquery-ui.js"
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/fortawesome_fontawesome/4.7.0/npm/node_modules",
+      "sourceMap": "packages/fortawesome_fontawesome.js.map",
+      "path": "packages/fortawesome_fontawesome.js"
     },
     {
-      "sourceMap": "packages/gwendall_body-events.js.map",
-      "path": "packages/gwendall_body-events.js"
-    },
-    {
-      "sourceMap": "packages/lai_collection-extensions.js.map",
-      "path": "packages/lai_collection-extensions.js"
-    },
-    {
-      "sourceMap": "packages/dburles_mongo-collection-instances.js.map",
-      "path": "packages/dburles_mongo-collection-instances.js"
-    },
-    {
-      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/djedi_sanitize-html/1.11.3/npm/node_modules",
-      "sourceMap": "packages/djedi_sanitize-html.js.map",
-      "path": "packages/djedi_sanitize-html.js"
-    },
-    {
-      "sourceMap": "packages/babrahams_editable-text.js.map",
-      "path": "packages/babrahams_editable-text.js"
+      "sourceMap": "packages/summernote_summernote.js.map",
+      "path": "packages/summernote_summernote.js"
     },
     {
       "sourceMap": "packages/livedata.js.map",
