@@ -39,7 +39,7 @@ Router.route('/meeting/:_meetingId', {
       // !!! A commenter en prod !!!
       var id = 'test';
       if (this.params._meetingId == id && Meetings.findOne({_id: id, status: "ongoing"}) === undefined) {
-          Meteor.call('resetAll');
+          //Meteor.call('resetAll');
 
           Meetings.insert({
               name: 'La Nuit de l\'Info',
@@ -50,18 +50,18 @@ Router.route('/meeting/:_meetingId', {
               reportLink: 'https://docs.google.com/document/d/15Pcc6L1ofe4bY2uxg0yxvaAZO_XZQPe8JlsnvnDUEaQ/edit?usp=sharing',
               _id: id
           });
-          Users.insert({ name:'Laurent Poligny',
-              email: 'laurent.poligny@test.com',
+          Users.insert({ name:'Franck FORET',
+              email: 'franckforet@test.com',
               type: "animator",
               status: "online",
               meeting: id,
-              _id: 'lpoligny'
+              _id: 'fforet'
           });
 
           Session.set("meetingId", id);
-          Session.set("ordres", ['Motiver les élèves', 'Former les participants', 'Préparer le repas du soir']);
-          Session.set("ordreTimes", [90, 130, 268]);
-          Session.set("userId", 'lpoligny');
+          //Session.set("ordres", ['Motiver les élèves', 'Former les participants', 'Préparer le repas du soir']);
+          //Session.set("ordreTimes", [90, 130, 268]);
+          Session.set("userId", 'fforet');
 
           /* Ajout d'une ligne dans le fichier d'historisation (log.txt)
           var fs = require('fs');

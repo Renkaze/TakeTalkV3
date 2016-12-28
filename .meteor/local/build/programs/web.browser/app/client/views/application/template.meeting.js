@@ -3,6 +3,7 @@ Template.__checkName("meeting");
 Template["meeting"] = new Template("Template.meeting", (function() {
   var view = this;
 <<<<<<< HEAD
+<<<<<<< HEAD
   return [ HTML.Raw('<!-- <div class="page-head">\n    <h2>{{meeting}}</h2>\n</div> -->\n'), HTML.DIV({
     class: "main-content"
   }, "\n    ", HTML.DIV({
@@ -54,22 +55,15 @@ Template["meeting"] = new Template("Template.meeting", (function() {
   }, "\n                            ", HTML.INPUT({
 =======
   return [ HTML.Raw('<!-- <div class="page-head">\n  <h2>{{meeting}}</h2>\n</div> -->\n'), HTML.DIV({
+=======
+  return [ HTML.Raw('<!-- <div class="page-head">\n  <h2>{{meeting}}</h2>\n</div> -->\n<!-- include libraries(jQuery, bootstrap) -->\n'), HTML.DIV({
+>>>>>>> simplification UI & add Zone text report meeting
     "class": "main-content"
   }, "\n  ", HTML.DIV({
     "class": "row"
-  }, "\n    ", HTML.Raw("<!-- ********************************************* -->"), "\n    ", HTML.Raw("<!-- Bloc d'affichage des sujets � l'ordre du jour -->"), "\n    ", HTML.Raw("<!-- ********************************************* -->"), "\n    ", HTML.DIV({
-    "class": "col-md-8"
-  }, "\n      ", HTML.DIV({
-    "class": "panel panel-default panel-heading-fullwidth panel-primary"
-  }, "\n        ", HTML.Raw('<div class="panel-heading"><span class="title">Meeting Report</span></div>'), "\n        ", HTML.DIV({
-    "class": "panel-body"
-  }, "\n            ", HTML.TEXTAREA({
-    "class": "editableText",
-    rows: "8",
-    cols: "100"
-  }), "\n        "), "\n      "), "\n    "), "\n\n    ", HTML.DIV({
+  }, "\n    ", HTML.Raw("<!-- ********************************************* -->"), "\n    ", HTML.Raw("<!-- Bloc d'affichage des sujets � l'ordre du jour -->"), "\n    ", HTML.Raw("<!-- ********************************************* -->"), "\n    ", HTML.Raw('<div class="col-md-8">\n      <div class="panel panel-default panel-heading-fullwidth panel-primary">\n        <div class="panel-heading"><span class="title">Meeting Report</span></div>\n        <div class="panel-body">\n          <div id="textareaRich">\n            Your Report\'s Meetings !!\n          </div>\n        </div>\n      </div>\n    </div>'), "\n\n    ", HTML.DIV({
     "class": "col-md-4"
-  }, "\n\n\n      ", HTML.Raw("<!-- ****************************************** -->"), "\n      ", HTML.Raw("<!-- Bloc d'affichage des interventions pr�vues -->"), "\n      ", HTML.Raw("<!-- ****************************************** -->"), "\n      ", HTML.DIV({
+  }, "\n      ", HTML.Raw("<!-- ****************************************** -->"), "\n      ", HTML.Raw("<!-- Bloc d'affichage des interventions pr�vues -->"), "\n      ", HTML.Raw("<!-- ****************************************** -->"), "\n      ", HTML.DIV({
     "class": "row-md-4"
   }, "\n        ", HTML.DIV({
     "class": "panel panel-default panel-heading-fullwidth panel-primary"
@@ -312,9 +306,10 @@ Template["meeting"] = new Template("Template.meeting", (function() {
         "aria-hidden": "true"
       }), "\n                  "), "\n                "), "\n                " ];
     }), "\n              "), "\n              " ];
-  }), "\n            "), "\n          "), " ", HTML.Raw("<!-- panel-body -->"), "\n        "), "\n      "), "\n      ", HTML.Raw("<!--End People on meeting -->"), "\n\n      ", HTML.Raw('<!--Start Agenda\n      <div class="row-md-4">\n        <div class="panel panel-default panel-heading-fullwidth panel-primary">\n          <div class="panel-heading"><span class="title">Agenda</span></div>\n          <div class="panel-body">\n            <div class="row">\n              {{#if isReportLink}}\n              <div class="col-md-12">\n                <p><a href="{{reportLink}}" title="Collaborative document" target="_blank">Link of the report</a></p>\n              </div>\n              {{/if}}\n              {{#each ordres}}\n              <div class="col-md-11" style="padding-right:0; margin-bottom:-10px">\n                <div class="list-group">\n                  <div class="list-group-item">\n                    {{> ordre}}\n                  </div>\n                </div>\n              </div>\n              <div class="col-md-1" style="padding-right:0">\n              </div>\n              {{/each}}\n            </div>\n          </div>\n        </div>\n      </div>\n    End Agenda-->'), "\n    "), "\n  "), " ", HTML.Raw("<!-- row des 3 colonnes -->"), "\n\n  ", HTML.Raw("<!-- Boutons d'actions de l'animateur-->"), "\n  ", Blaze.If(function() {
+  }), "\n            "), "\n          "), " ", HTML.Raw("<!-- panel-body -->"), "\n        "), "\n      "), "\n      ", HTML.Raw("<!--End People on meeting -->"), "\n\n      ", HTML.Raw('<!--Start Agenda\n      <div class="row-md-4">\n        <div class="panel panel-default panel-heading-fullwidth panel-primary">\n          <div class="panel-heading"><span class="title">Agenda</span></div>\n          <div class="panel-body">\n            <div class="row">\n              {{#if isReportLink}}\n              <div class="col-md-12">\n                <p><a href="{{reportLink}}" title="Collaborative document" target="_blank">Link of the report</a></p>\n              </div>\n              {{/if}}\n              {{#each ordres}}\n              <div class="col-md-11" style="padding-right:0; margin-bottom:-10px">\n                <div class="list-group">\n                  <div class="list-group-item">\n                    {{> ordre}}\n                  </div>\n                </div>\n              </div>\n              <div class="col-md-1" style="padding-right:0">\n              </div>\n              {{/each}}\n            </div>\n          </div>\n        </div>\n      </div>\n    End Agenda-->'), "\n    ", Blaze.If(function() {
     return Spacebars.call(view.lookup("isAnimator"));
   }, function() {
+<<<<<<< HEAD
 <<<<<<< HEAD
     return [ "\n    ", HTML.DIV({
       class: "row"
@@ -340,22 +335,27 @@ Template["meeting"] = new Template("Template.meeting", (function() {
       "class": "text-right"
     }, "\n            ", HTML.BUTTON({
 >>>>>>> ajout zone de text riche
+=======
+    return [ "\n    ", HTML.DIV({
+      "class": "row-md-4"
+    }, "\n              ", HTML.BUTTON({
+>>>>>>> simplification UI & add Zone text report meeting
       type: "button",
       class: "btn btn-primary",
       "data-toggle": "modal",
       "data-target": "#localModal"
-    }, "Add local participant"), "\n            ", HTML.BUTTON({
+    }, "Add local participant"), "\n              ", HTML.BUTTON({
       type: "button",
       class: "btn btn-primary",
       "data-toggle": "modal",
       "data-target": "#invitationModal"
-    }, "Invite participants"), "\n            ", HTML.BUTTON({
+    }, "Invite participants"), "\n              ", HTML.BUTTON({
       type: "button",
       class: "btn btn-danger",
       role: "button",
       id: "closeMeeting"
-    }, "Close meeting"), "\n          "), "\n        "), "\n      "), "\n    "), "\n  "), "\n  " ];
-  }), "\n"), HTML.Raw('\n\n<!-- ************************************ -->\n<!-- Modal d\'ajout d\'un participant local -->\n<!-- ************************************ -->\n<div class="modal fade" id="localModal" tabindex="-1" role="dialog" aria-labelledby="localModalLabel">\n  <div class="modal-dialog" role="document">\n    <div class="modal-content">\n      <div class="modal-header">\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n        <h4 class="modal-title" id="localModalLabel">New Local Participant</h4>\n      </div>\n      <div class="modal-body">\n        <form role="form" id="localForm">\n          <div class="form-group name-input-group">\n            <label class="control-label">Participants\' Name</label>\n            <div class="participantNameInput" rank="1">\n              <div class="xs-mb-15">\n                <input type="text" class="participantsName form-control" name="participantsName">\n              </div>\n            </div>\n          </div>\n          <div class="modal-footer">\n            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>\n            <button id="localSubmit" type="submit" class="btn btn-primary">Add</button>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- **************************************** -->\n<!-- Modal d\'ajout d\'un participant ext�rieur -->\n<!-- **************************************** -->\n<div class="modal fade" id="invitationModal" tabindex="-1" role="dialog" aria-labelledby="invitationModalLabel">\n  <div class="modal-dialog" role="document">\n    <div class="modal-content">\n      <div class="modal-header">\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n        <h4 class="modal-title" id="invitationModalLabel">Invite Participants</h4>\n      </div>\n      <div class="modal-body">\n        <!--\n        <h3>By QR Code</h3>\n        <div id="qrcode"></div>\n      -->\n      <h3>By email address</h3>\n      <form role="form" id="inviteForm">\n        <div class="form-group email-input-group">\n          <label class="control-label">Your participants\' e-mails</label>\n          <div class="participantEmailInput" rank="1">\n            <div class="input-group xs-mb-15"><span class="input-group-addon">@</span>\n              <input class="participantsEmails form-control" name="participantsEmails" type="email" parsley-type="email">\n            </div>\n          </div>\n        </div>\n        <div class="modal-footer">\n          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>\n          <button id="inviteSubmit" type="submit" class="btn btn-primary">Invite</button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n</div>\n\n<!-- ************************************************************************************************************* -->\n<!-- Modal de notification qui s\'affiche sur le dashboard d\'un intervenant auquel l\'animateur a supprim� le speech -->\n<!-- ************************************************************************************************************* -->\n<div class="modal fade" id="speech-delete-modal" tabindex="-1" role="dialog" aria-labelledby="speech-delete-label">\n  <div class="modal-dialog" role="document">\n    <div class="modal-content">\n      <div class="modal-header">\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n        <h4 class="modal-title" id="speech-delete-label">Invite Participants</h4>\n      </div>\n      <div class="modal-body">\n        Your speech have been deleted\n      </div>\n    </div>\n  </div>\n</div>') ];
+    }, "Close meeting"), "\n\n  "), "\n    " ];
+  }), "\n    "), "\n\n  "), " ", HTML.Raw("<!-- row des 3 colonnes -->"), "\n\n  ", HTML.Raw("<!-- Boutons d'actions de l'animateur-->"), "\n\n"), HTML.Raw('\n\n<!-- ************************************ -->\n<!-- Modal d\'ajout d\'un participant local -->\n<!-- ************************************ -->\n<div class="modal fade" id="localModal" tabindex="-1" role="dialog" aria-labelledby="localModalLabel">\n  <div class="modal-dialog" role="document">\n    <div class="modal-content">\n      <div class="modal-header">\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n        <h4 class="modal-title" id="localModalLabel">New Local Participant</h4>\n      </div>\n      <div class="modal-body">\n        <form role="form" id="localForm">\n          <div class="form-group name-input-group">\n            <label class="control-label">Participants\' Name</label>\n            <div class="participantNameInput" rank="1">\n              <div class="xs-mb-15">\n                <input type="text" class="participantsName form-control" name="participantsName">\n              </div>\n            </div>\n          </div>\n          <div class="modal-footer">\n            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>\n            <button id="localSubmit" type="submit" class="btn btn-primary">Add</button>\n          </div>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- **************************************** -->\n<!-- Modal d\'ajout d\'un participant ext�rieur -->\n<!-- **************************************** -->\n<div class="modal fade" id="invitationModal" tabindex="-1" role="dialog" aria-labelledby="invitationModalLabel">\n  <div class="modal-dialog" role="document">\n    <div class="modal-content">\n      <div class="modal-header">\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n        <h4 class="modal-title" id="invitationModalLabel">Invite Participants</h4>\n      </div>\n      <div class="modal-body">\n        <!--\n        <h3>By QR Code</h3>\n        <div id="qrcode"></div>\n      -->\n      <h3>By email address</h3>\n      <form role="form" id="inviteForm">\n        <div class="form-group email-input-group">\n          <label class="control-label">Your participants\' e-mails</label>\n          <div class="participantEmailInput" rank="1">\n            <div class="input-group xs-mb-15"><span class="input-group-addon">@</span>\n              <input class="participantsEmails form-control" name="participantsEmails" type="email" parsley-type="email">\n            </div>\n          </div>\n        </div>\n        <div class="modal-footer">\n          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>\n          <button id="inviteSubmit" type="submit" class="btn btn-primary">Invite</button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n</div>\n\n<!-- ************************************************************************************************************* -->\n<!-- Modal de notification qui s\'affiche sur le dashboard d\'un intervenant auquel l\'animateur a supprim� le speech -->\n<!-- ************************************************************************************************************* -->\n<div class="modal fade" id="speech-delete-modal" tabindex="-1" role="dialog" aria-labelledby="speech-delete-label">\n  <div class="modal-dialog" role="document">\n    <div class="modal-content">\n      <div class="modal-header">\n        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n        <h4 class="modal-title" id="speech-delete-label">Invite Participants</h4>\n      </div>\n      <div class="modal-body">\n        Your speech have been deleted\n      </div>\n    </div>\n  </div>\n</div>') ];
 }));
 
 Template.__checkName("ordre");

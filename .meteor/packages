@@ -4,6 +4,7 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+<<<<<<< HEAD
 email@1.1.18
 iron:router
 meteor-base@1.0.4
@@ -31,3 +32,29 @@ accounts-password
 =======
 babrahams:editable-text
 >>>>>>> ajout zone de text riche
+=======
+
+meteor-base@1.0.4             # Packages every Meteor app needs to have
+mobile-experience@1.0.4       # Packages for a great mobile UX
+mongo@1.1.14                   # The database Meteor supports right now
+blaze-html-templates@1.0.4 # Compile .html files into Meteor Blaze views
+reactive-var@1.0.11            # Reactive variable for tracker
+jquery@1.11.10                  # Helpful client-side library
+tracker@1.1.1
+
+autopublish
+insecure
+email
+iron:router
+twbs:bootstrap
+standard-minifiers
+session
+logging
+reload
+random
+ejson
+spacebars
+check
+fortawesome:fontawesome
+summernote:summernote
+>>>>>>> simplification UI & add Zone text report meeting

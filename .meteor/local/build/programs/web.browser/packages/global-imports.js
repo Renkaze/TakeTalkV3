@@ -16,11 +16,14 @@ Spacebars = Package.spacebars.Spacebars;
 check = Package.check.check;
 Match = Package.check.Match;
 <<<<<<< HEAD
+<<<<<<< HEAD
 accountsUIBootstrap3 = Package['ian:accounts-ui-bootstrap-3'].accountsUIBootstrap3;
 =======
 EditableText = Package['babrahams:editable-text'].EditableText;
 sanitizeHtml = Package['babrahams:editable-text'].sanitizeHtml;
 >>>>>>> ajout zone de text riche
+=======
+>>>>>>> simplification UI & add Zone text report meeting
 Iron = Package['iron:core'].Iron;
 Meteor = Package.meteor.Meteor;
 global = Package.meteor.global;

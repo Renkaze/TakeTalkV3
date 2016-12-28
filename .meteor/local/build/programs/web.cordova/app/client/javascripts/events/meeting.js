@@ -5,6 +5,8 @@ var sortableList;
 
 
 
+
+
 function computeSortable(element) {
   element.sortable({
     items: "div.speech-item:not(.active)",
@@ -43,15 +45,20 @@ function computeSortable(element) {
       }
     }
   })
-}
+};
 
+Template.meeting.onRendered(function () {
+  $(document).ready(function() {
+  $('#textareaRich').summernote();
+});
+});
 //Appel de la fonction d'initialisation de tri par drag'n'drop à la fin du rendu de la page
 Template.meeting.rendered = function () {
-   sortableList = this.$('#speech-list');
-  sortableList.disableSelection();
-  if (Users.findOne({_id: Session.get("userId")}).type == "animator") {
-    computeSortable(sortableList);
-  }
+  // sortableList = this.$('#speech-list');
+  // sortableList.disableSelection();
+  // if (Users.findOne({_id: Session.get("userId")}).type == "animator") {
+  //   computeSortable(sortableList);
+  // }
 };
 /** The events that meeting template contains */
 Template.meeting.events({

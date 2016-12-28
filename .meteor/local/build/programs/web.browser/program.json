@@ -446,9 +446,39 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/packages/iron_router.js?hash=017cbcf91efe3e433391e5dcfa2f6ae06a124b46",
       "size": 210518,
       "hash": "017cbcf91efe3e433391e5dcfa2f6ae06a124b46"
+=======
+      "url": "/packages/iron_router.js?d8cdee74ec0812864532745a6ab688bd5f165887",
+      "sourceMap": "packages/iron_router.js.map",
+      "sourceMapUrl": "/packages/d8cdee74ec0812864532745a6ab688bd5f165887.map",
+      "size": 231989,
+      "hash": "d8cdee74ec0812864532745a6ab688bd5f165887"
+    },
+    {
+      "path": "packages/twbs_bootstrap.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/twbs_bootstrap.js?20709815119654bca7a453fd23e60cb1c149fbe1",
+      "sourceMap": "packages/twbs_bootstrap.js.map",
+      "sourceMapUrl": "/packages/20709815119654bca7a453fd23e60cb1c149fbe1.map",
+      "size": 300893,
+      "hash": "20709815119654bca7a453fd23e60cb1c149fbe1"
+    },
+    {
+      "path": "packages/standard-minifiers.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/standard-minifiers.js?b02a7937678c6058031ee7b2f45b5a617518335d",
+      "sourceMap": "packages/standard-minifiers.js.map",
+      "sourceMapUrl": "/packages/b02a7937678c6058031ee7b2f45b5a617518335d.map",
+      "size": 778,
+      "hash": "b02a7937678c6058031ee7b2f45b5a617518335d"
+>>>>>>> simplification UI & add Zone text report meeting
     },
     {
       "path": "packages/meteor-base.js",
@@ -496,6 +526,7 @@
       "hash": "532b25d978658fe9d6ae3bccd1c52eb105fb7d5b"
     },
     {
+<<<<<<< HEAD
       "path": "packages/mrt_jquery-ui.js",
       "where": "client",
       "type": "js",
@@ -658,25 +689,28 @@
     },
     {
       "path": "packages/dburles_mongo-collection-instances.js",
+=======
+      "path": "packages/fortawesome_fontawesome.js",
+>>>>>>> simplification UI & add Zone text report meeting
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/dburles_mongo-collection-instances.js?649a5a305710dc32a0aa0c3bb3f2ea23b5eb0fb9",
-      "sourceMap": "packages/dburles_mongo-collection-instances.js.map",
-      "sourceMapUrl": "/packages/649a5a305710dc32a0aa0c3bb3f2ea23b5eb0fb9.map",
-      "size": 5113,
-      "hash": "649a5a305710dc32a0aa0c3bb3f2ea23b5eb0fb9"
+      "url": "/packages/fortawesome_fontawesome.js?833b6651cdbeea7e97437db169dc5f6eb7c9b795",
+      "sourceMap": "packages/fortawesome_fontawesome.js.map",
+      "sourceMapUrl": "/packages/833b6651cdbeea7e97437db169dc5f6eb7c9b795.map",
+      "size": 783,
+      "hash": "833b6651cdbeea7e97437db169dc5f6eb7c9b795"
     },
     {
-      "path": "packages/babrahams_editable-text.js",
+      "path": "packages/summernote_summernote.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/babrahams_editable-text.js?ae25791c478e2bbbf18dc235e1c31c9cc3fbf169",
-      "sourceMap": "packages/babrahams_editable-text.js.map",
-      "sourceMapUrl": "/packages/ae25791c478e2bbbf18dc235e1c31c9cc3fbf169.map",
-      "size": 140259,
-      "hash": "ae25791c478e2bbbf18dc235e1c31c9cc3fbf169"
+      "url": "/packages/summernote_summernote.js?b7701131f71178d1e0a673f34b11ca2bd345f1f2",
+      "sourceMap": "packages/summernote_summernote.js.map",
+      "sourceMapUrl": "/packages/b7701131f71178d1e0a673f34b11ca2bd345f1f2.map",
+      "size": 868423,
+      "hash": "b7701131f71178d1e0a673f34b11ca2bd345f1f2"
     },
     {
       "path": "packages/webapp.js",
@@ -717,17 +751,6 @@
       "hash": "2f56943306c7e900ed9f4d894b87f534ebffeaeb"
     },
     {
-      "path": "packages/djedi_sanitize-html.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/djedi_sanitize-html.js?726d6a6bf3828027228986d49596b8b404206873",
-      "sourceMap": "packages/djedi_sanitize-html.js.map",
-      "sourceMapUrl": "/packages/726d6a6bf3828027228986d49596b8b404206873.map",
-      "size": 779,
-      "hash": "726d6a6bf3828027228986d49596b8b404206873"
-    },
-    {
       "path": "packages/autoupdate.js",
       "where": "client",
       "type": "js",
@@ -742,6 +765,7 @@
       "type": "js",
       "cacheable": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/packages/global-imports.js?hash=90f0b00ebbe3637d4a296cce64bd454db6d3db1c",
       "size": 1148,
       "hash": "90f0b00ebbe3637d4a296cce64bd454db6d3db1c"
@@ -750,6 +774,11 @@
       "size": 1065,
       "hash": "3621c14662c1aecb9c67bf370bace2ac79852b35"
 >>>>>>> ajout zone de text riche
+=======
+      "url": "/packages/global-imports.js?ce1b4e82d8e7598c896e72ab587e8e715abd687a",
+      "size": 937,
+      "hash": "ce1b4e82d8e7598c896e72ab587e8e715abd687a"
+>>>>>>> simplification UI & add Zone text report meeting
     },
     {
       "path": "app/client/views/animator/template.create.js",
@@ -820,6 +849,7 @@
       "type": "js",
       "cacheable": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/app/client/views/application/template.meeting.js?hash=c8e54fdb89436ddbf94badb77bcdcb062e8ff6ef",
       "size": 19153,
       "hash": "c8e54fdb89436ddbf94badb77bcdcb062e8ff6ef"
@@ -830,6 +860,13 @@
       "size": 16035,
       "hash": "6df8566f3550a73e7b8ffb993e019f3ec2a6e7d9"
 >>>>>>> ajout zone de text riche
+=======
+      "url": "/app/client/views/application/template.meeting.js?69e9bf010be0aade4e90896b6f54d5f9f951d7ce",
+      "sourceMap": "app/client/views/application/template.meeting.js.map",
+      "sourceMapUrl": "/app/client/views/application/69e9bf010be0aade4e90896b6f54d5f9f951d7ce.map",
+      "size": 15700,
+      "hash": "69e9bf010be0aade4e90896b6f54d5f9f951d7ce"
+>>>>>>> simplification UI & add Zone text report meeting
     },
     {
       "path": "app/client/views/application/template.tutorial.js",
@@ -1005,6 +1042,7 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/app/lib/Router.js?hash=00bd050b59ce784084bd0ead96fd64b6e4895702",
       "size": 7180,
       "hash": "00bd050b59ce784084bd0ead96fd64b6e4895702"
@@ -1017,6 +1055,13 @@
       "url": "/app/lib/permissions.js?hash=50b75585787f6b34f1e0d292c2f74b643bf11a3e",
       "size": 162,
       "hash": "50b75585787f6b34f1e0d292c2f74b643bf11a3e"
+=======
+      "url": "/app/lib/Router.js?89e70de8b1d1e2c6b7b213617ba00dbe0ea852cb",
+      "sourceMap": "app/lib/Router.js.map",
+      "sourceMapUrl": "/app/lib/89e70de8b1d1e2c6b7b213617ba00dbe0ea852cb.map",
+      "size": 6907,
+      "hash": "89e70de8b1d1e2c6b7b213617ba00dbe0ea852cb"
+>>>>>>> simplification UI & add Zone text report meeting
     },
     {
       "path": "app/client/javascripts/events/create.js",
@@ -1085,6 +1130,7 @@
       "type": "js",
       "cacheable": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/app/client/javascripts/events/meeting.js?hash=cc5de24928c7a4357fb309800202192cbc080099",
       "size": 15725,
       "hash": "cc5de24928c7a4357fb309800202192cbc080099"
@@ -1140,6 +1186,13 @@
       "size": 13790,
       "hash": "b091afe75393a761c69e275b93c850558010ee93"
 >>>>>>> ajout zone de text riche
+=======
+      "url": "/app/client/javascripts/events/meeting.js?19c057e18a3069d2b30ff3d594d7c6653051d651",
+      "sourceMap": "app/client/javascripts/events/meeting.js.map",
+      "sourceMapUrl": "/app/client/javascripts/events/19c057e18a3069d2b30ff3d594d7c6653051d651.map",
+      "size": 13925,
+      "hash": "19c057e18a3069d2b30ff3d594d7c6653051d651"
+>>>>>>> simplification UI & add Zone text report meeting
     },
     {
       "path": "app/collections/Meetings.js",
@@ -1209,6 +1262,7 @@
       "type": "css",
       "cacheable": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/merged-stylesheets.css?hash=98c08df6e2e39d0442db3c0e883de645ec6e3171",
       "sourceMap": "merged-stylesheets.css.map",
       "sourceMapUrl": "/98c08df6e2e39d0442db3c0e883de645ec6e3171.map",
@@ -1221,6 +1275,139 @@
       "size": 429915,
       "hash": "93036820545159fd247f411f3fe4c6d9d4a27cdf"
 >>>>>>> ajout zone de text riche
+=======
+      "url": "/merged-stylesheets.css?fcc07e26d002701e315bf662793488fe909f7186",
+      "sourceMap": "merged-stylesheets.css.map",
+      "sourceMapUrl": "/fcc07e26d002701e315bf662793488fe909f7186.map",
+      "size": 629959,
+      "hash": "fcc07e26d002701e315bf662793488fe909f7186"
+    },
+    {
+      "path": "packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.eot",
+      "size": 20127,
+      "hash": "86b6f62b7853e67d3e635f6512a5a5efc58ea3c3"
+    },
+    {
+      "path": "packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
+      "size": 108738,
+      "hash": "de51a8494180a6db074af2dee2383f0a363c5b08"
+    },
+    {
+      "path": "packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.ttf",
+      "size": 45404,
+      "hash": "44bc1850f570972267b169ae18f1cb06b611ffa2"
+    },
+    {
+      "path": "packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.woff",
+      "size": 23424,
+      "hash": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f"
+    },
+    {
+      "path": "packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.woff2",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/twbs_bootstrap/dist/fonts/glyphicons-halflings-regular.woff2",
+      "size": 18028,
+      "hash": "ca35b697d99cae4d1b60f2d60fcd37771987eb07"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.eot",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.eot",
+      "size": 165742,
+      "hash": "d980c2ce873dc43af460d4d572d441304499f400"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.svg",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.svg",
+      "size": 444379,
+      "hash": "98a8aa5cf7d62c2eff5f07ede8d844b874ef06ed"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.ttf",
+      "size": 165548,
+      "hash": "13b1eab65a983c7a73bc7997c479d66943f7c6cb"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.woff",
+      "size": 98024,
+      "hash": "28b782240b3e76db824e12c02754a9731a167527"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.woff2",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/fontawesome-webfont.woff2",
+      "size": 77160,
+      "hash": "d6f48cba7d076fb6f2fd6ba993a75b9dc1ecbf0c"
+    },
+    {
+      "path": "packages/fortawesome_fontawesome/upstream/fonts/FontAwesome.otf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/fortawesome_fontawesome/upstream/fonts/FontAwesome.otf",
+      "size": 134808,
+      "hash": "048707bc52ac4b6563aaa383bfe8660a0ddc908c"
+    },
+    {
+      "path": "packages/summernote_summernote/dist/font/summernote.eot",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/summernote_summernote/dist/font/summernote.eot",
+      "size": 13238,
+      "hash": "31736d8b6d1509b746d19ccfeacc4aa33546f81f"
+    },
+    {
+      "path": "packages/summernote_summernote/dist/font/summernote.ttf",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/summernote_summernote/dist/font/summernote.ttf",
+      "size": 13052,
+      "hash": "c1671e55edf32acfc3837e15546158f63c6b39b9"
+    },
+    {
+      "path": "packages/summernote_summernote/dist/font/summernote.woff",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+      "url": "/packages/summernote_summernote/dist/font/summernote.woff",
+      "size": 8332,
+      "hash": "39d8c8dba1bf995e4b214c13a7b9c8afb013affa"
+>>>>>>> simplification UI & add Zone text report meeting
     },
     {
       "path": "app/Presentation_V1.pdf",

@@ -2,6 +2,7 @@
   <!-- <div class="page-head">
   <h2>{{meeting}}</h2>
 </div> -->
+<!-- include libraries(jQuery, bootstrap) -->
 <div class="main-content">
   <div class="row">
     <!-- ********************************************* -->
@@ -11,14 +12,14 @@
       <div class="panel panel-default panel-heading-fullwidth panel-primary">
         <div class="panel-heading"><span class="title">Meeting Report</span></div>
         <div class="panel-body">
-            <textarea class="editableText" rows="8" cols="100" ></textarea>
+          <div id="textareaRich">
+            Your Report's Meetings !!
+          </div>
         </div>
       </div>
     </div>
 
     <div class="col-md-4">
-
-
       <!-- ****************************************** -->
       <!-- Bloc d'affichage des interventions pr�vues -->
       <!-- ****************************************** -->
@@ -147,25 +148,20 @@
         </div>
       </div>
     End Agenda-->
+    {{#if isAnimator}}
+    <div class="row-md-4">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#localModal">Add local participant</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#invitationModal">Invite participants</button>
+              <button type="button" class="btn btn-danger" role="button" id="closeMeeting">Close meeting</button>
+
+  </div>
+    {{/if}}
     </div>
+
   </div> <!-- row des 3 colonnes -->
 
   <!-- Boutons d'actions de l'animateur-->
-  {{#if isAnimator}}
-  <div class="row">
-    <div class="col-md-6 col-md-offset-6">
-      <div class="panel panel-default panel-transparent">
-        <div class="panel-body">
-          <p class="text-right">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#localModal">Add local participant</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#invitationModal">Invite participants</button>
-            <button type="button" class="btn btn-danger" role="button" id="closeMeeting">Close meeting</button>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{/if}}
+
 </div>
 
 <!-- ************************************ -->

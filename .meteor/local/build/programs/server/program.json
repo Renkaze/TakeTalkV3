@@ -279,6 +279,10 @@
       }
     },
     {
+      "sourceMap": "packages/twbs_bootstrap.js.map",
+      "path": "packages/twbs_bootstrap.js"
+    },
+    {
       "sourceMap": "packages/standard-minifiers.js.map",
       "path": "packages/standard-minifiers.js"
 >>>>>>> ajout zone de text riche
@@ -299,6 +303,7 @@
       "path": "packages/reload.js"
     },
     {
+<<<<<<< HEAD
       "path": "packages/mrt_jquery-ui.js"
     },
     {
@@ -353,10 +358,15 @@
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/djedi_sanitize-html/1.11.3/npm/node_modules",
       "sourceMap": "packages/djedi_sanitize-html.js.map",
       "path": "packages/djedi_sanitize-html.js"
+=======
+      "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/fortawesome_fontawesome/4.7.0/npm/node_modules",
+      "sourceMap": "packages/fortawesome_fontawesome.js.map",
+      "path": "packages/fortawesome_fontawesome.js"
+>>>>>>> simplification UI & add Zone text report meeting
     },
     {
-      "sourceMap": "packages/babrahams_editable-text.js.map",
-      "path": "packages/babrahams_editable-text.js"
+      "sourceMap": "packages/summernote_summernote.js.map",
+      "path": "packages/summernote_summernote.js"
     },
     {
       "sourceMap": "packages/livedata.js.map",
