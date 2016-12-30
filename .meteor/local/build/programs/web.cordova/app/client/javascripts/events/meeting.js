@@ -60,12 +60,38 @@ Template.meeting.rendered = function () {
   //   computeSortable(sortableList);
   // }
 };
+
+
+
 /** The events that meeting template contains */
 Template.meeting.events({
   /** A click on talk opens the lineup page */
   'click #talkCancel': function(e) {
+console.log("I click on Talk");
+    //à modifier
     if(e.target.value == "Talk") {
-      Router.go('/meeting/' + Session.get("meetingId") + '/lineup');
+      //var submitTime = t.find(".timeButton:checked").value;
+      var userId = Session.get("userId");
+      //var userId = $(e.target).attr("user-id");
+      var rank = 1;
+console.log("userId = " + userId);
+      //Recherche du speech ayant le plus haut rang
+      speeches = Speeches.find({meeting: Session.get("meetingId")}, {sort: {rank: -1}}).fetch();
+      if (speeches.length > 0) {
+          rank = speeches[0].rank+1;
+      }
+      Speeches.insert({
+          //subject: t.find("#keywords").value,
+          user: userId,
+          timeLeft: 0,
+          time: 600,
+          //orderChoose: order,
+          //timeString: "",
+          status: "pending",
+          meeting: Session.get("meetingId"),
+          rank: rank
+      });
+    //  Router.go('/meeting/' + Session.get("meetingId") + '/lineup');
     } else {
       Speeches.update(Speeches.findOne({user: Session.get("userId"), status: {$in: ["ongoing", "pending"]}})._id, {$set: {status: "done"}});
     }

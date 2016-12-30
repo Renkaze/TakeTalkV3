@@ -30,10 +30,8 @@ Router.route('/meeting/:_meetingId', {
           //Meteor.call('resetAll');
 
           Meetings.insert({
-              name: 'La Nuit de l\'Info',
+              name: 'WorkShop Evry',
               status: "ongoing",
-              ordres: ['Motiver les élèves', 'Former les participants', 'Préparer le repas du soir'],
-              ordreTimes: [90, 130, 268],
               password: '0000',
               reportLink: 'https://docs.google.com/document/d/15Pcc6L1ofe4bY2uxg0yxvaAZO_XZQPe8JlsnvnDUEaQ/edit?usp=sharing',
               _id: id
@@ -103,10 +101,10 @@ Router.route('/meeting/:_meetingId', {
         speeches.push({
             user: Users.findOne({_id: speech.user}).name,
             timeLeft: minutesLeft + ":" + secondsLeft,
-            timeString: speech.timeString,
+            //timeString: speech.timeString,
             time: minutes + ":" + seconds,
-            orderChoose: speech.orderChoose,
-            subject: speech.subject,
+            //orderChoose: speech.orderChoose,
+            //subject: speech.subject,
             status: speech.status == "ongoing",
             _id: speech._id,
             rank : speech.rank

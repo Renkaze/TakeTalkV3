@@ -829,11 +829,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/lib/Router.js?89e70de8b1d1e2c6b7b213617ba00dbe0ea852cb",
+      "url": "/app/lib/Router.js?d845895e78ad8565f7be37e99ff5a4d686a8c7ab",
       "sourceMap": "app/lib/Router.js.map",
-      "sourceMapUrl": "/app/lib/89e70de8b1d1e2c6b7b213617ba00dbe0ea852cb.map",
-      "size": 6907,
-      "hash": "89e70de8b1d1e2c6b7b213617ba00dbe0ea852cb"
+      "sourceMapUrl": "/app/lib/d845895e78ad8565f7be37e99ff5a4d686a8c7ab.map",
+      "size": 6761,
+      "hash": "d845895e78ad8565f7be37e99ff5a4d686a8c7ab"
     },
     {
       "path": "app/client/javascripts/events/create.js",
@@ -884,11 +884,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/javascripts/events/meeting.js?19c057e18a3069d2b30ff3d594d7c6653051d651",
+      "url": "/app/client/javascripts/events/meeting.js?8bb8132ae0ac9c22867dcad8cfcfae40373281d0",
       "sourceMap": "app/client/javascripts/events/meeting.js.map",
-      "sourceMapUrl": "/app/client/javascripts/events/19c057e18a3069d2b30ff3d594d7c6653051d651.map",
-      "size": 13925,
-      "hash": "19c057e18a3069d2b30ff3d594d7c6653051d651"
+      "sourceMapUrl": "/app/client/javascripts/events/8bb8132ae0ac9c22867dcad8cfcfae40373281d0.map",
+      "size": 14721,
+      "hash": "8bb8132ae0ac9c22867dcad8cfcfae40373281d0"
     },
     {
       "path": "app/collections/Meetings.js",
@@ -1124,15 +1124,6 @@
       "url": "/creator.png",
       "size": 180903,
       "hash": "81d90395053ccf1d16011b8510e5ac2f213af78f"
-    },
-    {
-      "path": "app/favicon.ico",
-      "where": "client",
-      "type": "asset",
-      "cacheable": false,
-      "url": "/favicon.ico",
-      "size": 5940,
-      "hash": "b080b599f8d6886071ad898f3127811c28b919a7"
     },
     {
       "path": "app/favicon2.ico",
