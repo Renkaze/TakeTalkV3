@@ -1043,6 +1043,7 @@
       "type": "js",
       "cacheable": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/app/lib/Router.js?hash=00bd050b59ce784084bd0ead96fd64b6e4895702",
       "size": 7180,
       "hash": "00bd050b59ce784084bd0ead96fd64b6e4895702"
@@ -1062,6 +1063,13 @@
       "size": 6907,
       "hash": "89e70de8b1d1e2c6b7b213617ba00dbe0ea852cb"
 >>>>>>> simplification UI & add Zone text report meeting
+=======
+      "url": "/app/lib/Router.js?d845895e78ad8565f7be37e99ff5a4d686a8c7ab",
+      "sourceMap": "app/lib/Router.js.map",
+      "sourceMapUrl": "/app/lib/d845895e78ad8565f7be37e99ff5a4d686a8c7ab.map",
+      "size": 6761,
+      "hash": "d845895e78ad8565f7be37e99ff5a4d686a8c7ab"
+>>>>>>> problem userId when you push Talk button
     },
     {
       "path": "app/client/javascripts/events/create.js",
@@ -1131,6 +1139,7 @@
       "cacheable": true,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/app/client/javascripts/events/meeting.js?hash=cc5de24928c7a4357fb309800202192cbc080099",
       "size": 15725,
       "hash": "cc5de24928c7a4357fb309800202192cbc080099"
@@ -1193,6 +1202,13 @@
       "size": 13925,
       "hash": "19c057e18a3069d2b30ff3d594d7c6653051d651"
 >>>>>>> simplification UI & add Zone text report meeting
+=======
+      "url": "/app/client/javascripts/events/meeting.js?8bb8132ae0ac9c22867dcad8cfcfae40373281d0",
+      "sourceMap": "app/client/javascripts/events/meeting.js.map",
+      "sourceMapUrl": "/app/client/javascripts/events/8bb8132ae0ac9c22867dcad8cfcfae40373281d0.map",
+      "size": 14721,
+      "hash": "8bb8132ae0ac9c22867dcad8cfcfae40373281d0"
+>>>>>>> problem userId when you push Talk button
     },
     {
       "path": "app/collections/Meetings.js",
@@ -1464,6 +1480,7 @@
       "hash": "e26a85710749843a7a5daa4120993b26c8951a9b"
     },
     {
+<<<<<<< HEAD
       "path": "app/favicon.ico",
       "where": "client",
       "type": "asset",
@@ -1473,6 +1490,8 @@
       "hash": "589cb1f250a6548f90ec0d6df8218d34dc6c43e3"
     },
     {
+=======
+>>>>>>> problem userId when you push Talk button
       "path": "app/favicon2.ico",
       "where": "client",
       "type": "asset",
