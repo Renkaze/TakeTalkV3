@@ -1,0 +1,36 @@
+<template name="groupPage">
+  <div class="main-content">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-heading"><span class="title">{{name}} {{#if ownGroup}}<button type="button" class="btn btn-danger delete">Delete</button>{{else}}<button type="button" class="btn btn-danger quit">Quit</button> {{/if}}</span></div>
+          <div class="panel-body">
+            {{#each members}}
+
+            <div class="input-group">
+                {{this}}
+                <span class="input-group-addon" id='min-input' role="button"><b>-</b></span>
+
+            </div>
+            <br/>
+
+            {{/each}}
+
+            <div class="input-group"><span class="input-group-addon">@</span>
+                <input name="AddedMember" type="email" parsley-type="email" value="{{value}}" placeholder="member mail" class="form-control"/>
+                <span class="input-group-addon" id='add-member' role="button"><b>+</b></span>
+            </div>
+
+            <br/><br/>
+
+            <p><button type="button" class="btn btn-primary">Launch meeting</button> </p>
+          </div>
+          <div class="panel-heading"></div>
+          <div class="panel-body">
+            <span> managed by {{authorName}} - {{authorAdress}} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -286,6 +286,10 @@
     },
     {
       "node_modules": "npm/node_modules",
+      "path": "app/lib/permissions.js"
+    },
+    {
+      "node_modules": "npm/node_modules",
       "path": "app/collections/Groups.js"
     },
     {
@@ -303,6 +307,10 @@
     {
       "node_modules": "npm/node_modules",
       "path": "app/server/methods.js"
+    },
+    {
+      "node_modules": "npm/node_modules",
+      "path": "app/server/publications.js"
     },
     {
       "path": "packages/service-configuration.js"

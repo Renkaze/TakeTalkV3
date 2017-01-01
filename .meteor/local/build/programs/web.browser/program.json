@@ -60,9 +60,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/modules.js?hash=11da5bd56a521d56eaf97fc6268b5a9f19786a01",
+      "url": "/packages/modules.js?hash=40e19e7ec8a9aa34e339c1adb700afe7db58c444",
       "size": 378180,
-      "hash": "11da5bd56a521d56eaf97fc6268b5a9f19786a01"
+      "hash": "40e19e7ec8a9aa34e339c1adb700afe7db58c444"
     },
     {
       "path": "packages/jquery.js",
@@ -114,18 +114,18 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/promise.js?hash=d33dfe2c4ba20393154f419ebfceeaf610499291",
+      "url": "/packages/promise.js?hash=0479747265c445049e05be3a06bbbb37ea295b80",
       "size": 65658,
-      "hash": "d33dfe2c4ba20393154f419ebfceeaf610499291"
+      "hash": "0479747265c445049e05be3a06bbbb37ea295b80"
     },
     {
       "path": "packages/ecmascript-runtime.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/ecmascript-runtime.js?hash=f7e181e2f8dad8ea7cdf1faaf8f3c1b47de11272",
+      "url": "/packages/ecmascript-runtime.js?hash=fffe20ae20ade1111a96909b90dde7ba91923e92",
       "size": 519496,
-      "hash": "f7e181e2f8dad8ea7cdf1faaf8f3c1b47de11272"
+      "hash": "fffe20ae20ade1111a96909b90dde7ba91923e92"
     },
     {
       "path": "packages/babel-compiler.js",
@@ -150,9 +150,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/babel-runtime.js?hash=1db3784a7268156b770997413c0a7a82d866994a",
+      "url": "/packages/babel-runtime.js?hash=81591737f14ce07f210dfca6637615da6aca10aa",
       "size": 11132,
-      "hash": "1db3784a7268156b770997413c0a7a82d866994a"
+      "hash": "81591737f14ce07f210dfca6637615da6aca10aa"
     },
     {
       "path": "packages/random.js",
@@ -491,9 +491,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/logging.js?hash=8dad5f8e6b9d1c7b8ff634da6ffbd796263af840",
+      "url": "/packages/logging.js?hash=532b25d978658fe9d6ae3bccd1c52eb105fb7d5b",
       "size": 225072,
-      "hash": "8dad5f8e6b9d1c7b8ff634da6ffbd796263af840"
+      "hash": "532b25d978658fe9d6ae3bccd1c52eb105fb7d5b"
     },
     {
       "path": "packages/mrt_jquery-ui.js",
@@ -572,11 +572,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/accounts-base.js?hash=5efc16f72200e013b1b825b33d2b567c6af15b84",
+      "url": "/packages/accounts-base.js?hash=dfba72beacc01e72b0f8fb3d7770c95ac774f2b8",
       "sourceMap": "packages/accounts-base.js.map",
-      "sourceMapUrl": "/packages/5efc16f72200e013b1b825b33d2b567c6af15b84.map",
-      "size": 147659,
-      "hash": "5efc16f72200e013b1b825b33d2b567c6af15b84"
+      "sourceMapUrl": "/packages/dfba72beacc01e72b0f8fb3d7770c95ac774f2b8.map",
+      "size": 154328,
+      "hash": "dfba72beacc01e72b0f8fb3d7770c95ac774f2b8"
     },
     {
       "path": "packages/anti_i18n.js",
@@ -586,15 +586,6 @@
       "url": "/packages/anti_i18n.js?hash=8960dc7613ff1467b213e4ed2dec27fb491d232b",
       "size": 12493,
       "hash": "8960dc7613ff1467b213e4ed2dec27fb491d232b"
-    },
-    {
-      "path": "packages/npm-bcrypt.js",
-      "where": "client",
-      "type": "js",
-      "cacheable": true,
-      "url": "/packages/npm-bcrypt.js?hash=ff6fc743201f60385f5a7a6168c915bfc58b6901",
-      "size": 719,
-      "hash": "ff6fc743201f60385f5a7a6168c915bfc58b6901"
     },
     {
       "path": "packages/sha.js",
@@ -619,11 +610,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/accounts-password.js?hash=ace2b7313a2f3440f82dffbbe068f3dd575fc4eb",
+      "url": "/packages/accounts-password.js?hash=6d4e41828e1dfcc45ff74267779a4e5ecdcd9eda",
       "sourceMap": "packages/accounts-password.js.map",
-      "sourceMapUrl": "/packages/ace2b7313a2f3440f82dffbbe068f3dd575fc4eb.map",
-      "size": 32280,
-      "hash": "ace2b7313a2f3440f82dffbbe068f3dd575fc4eb"
+      "sourceMapUrl": "/packages/6d4e41828e1dfcc45ff74267779a4e5ecdcd9eda.map",
+      "size": 33911,
+      "hash": "6d4e41828e1dfcc45ff74267779a4e5ecdcd9eda"
     },
     {
       "path": "packages/ian_accounts-ui-bootstrap-3.js",
@@ -633,6 +624,15 @@
       "url": "/packages/ian_accounts-ui-bootstrap-3.js?hash=e27c97032efae26b11dd04146509e767d9194a4d",
       "size": 673147,
       "hash": "e27c97032efae26b11dd04146509e767d9194a4d"
+    },
+    {
+      "path": "packages/npm-bcrypt.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/npm-bcrypt.js?hash=ff6fc743201f60385f5a7a6168c915bfc58b6901",
+      "size": 719,
+      "hash": "ff6fc743201f60385f5a7a6168c915bfc58b6901"
     },
     {
       "path": "packages/webapp.js",
@@ -731,9 +731,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/application/template.groups.js?hash=971ff2ef8b6b545ddf8741b6aa3237bfeb8c141e",
-      "size": 2753,
-      "hash": "971ff2ef8b6b545ddf8741b6aa3237bfeb8c141e"
+      "url": "/app/client/views/application/template.groups.js?hash=757de0aa88288e9fdf8b0d07cdab120185e928c3",
+      "size": 2320,
+      "hash": "757de0aa88288e9fdf8b0d07cdab120185e928c3"
     },
     {
       "path": "app/client/views/application/template.home.js",
@@ -770,6 +770,33 @@
       "url": "/app/client/views/application/template.tutorial.js?hash=9176dad2366d0af2124f923d6adb80ef3a5c453e",
       "size": 1309,
       "hash": "9176dad2366d0af2124f923d6adb80ef3a5c453e"
+    },
+    {
+      "path": "app/client/views/group/template.group_item.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/client/views/group/template.group_item.js?hash=4dacd712a9f1173ac8ce733ca587a8185c11ab60",
+      "size": 1019,
+      "hash": "4dacd712a9f1173ac8ce733ca587a8185c11ab60"
+    },
+    {
+      "path": "app/client/views/group/template.group_list.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/client/views/group/template.group_list.js?hash=445afd8eabd085f6ba0b0f86528dbfaa8b8c3cf6",
+      "size": 546,
+      "hash": "445afd8eabd085f6ba0b0f86528dbfaa8b8c3cf6"
+    },
+    {
+      "path": "app/client/views/group/template.group_page.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/client/views/group/template.group_page.js?hash=62da222a6e7e323f1466c1626b7d5f528003443f",
+      "size": 2643,
+      "hash": "62da222a6e7e323f1466c1626b7d5f528003443f"
     },
     {
       "path": "app/client/views/participants/template.join.js",
@@ -893,9 +920,18 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/lib/Router.js?hash=a39432d5cef58aeeb17f572b0c1f6e1862c7fa3e",
-      "size": 7062,
-      "hash": "a39432d5cef58aeeb17f572b0c1f6e1862c7fa3e"
+      "url": "/app/lib/Router.js?hash=00bd050b59ce784084bd0ead96fd64b6e4895702",
+      "size": 7180,
+      "hash": "00bd050b59ce784084bd0ead96fd64b6e4895702"
+    },
+    {
+      "path": "app/lib/permissions.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/lib/permissions.js?hash=50b75585787f6b34f1e0d292c2f74b643bf11a3e",
+      "size": 162,
+      "hash": "50b75585787f6b34f1e0d292c2f74b643bf11a3e"
     },
     {
       "path": "app/client/javascripts/events/create.js",
@@ -952,6 +988,33 @@
       "hash": "cc5de24928c7a4357fb309800202192cbc080099"
     },
     {
+      "path": "app/client/views/group/group_item.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/client/views/group/group_item.js?hash=28f34234882ceb0d7d039418acfc775944087d7e",
+      "size": 441,
+      "hash": "28f34234882ceb0d7d039418acfc775944087d7e"
+    },
+    {
+      "path": "app/client/views/group/group_list.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/client/views/group/group_list.js?hash=b1038f198afe01534e3d14cd25d80b68e088f3fd",
+      "size": 115,
+      "hash": "b1038f198afe01534e3d14cd25d80b68e088f3fd"
+    },
+    {
+      "path": "app/client/views/group/group_page.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/client/views/group/group_page.js?hash=5df21debf82e17d224f393f345cf77e1cd654d49",
+      "size": 1735,
+      "hash": "5df21debf82e17d224f393f345cf77e1cd654d49"
+    },
+    {
       "path": "app/client/helpers/config.js",
       "where": "client",
       "type": "js",
@@ -965,9 +1028,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/collections/Groups.js?hash=35bcad7edf24d8600210c7f1caacfd43b20582d0",
-      "size": 744,
-      "hash": "35bcad7edf24d8600210c7f1caacfd43b20582d0"
+      "url": "/app/collections/Groups.js?hash=459cdcfa6cee9df51fb377a7b8e24cd8a3c49298",
+      "size": 1001,
+      "hash": "459cdcfa6cee9df51fb377a7b8e24cd8a3c49298"
     },
     {
       "path": "app/collections/Meetings.js",
@@ -1004,6 +1067,15 @@
       "url": "/app/client/javascripts/lib/main.js?hash=d607941b50301647df0e29ed32532c018dc2e9a1",
       "size": 71914,
       "hash": "d607941b50301647df0e29ed32532c018dc2e9a1"
+    },
+    {
+      "path": "app/client/javascripts/main.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/client/javascripts/main.js?hash=f042f63903b2f526780c77901a6ad128b6f33955",
+      "size": 56,
+      "hash": "f042f63903b2f526780c77901a6ad128b6f33955"
     },
     {
       "path": "packages/service-configuration.js",
@@ -1148,8 +1220,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Bold-webfont.svg",
-      "size": 118259,
-      "hash": "c18ac634c9bca60bbb48c42e76212d1deeaea3cb"
+      "size": 120088,
+      "hash": "e34021d46721f99c4b9dd82c8246d7c0394e7227"
     },
     {
       "path": "app/fonts/OpenSans-Bold-webfont.woff",
@@ -1175,8 +1247,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-BoldItalic-webfont.svg",
-      "size": 121112,
-      "hash": "cb10ee646318c39a6851f4c2351ea798a6d54ebe"
+      "size": 122941,
+      "hash": "290145de3bd375376d6a147faf9b460a54a879f8"
     },
     {
       "path": "app/fonts/OpenSans-BoldItalic-webfont.woff",
@@ -1202,8 +1274,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Italic-webfont.svg",
-      "size": 122495,
-      "hash": "b954a888cc012a1b93d7613d2eb3bcb22944dc57"
+      "size": 124324,
+      "hash": "a04d45ccf5e35497f0fb145cb567fd7b45b75b1c"
     },
     {
       "path": "app/fonts/OpenSans-Italic-webfont.woff",
@@ -1229,8 +1301,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Light-webfont.svg",
-      "size": 117270,
-      "hash": "be5434ca73651bdfbc8c7241cce0cda38f528355"
+      "size": 119100,
+      "hash": "e4540ddec1a09ae2a152dbe4612a4410f55cf2ff"
     },
     {
       "path": "app/fonts/OpenSans-Light-webfont.woff",
@@ -1256,8 +1328,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-LightItalic-webfont.svg",
-      "size": 122968,
-      "hash": "42f7ebf8d0028d195739bfa48a6d9bcf39e3e29e"
+      "size": 124802,
+      "hash": "78ea4250f31d13aade366be9cf5039a4e951de7e"
     },
     {
       "path": "app/fonts/OpenSans-LightItalic-webfont.woff",
@@ -1283,8 +1355,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Regular-webfont.svg",
-      "size": 119399,
-      "hash": "eb6b7126484e9966aa23b8158e2cf8dd9120b53a"
+      "size": 121229,
+      "hash": "9aa3daf84b07cee719b302e2333b76f01fc475cb"
     },
     {
       "path": "app/fonts/OpenSans-Regular-webfont.woff",
@@ -1355,8 +1427,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/glyphicons-halflings-regular.svg",
-      "size": 108738,
-      "hash": "79a351a269ccbdab7745962bfd40cf86c2b9bc95"
+      "size": 109025,
+      "hash": "c5a029a138d8ea5237d92ddd80e8e21b4c42aea8"
     },
     {
       "path": "app/fonts/glyphicons-halflings-regular.ttf",

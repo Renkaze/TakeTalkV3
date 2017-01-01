@@ -18,19 +18,15 @@
     <div class="main-content">
       <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-3">
+
           <div class="panel panel-default">
             {{#if currentUser}}
-            <div class="panel-heading"><span class="title">Managed groups</span></div>
-            <div class="panel-body">
-              {{#each groups}}
-              {{name}}
-              {{/each}}
-              <p>List of the functonalities</p>
-            </div>
-            <div class="panel-heading"><span class="title">Other groups</span></div>
-            <div class="panel-body">
+            <div class="panel-heading"><span class="title">Your groups</span></div>
 
-              <p>List of the functonalities</p>
+            <div class="panel-body">
+              <u> managed groups</u>
+              <br/><br/><br/>
+              {{> groupsList}}
             </div>
 
 

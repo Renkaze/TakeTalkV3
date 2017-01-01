@@ -18,7 +18,10 @@ Router.route('/downloads', {name: 'downloads'});
 /** The route to the group page **/
 Router.route('/groups', {name:'groups'});
 Router.route('/groupSubmit', {name:'groupSubmit'});
-
+Router.route('/groups/:_id', {
+  name: 'groupPage',
+  data: function() { return Groups.findOne(this.params._id); }
+});
 
 //TOM FIN
 

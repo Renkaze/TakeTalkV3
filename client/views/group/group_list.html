@@ -1,0 +1,9 @@
+<template name="groupsList">
+  <div class="groups">
+    {{#each groups}}
+      {{> groupItem}}
+    {{else}}
+      <li class="placeholder">Vous n'avez pas de groupe </li>
+    {{/each}}
+  </div>
+</template>
