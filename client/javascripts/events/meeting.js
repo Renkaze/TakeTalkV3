@@ -3,7 +3,13 @@ var timerId = 0;
 //Initialisation de la fonction de tri par drag'n'drop des speech
 var sortableList;
 
-
+Template.meeting.onRendered(function () {
+$(document).ready(function(){
+  $('#textareaRich').summernote({
+    height: 300,
+  });
+});
+});
 
 
 
@@ -47,11 +53,7 @@ function computeSortable(element) {
   })
 };
 
-Template.meeting.onRendered(function () {
-  $(document).ready(function() {
-  $('#textareaRich').summernote();
-});
-});
+
 //Appel de la fonction d'initialisation de tri par drag'n'drop à la fin du rendu de la page
 Template.meeting.rendered = function () {
   // sortableList = this.$('#speech-list');
@@ -65,37 +67,27 @@ Template.meeting.rendered = function () {
 
 /** The events that meeting template contains */
 Template.meeting.events({
-  /** A click on talk opens the lineup page */
   'click #talkCancel': function(e) {
-console.log("I click on Talk");
+    console.log("I click on Talk");
     //à modifier
-    if(e.target.value == "Talk") {
-      //var submitTime = t.find(".timeButton:checked").value;
       var userId = Session.get("userId");
-      //var userId = $(e.target).attr("user-id");
       var rank = 1;
-console.log("userId = " + userId);
+      console.log("userId = " + userId);
       //Recherche du speech ayant le plus haut rang
       speeches = Speeches.find({meeting: Session.get("meetingId")}, {sort: {rank: -1}}).fetch();
       if (speeches.length > 0) {
           rank = speeches[0].rank+1;
       }
       Speeches.insert({
-          //subject: t.find("#keywords").value,
           user: userId,
           timeLeft: 0,
-          time: 600,
-          //orderChoose: order,
-          //timeString: "",
           status: "pending",
           meeting: Session.get("meetingId"),
           rank: rank
       });
-    //  Router.go('/meeting/' + Session.get("meetingId") + '/lineup');
-    } else {
-      Speeches.update(Speeches.findOne({user: Session.get("userId"), status: {$in: ["ongoing", "pending"]}})._id, {$set: {status: "done"}});
-    }
   },
+
+
   /** A click on waitProceed starts or stops the timer */
   'click #waitProceed': function(e) {
     //Arret du timer

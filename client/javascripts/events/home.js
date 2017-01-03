@@ -5,8 +5,5 @@ Template.home.events({
         Router.go('create');
     }
 });
-<<<<<<< HEAD:client/javascripts/events/home.js
-=======
 
 }).call(this);
->>>>>>> ajout zone de text riche:.meteor/local/build/programs/web.cordova/app/client/javascripts/events/home.js
