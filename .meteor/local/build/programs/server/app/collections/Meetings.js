@@ -12,5 +12,3 @@ Meetings = new Mongo.Collection("meetings");
  // pwd : "",
 
 }).call(this);
-
-//# sourceMappingURL=Meetings.js.map

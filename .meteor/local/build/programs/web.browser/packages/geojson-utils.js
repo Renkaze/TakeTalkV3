@@ -12,33 +12,28 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
+var meteorInstall = Package.modules.meteorInstall;
+var Buffer = Package.modules.Buffer;
+var process = Package.modules.process;
 
 /* Package-scope variables */
-var module, GeoJSON;
+var GeoJSON;
 
-(function(){
+var require = meteorInstall({"node_modules":{"meteor":{"geojson-utils":{"main.js":["./geojson-utils.js",function(require,exports){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                         //
-// packages/geojson-utils/pre.js                                                                           //
+// packages/geojson-utils/main.js                                                                          //
 //                                                                                                         //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                                                                                            //
-// Define an object named exports. This will cause geojson-utils.js to put `gju`                           // 1
-// as a field on it, instead of in the global namespace.  See also post.js.                                // 2
-module = {exports:{}};                                                                                     // 3
-                                                                                                           // 4
-                                                                                                           // 5
+exports.GeoJSON = require("./geojson-utils.js");                                                           // 1
+                                                                                                           // 2
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-}).call(this);
-
-
-
-
-
-
-(function(){
+}],"geojson-utils.js":function(require,exports,module){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                         //
@@ -429,35 +424,16 @@ module = {exports:{}};                                                          
                                                                                                            // 381
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-}).call(this);
-
-
-
-
-
-
-(function(){
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                         //
-// packages/geojson-utils/post.js                                                                          //
-//                                                                                                         //
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                           //
-// This exports object was created in pre.js.  Now copy the `exports` object                               // 1
-// from it into the package-scope variable `GeoJSON`, which will get exported.                             // 2
-GeoJSON = module.exports;                                                                                  // 3
-                                                                                                           // 4
-                                                                                                           // 5
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-}).call(this);
-
+}}}}},{"extensions":[".js",".json"]});
+var exports = require("./node_modules/meteor/geojson-utils/main.js");
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package['geojson-utils'] = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package['geojson-utils'] = exports, {
   GeoJSON: GeoJSON
-};
+});
 
 })();

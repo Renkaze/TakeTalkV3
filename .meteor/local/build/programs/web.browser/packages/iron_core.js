@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var _ = Package.underscore._;
 var EJSON = Package.ejson.EJSON;
 
@@ -20,21 +22,13 @@ var Iron;
 
 (function(){
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                                                                                     //
-// packages/iron_core/packages/iron_core.js                                                            //
-//                                                                                                     //
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                                                                                       //
-(function () {                                                                                         // 1
-                                                                                                       // 2
-//////////////////////////////////////////////////////////////////////////////////////////////////     // 3
-//                                                                                              //     // 4
-// packages/iron:core/lib/version_conflict_error.js                                             //     // 5
-//                                                                                              //     // 6
-//////////////////////////////////////////////////////////////////////////////////////////////////     // 7
-                                                                                                //     // 8
-if (Package['cmather:iron-core']) {                                                             // 1   // 9
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                              //
+// packages/iron_core/lib/version_conflict_error.js                                             //
+//                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                //
+if (Package['cmather:iron-core']) {                                                             // 1
   throw new Error("\n\n\
     Sorry! The cmather:iron-{x} packages were migrated to the new package system with the wrong name, and you have duplicate copies.\n\
     You can see which cmather:iron-{x} packages have been installed by using this command:\n\n\
@@ -50,125 +44,125 @@ if (Package['cmather:iron-core']) {                                             
     > meteor add iron:router\n\n\
     Sorry for the hassle, but thank you!\
     \n\n\
-  ");                                                                                           // 17  // 25
-}                                                                                               // 18  // 26
-                                                                                                // 19  // 27
-//////////////////////////////////////////////////////////////////////////////////////////////////     // 28
-                                                                                                       // 29
-}).call(this);                                                                                         // 30
-                                                                                                       // 31
-                                                                                                       // 32
-                                                                                                       // 33
-                                                                                                       // 34
-                                                                                                       // 35
-                                                                                                       // 36
-(function () {                                                                                         // 37
-                                                                                                       // 38
-//////////////////////////////////////////////////////////////////////////////////////////////////     // 39
-//                                                                                              //     // 40
-// packages/iron:core/lib/iron_core.js                                                          //     // 41
-//                                                                                              //     // 42
-//////////////////////////////////////////////////////////////////////////////////////////////////     // 43
-                                                                                                //     // 44
-Iron = {};                                                                                      // 1   // 45
-Iron.utils = {};                                                                                // 2   // 46
-                                                                                                // 3   // 47
-/**                                                                                             // 4   // 48
- * Assert that the given condition is truthy and throw an error if not.                         // 5   // 49
- */                                                                                             // 6   // 50
-                                                                                                // 7   // 51
-Iron.utils.assert = function (condition, msg) {                                                 // 8   // 52
-  if (!condition)                                                                               // 9   // 53
-    throw new Error(msg);                                                                       // 10  // 54
-};                                                                                              // 11  // 55
-                                                                                                // 12  // 56
-/**                                                                                             // 13  // 57
- * Print a warning message to the console if the console is defined.                            // 14  // 58
- */                                                                                             // 15  // 59
-Iron.utils.warn = function (condition, msg) {                                                   // 16  // 60
-  if (!condition)                                                                               // 17  // 61
-    console && console.warn && console.warn(msg);                                               // 18  // 62
-};                                                                                              // 19  // 63
-                                                                                                // 20  // 64
-/**                                                                                             // 21  // 65
- * Given a target object and a property name, if the value of that property is                  // 22  // 66
- * undefined, set a default value and return it. If the value is already                        // 23  // 67
- * defined, return the existing value.                                                          // 24  // 68
- */                                                                                             // 25  // 69
-Iron.utils.defaultValue = function (target, prop, value) {                                      // 26  // 70
-  if (typeof target[prop] === 'undefined') {                                                    // 27  // 71
-    target[prop] = value;                                                                       // 28  // 72
-    return value;                                                                               // 29  // 73
-  } else {                                                                                      // 30  // 74
-    return target[prop]                                                                         // 31  // 75
-  }                                                                                             // 32  // 76
-};                                                                                              // 33  // 77
-                                                                                                // 34  // 78
-/**                                                                                             // 35  // 79
- * Make one constructor function inherit from another. Optionally provide                       // 36  // 80
- * prototype properties for the child.                                                          // 37  // 81
- *                                                                                              // 38  // 82
- * @param {Function} Child The child constructor function.                                      // 39  // 83
- * @param {Function} Parent The parent constructor function.                                    // 40  // 84
- * @param {Object} [props] Prototype properties to add to the child                             // 41  // 85
- */                                                                                             // 42  // 86
-Iron.utils.inherits = function (Child, Parent, props) {                                         // 43  // 87
-  Iron.utils.assert(typeof Child !== "undefined", "Child is undefined in inherits function");   // 44  // 88
-  Iron.utils.assert(typeof Parent !== "undefined", "Parent is undefined in inherits function"); // 45  // 89
-                                                                                                // 46  // 90
-  // copy static fields                                                                         // 47  // 91
-  for (var key in Parent) {                                                                     // 48  // 92
-    if (_.has(Parent, key))                                                                     // 49  // 93
-      Child[key] = EJSON.clone(Parent[key]);                                                    // 50  // 94
-  }                                                                                             // 51  // 95
-                                                                                                // 52  // 96
-  var Middle = function () {                                                                    // 53  // 97
-    this.constructor = Child;                                                                   // 54  // 98
-  };                                                                                            // 55  // 99
-                                                                                                // 56  // 100
-  // hook up the proto chain                                                                    // 57  // 101
-  Middle.prototype = Parent.prototype;                                                          // 58  // 102
-  Child.prototype = new Middle;                                                                 // 59  // 103
-  Child.__super__ = Parent.prototype;                                                           // 60  // 104
-                                                                                                // 61  // 105
-  // copy over the prototype props                                                              // 62  // 106
-  if (_.isObject(props))                                                                        // 63  // 107
-    _.extend(Child.prototype, props);                                                           // 64  // 108
-                                                                                                // 65  // 109
-  return Child;                                                                                 // 66  // 110
-};                                                                                              // 67  // 111
-                                                                                                // 68  // 112
-/**                                                                                             // 69  // 113
- * Create a new constructor function that inherits from Parent and copy in the                  // 70  // 114
- * provided prototype properties.                                                               // 71  // 115
- *                                                                                              // 72  // 116
- * @param {Function} Parent The parent constructor function.                                    // 73  // 117
- * @param {Object} [props] Prototype properties to add to the child                             // 74  // 118
- */                                                                                             // 75  // 119
-Iron.utils.extend = function (Parent, props) {                                                  // 76  // 120
-  props = props || {};                                                                          // 77  // 121
-                                                                                                // 78  // 122
-  var ctor = function () {                                                                      // 79  // 123
-    // automatically call the parent constructor if a new one                                   // 80  // 124
-    // isn't provided.                                                                          // 81  // 125
-    var constructor;                                                                            // 82  // 126
-    if (_.has(props, 'constructor'))                                                            // 83  // 127
-      constructor = props.constructor                                                           // 84  // 128
-    else                                                                                        // 85  // 129
-      constructor = ctor.__super__.constructor;                                                 // 86  // 130
-                                                                                                // 87  // 131
-    constructor.apply(this, arguments);                                                         // 88  // 132
-  };                                                                                            // 89  // 133
-                                                                                                // 90  // 134
-  return Iron.utils.inherits(ctor, Parent, props);                                              // 91  // 135
-};                                                                                              // 92  // 136
-                                                                                                // 93  // 137
-/**                                                                                             // 94  // 138
- * Either window in the browser or global in NodeJS.                                            // 95  // 139
- */                                                                                             // 96  // 140
-Iron.utils.global = (function () {                                                              // 97  // 141
-  return Meteor.isClient ? window : global;                                                     // 98  // 142
-})();                                                                                           // 99  // 143
+  ");                                                                                           // 17
+}                                                                                               // 18
+                                                                                                // 19
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+}).call(this);
+
+
+
+
+
+
+(function(){
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                              //
+// packages/iron_core/lib/iron_core.js                                                          //
+//                                                                                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                //
+Iron = {};                                                                                      // 1
+Iron.utils = {};                                                                                // 2
+                                                                                                // 3
+/**                                                                                             // 4
+ * Assert that the given condition is truthy and throw an error if not.                         // 5
+ */                                                                                             // 6
+                                                                                                // 7
+Iron.utils.assert = function (condition, msg) {                                                 // 8
+  if (!condition)                                                                               // 9
+    throw new Error(msg);                                                                       // 10
+};                                                                                              // 11
+                                                                                                // 12
+/**                                                                                             // 13
+ * Print a warning message to the console if the console is defined.                            // 14
+ */                                                                                             // 15
+Iron.utils.warn = function (condition, msg) {                                                   // 16
+  if (!condition)                                                                               // 17
+    console && console.warn && console.warn(msg);                                               // 18
+};                                                                                              // 19
+                                                                                                // 20
+/**                                                                                             // 21
+ * Given a target object and a property name, if the value of that property is                  // 22
+ * undefined, set a default value and return it. If the value is already                        // 23
+ * defined, return the existing value.                                                          // 24
+ */                                                                                             // 25
+Iron.utils.defaultValue = function (target, prop, value) {                                      // 26
+  if (typeof target[prop] === 'undefined') {                                                    // 27
+    target[prop] = value;                                                                       // 28
+    return value;                                                                               // 29
+  } else {                                                                                      // 30
+    return target[prop]                                                                         // 31
+  }                                                                                             // 32
+};                                                                                              // 33
+                                                                                                // 34
+/**                                                                                             // 35
+ * Make one constructor function inherit from another. Optionally provide                       // 36
+ * prototype properties for the child.                                                          // 37
+ *                                                                                              // 38
+ * @param {Function} Child The child constructor function.                                      // 39
+ * @param {Function} Parent The parent constructor function.                                    // 40
+ * @param {Object} [props] Prototype properties to add to the child                             // 41
+ */                                                                                             // 42
+Iron.utils.inherits = function (Child, Parent, props) {                                         // 43
+  Iron.utils.assert(typeof Child !== "undefined", "Child is undefined in inherits function");   // 44
+  Iron.utils.assert(typeof Parent !== "undefined", "Parent is undefined in inherits function");
+                                                                                                // 46
+  // copy static fields                                                                         // 47
+  for (var key in Parent) {                                                                     // 48
+    if (_.has(Parent, key))                                                                     // 49
+      Child[key] = EJSON.clone(Parent[key]);                                                    // 50
+  }                                                                                             // 51
+                                                                                                // 52
+  var Middle = function () {                                                                    // 53
+    this.constructor = Child;                                                                   // 54
+  };                                                                                            // 55
+                                                                                                // 56
+  // hook up the proto chain                                                                    // 57
+  Middle.prototype = Parent.prototype;                                                          // 58
+  Child.prototype = new Middle;                                                                 // 59
+  Child.__super__ = Parent.prototype;                                                           // 60
+                                                                                                // 61
+  // copy over the prototype props                                                              // 62
+  if (_.isObject(props))                                                                        // 63
+    _.extend(Child.prototype, props);                                                           // 64
+                                                                                                // 65
+  return Child;                                                                                 // 66
+};                                                                                              // 67
+                                                                                                // 68
+/**                                                                                             // 69
+ * Create a new constructor function that inherits from Parent and copy in the                  // 70
+ * provided prototype properties.                                                               // 71
+ *                                                                                              // 72
+ * @param {Function} Parent The parent constructor function.                                    // 73
+ * @param {Object} [props] Prototype properties to add to the child                             // 74
+ */                                                                                             // 75
+Iron.utils.extend = function (Parent, props) {                                                  // 76
+  props = props || {};                                                                          // 77
+                                                                                                // 78
+  var ctor = function () {                                                                      // 79
+    // automatically call the parent constructor if a new one                                   // 80
+    // isn't provided.                                                                          // 81
+    var constructor;                                                                            // 82
+    if (_.has(props, 'constructor'))                                                            // 83
+      constructor = props.constructor                                                           // 84
+    else                                                                                        // 85
+      constructor = ctor.__super__.constructor;                                                 // 86
+                                                                                                // 87
+    constructor.apply(this, arguments);                                                         // 88
+  };                                                                                            // 89
+                                                                                                // 90
+  return Iron.utils.inherits(ctor, Parent, props);                                              // 91
+};                                                                                              // 92
+                                                                                                // 93
+/**                                                                                             // 94
+ * Either window in the browser or global in NodeJS.                                            // 95
+ */                                                                                             // 96
+Iron.utils.global = (function () {                                                              // 97
+  return Meteor.isClient ? window : global;                                                     // 98
+})();                                                                                           // 99
                                                                                                 // 100
 /**                                                                                             // 101
  * Ensure a given namespace exists and assign it to the given value or                          // 102
@@ -352,19 +346,18 @@ Iron.utils.get = function (obj /*, arguments */) {                              
 // make sure Iron ends up in the global namespace                                               // 280
 Iron.utils.global.Iron = Iron;                                                                  // 281
                                                                                                 // 282
-//////////////////////////////////////////////////////////////////////////////////////////////////     // 327
-                                                                                                       // 328
-}).call(this);                                                                                         // 329
-                                                                                                       // 330
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
 
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package['iron:core'] = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package['iron:core'] = {}, {
   Iron: Iron
-};
+});
 
 })();

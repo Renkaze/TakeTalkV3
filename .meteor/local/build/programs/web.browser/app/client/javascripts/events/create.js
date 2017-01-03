@@ -76,8 +76,8 @@ Template.create.events({
         var meetingId = Meetings.insert({
             name: e.target.meetingName.value,
             status: "ongoing",
-            ordres: ordres,
-            ordreTimes: ordreTimes,
+            //ordres: ordres,
+            //ordreTimes: ordreTimes,
             password: pass,
             reportLink: (e.target.reportLink.value !== undefined) ? e.target.reportLink.value : ""
         });

@@ -12,14 +12,16 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
-var HTML = Package.htmljs.HTML;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
+var ObserveSequence = Package['observe-sequence'].ObserveSequence;
+var _ = Package.underscore._;
 var Tracker = Package.tracker.Tracker;
 var Deps = Package.tracker.Deps;
+var HTML = Package.htmljs.HTML;
 var Blaze = Package.blaze.Blaze;
 var UI = Package.blaze.UI;
 var Handlebars = Package.blaze.Handlebars;
-var ObserveSequence = Package['observe-sequence'].ObserveSequence;
-var _ = Package.underscore._;
 
 /* Package-scope variables */
 var Spacebars;
@@ -151,168 +153,171 @@ Spacebars.makeRaw = function (value) {                                          
     return HTML.Raw(value);                                                      // 117
 };                                                                               // 118
                                                                                  // 119
-// If `value` is a function, called it on the `args`, after                      // 120
-// evaluating the args themselves (by calling them if they are                   // 121
-// functions).  Otherwise, simply return `value` (and assert that                // 122
-// there are no args).                                                           // 123
-Spacebars.call = function (value/*, args*/) {                                    // 124
-  if (typeof value === 'function') {                                             // 125
-    // evaluate arguments if they are functions (by calling them)                // 126
-    var newArgs = [];                                                            // 127
-    for (var i = 1; i < arguments.length; i++) {                                 // 128
-      var arg = arguments[i];                                                    // 129
-      newArgs[i-1] = (typeof arg === 'function' ? arg() : arg);                  // 130
-    }                                                                            // 131
-                                                                                 // 132
-    return value.apply(null, newArgs);                                           // 133
-  } else {                                                                       // 134
-    if (arguments.length > 1)                                                    // 135
-      throw new Error("Can't call non-function: " + value);                      // 136
-                                                                                 // 137
-    return value;                                                                // 138
-  }                                                                              // 139
-};                                                                               // 140
-                                                                                 // 141
-// Call this as `Spacebars.kw({ ... })`.  The return value                       // 142
-// is `instanceof Spacebars.kw`.                                                 // 143
-Spacebars.kw = function (hash) {                                                 // 144
-  if (! (this instanceof Spacebars.kw))                                          // 145
-    // called without new; call with new                                         // 146
-    return new Spacebars.kw(hash);                                               // 147
-                                                                                 // 148
-  this.hash = hash || {};                                                        // 149
-};                                                                               // 150
+// If `value` is a function, evaluate its `args` (by calling them, if they       // 120
+// are functions), and then call it on them. Otherwise, return `value`.          // 121
+//                                                                               // 122
+// If `value` is not a function and is not null, then this method will assert    // 123
+// that there are no args. We check for null before asserting because a user     // 124
+// may write a template like {{user.fullNameWithPrefix 'Mr.'}}, where the        // 125
+// function will be null until data is ready.                                    // 126
+Spacebars.call = function (value/*, args*/) {                                    // 127
+  if (typeof value === 'function') {                                             // 128
+    // Evaluate arguments by calling them if they are functions.                 // 129
+    var newArgs = [];                                                            // 130
+    for (var i = 1; i < arguments.length; i++) {                                 // 131
+      var arg = arguments[i];                                                    // 132
+      newArgs[i-1] = (typeof arg === 'function' ? arg() : arg);                  // 133
+    }                                                                            // 134
+                                                                                 // 135
+    return value.apply(null, newArgs);                                           // 136
+  } else {                                                                       // 137
+    if (value != null && arguments.length > 1) {                                 // 138
+      throw new Error("Can't call non-function: " + value);                      // 139
+    }                                                                            // 140
+    return value;                                                                // 141
+  }                                                                              // 142
+};                                                                               // 143
+                                                                                 // 144
+// Call this as `Spacebars.kw({ ... })`.  The return value                       // 145
+// is `instanceof Spacebars.kw`.                                                 // 146
+Spacebars.kw = function (hash) {                                                 // 147
+  if (! (this instanceof Spacebars.kw))                                          // 148
+    // called without new; call with new                                         // 149
+    return new Spacebars.kw(hash);                                               // 150
                                                                                  // 151
-// Call this as `Spacebars.SafeString("some HTML")`.  The return value           // 152
+  this.hash = hash || {};                                                        // 152
+};                                                                               // 153
+                                                                                 // 154
+// Call this as `Spacebars.SafeString("some HTML")`.  The return value           // 155
 // is `instanceof Spacebars.SafeString` (and `instanceof Handlebars.SafeString).
-Spacebars.SafeString = function (html) {                                         // 154
-  if (! (this instanceof Spacebars.SafeString))                                  // 155
-    // called without new; call with new                                         // 156
-    return new Spacebars.SafeString(html);                                       // 157
-                                                                                 // 158
-  return new Handlebars.SafeString(html);                                        // 159
-};                                                                               // 160
-Spacebars.SafeString.prototype = Handlebars.SafeString.prototype;                // 161
-                                                                                 // 162
-// `Spacebars.dot(foo, "bar", "baz")` performs a special kind                    // 163
-// of `foo.bar.baz` that allows safe indexing of `null` and                      // 164
-// indexing of functions (which calls the function).  If the                     // 165
-// result is a function, it is always a bound function (e.g.                     // 166
-// a wrapped version of `baz` that always uses `foo.bar` as                      // 167
-// `this`).                                                                      // 168
-//                                                                               // 169
-// In `Spacebars.dot(foo, "bar")`, `foo` is assumed to be either                 // 170
-// a non-function value or a "fully-bound" function wrapping a value,            // 171
-// where fully-bound means it takes no arguments and ignores `this`.             // 172
-//                                                                               // 173
-// `Spacebars.dot(foo, "bar")` performs the following steps:                     // 174
-//                                                                               // 175
-// * If `foo` is falsy, return `foo`.                                            // 176
-//                                                                               // 177
-// * If `foo` is a function, call it (set `foo` to `foo()`).                     // 178
-//                                                                               // 179
-// * If `foo` is falsy now, return `foo`.                                        // 180
-//                                                                               // 181
-// * Return `foo.bar`, binding it to `foo` if it's a function.                   // 182
-Spacebars.dot = function (value, id1/*, id2, ...*/) {                            // 183
-  if (arguments.length > 2) {                                                    // 184
-    // Note: doing this recursively is probably less efficient than              // 185
-    // doing it in an iterative loop.                                            // 186
-    var argsForRecurse = [];                                                     // 187
-    argsForRecurse.push(Spacebars.dot(value, id1));                              // 188
-    argsForRecurse.push.apply(argsForRecurse,                                    // 189
-                              Array.prototype.slice.call(arguments, 2));         // 190
-    return Spacebars.dot.apply(null, argsForRecurse);                            // 191
-  }                                                                              // 192
-                                                                                 // 193
-  if (typeof value === 'function')                                               // 194
-    value = value();                                                             // 195
+Spacebars.SafeString = function (html) {                                         // 157
+  if (! (this instanceof Spacebars.SafeString))                                  // 158
+    // called without new; call with new                                         // 159
+    return new Spacebars.SafeString(html);                                       // 160
+                                                                                 // 161
+  return new Handlebars.SafeString(html);                                        // 162
+};                                                                               // 163
+Spacebars.SafeString.prototype = Handlebars.SafeString.prototype;                // 164
+                                                                                 // 165
+// `Spacebars.dot(foo, "bar", "baz")` performs a special kind                    // 166
+// of `foo.bar.baz` that allows safe indexing of `null` and                      // 167
+// indexing of functions (which calls the function).  If the                     // 168
+// result is a function, it is always a bound function (e.g.                     // 169
+// a wrapped version of `baz` that always uses `foo.bar` as                      // 170
+// `this`).                                                                      // 171
+//                                                                               // 172
+// In `Spacebars.dot(foo, "bar")`, `foo` is assumed to be either                 // 173
+// a non-function value or a "fully-bound" function wrapping a value,            // 174
+// where fully-bound means it takes no arguments and ignores `this`.             // 175
+//                                                                               // 176
+// `Spacebars.dot(foo, "bar")` performs the following steps:                     // 177
+//                                                                               // 178
+// * If `foo` is falsy, return `foo`.                                            // 179
+//                                                                               // 180
+// * If `foo` is a function, call it (set `foo` to `foo()`).                     // 181
+//                                                                               // 182
+// * If `foo` is falsy now, return `foo`.                                        // 183
+//                                                                               // 184
+// * Return `foo.bar`, binding it to `foo` if it's a function.                   // 185
+Spacebars.dot = function (value, id1/*, id2, ...*/) {                            // 186
+  if (arguments.length > 2) {                                                    // 187
+    // Note: doing this recursively is probably less efficient than              // 188
+    // doing it in an iterative loop.                                            // 189
+    var argsForRecurse = [];                                                     // 190
+    argsForRecurse.push(Spacebars.dot(value, id1));                              // 191
+    argsForRecurse.push.apply(argsForRecurse,                                    // 192
+                              Array.prototype.slice.call(arguments, 2));         // 193
+    return Spacebars.dot.apply(null, argsForRecurse);                            // 194
+  }                                                                              // 195
                                                                                  // 196
-  if (! value)                                                                   // 197
-    return value; // falsy, don't index, pass through                            // 198
+  if (typeof value === 'function')                                               // 197
+    value = value();                                                             // 198
                                                                                  // 199
-  var result = value[id1];                                                       // 200
-  if (typeof result !== 'function')                                              // 201
-    return result;                                                               // 202
-  // `value[id1]` (or `value()[id1]`) is a function.                             // 203
-  // Bind it so that when called, `value` will be placed in `this`.              // 204
-  return function (/*arguments*/) {                                              // 205
-    return result.apply(value, arguments);                                       // 206
-  };                                                                             // 207
-};                                                                               // 208
-                                                                                 // 209
-// Spacebars.With implements the conditional logic of rendering                  // 210
-// the `{{else}}` block if the argument is falsy.  It combines                   // 211
-// a Blaze.If with a Blaze.With (the latter only in the truthy                   // 212
-// case, since the else block is evaluated without entering                      // 213
-// a new data context).                                                          // 214
-Spacebars.With = function (argFunc, contentFunc, elseFunc) {                     // 215
-  var argVar = new Blaze.ReactiveVar;                                            // 216
-  var view = Blaze.View('Spacebars_with', function () {                          // 217
-    return Blaze.If(function () { return argVar.get(); },                        // 218
-                    function () { return Blaze.With(function () {                // 219
-                      return argVar.get(); }, contentFunc); },                   // 220
-                    elseFunc);                                                   // 221
-  });                                                                            // 222
-  view.onViewCreated(function () {                                               // 223
-    this.autorun(function () {                                                   // 224
-      argVar.set(argFunc());                                                     // 225
-                                                                                 // 226
-      // This is a hack so that autoruns inside the body                         // 227
-      // of the #with get stopped sooner.  It reaches inside                     // 228
-      // our ReactiveVar to access its dep.                                      // 229
-                                                                                 // 230
-      Tracker.onInvalidate(function () {                                         // 231
-        argVar.dep.changed();                                                    // 232
-      });                                                                        // 233
-                                                                                 // 234
-      // Take the case of `{{#with A}}{{B}}{{/with}}`.  The goal                 // 235
-      // is to not re-render `B` if `A` changes to become falsy                  // 236
-      // and `B` is simultaneously invalidated.                                  // 237
-      //                                                                         // 238
-      // A series of autoruns are involved:                                      // 239
-      //                                                                         // 240
-      // 1. This autorun (argument to Spacebars.With)                            // 241
-      // 2. Argument to Blaze.If                                                 // 242
-      // 3. Blaze.If view re-render                                              // 243
-      // 4. Argument to Blaze.With                                               // 244
-      // 5. The template tag `{{B}}`                                             // 245
-      //                                                                         // 246
-      // When (3) is invalidated, it immediately stops (4) and (5)               // 247
-      // because of a Tracker.onInvalidate built into materializeView.           // 248
-      // (When a View's render method is invalidated, it immediately             // 249
-      // tears down all the subviews, via a Tracker.onInvalidate much            // 250
-      // like this one.                                                          // 251
-      //                                                                         // 252
-      // Suppose `A` changes to become falsy, and `B` changes at the             // 253
-      // same time (i.e. without an intervening flush).                          // 254
-      // Without the code above, this happens:                                   // 255
-      //                                                                         // 256
-      // - (1) and (5) are invalidated.                                          // 257
-      // - (1) runs, invalidating (2) and (4).                                   // 258
-      // - (5) runs.                                                             // 259
-      // - (2) runs, invalidating (3), stopping (4) and (5).                     // 260
-      //                                                                         // 261
-      // With the code above:                                                    // 262
-      //                                                                         // 263
-      // - (1) and (5) are invalidated, invalidating (2) and (4).                // 264
-      // - (1) runs.                                                             // 265
-      // - (2) runs, invalidating (3), stopping (4) and (5).                     // 266
-      //                                                                         // 267
-      // If the re-run of (5) is originally enqueued before (1), all             // 268
-      // bets are off, but typically that doesn't seem to be the                 // 269
-      // case.  Anyway, doing this is always better than not doing it,           // 270
-      // because it might save a bunch of DOM from being updated                 // 271
-      // needlessly.                                                             // 272
-    });                                                                          // 273
-  });                                                                            // 274
-                                                                                 // 275
-  return view;                                                                   // 276
-};                                                                               // 277
+  if (! value)                                                                   // 200
+    return value; // falsy, don't index, pass through                            // 201
+                                                                                 // 202
+  var result = value[id1];                                                       // 203
+  if (typeof result !== 'function')                                              // 204
+    return result;                                                               // 205
+  // `value[id1]` (or `value()[id1]`) is a function.                             // 206
+  // Bind it so that when called, `value` will be placed in `this`.              // 207
+  return function (/*arguments*/) {                                              // 208
+    return result.apply(value, arguments);                                       // 209
+  };                                                                             // 210
+};                                                                               // 211
+                                                                                 // 212
+// Spacebars.With implements the conditional logic of rendering                  // 213
+// the `{{else}}` block if the argument is falsy.  It combines                   // 214
+// a Blaze.If with a Blaze.With (the latter only in the truthy                   // 215
+// case, since the else block is evaluated without entering                      // 216
+// a new data context).                                                          // 217
+Spacebars.With = function (argFunc, contentFunc, elseFunc) {                     // 218
+  var argVar = new Blaze.ReactiveVar;                                            // 219
+  var view = Blaze.View('Spacebars_with', function () {                          // 220
+    return Blaze.If(function () { return argVar.get(); },                        // 221
+                    function () { return Blaze.With(function () {                // 222
+                      return argVar.get(); }, contentFunc); },                   // 223
+                    elseFunc);                                                   // 224
+  });                                                                            // 225
+  view.onViewCreated(function () {                                               // 226
+    this.autorun(function () {                                                   // 227
+      argVar.set(argFunc());                                                     // 228
+                                                                                 // 229
+      // This is a hack so that autoruns inside the body                         // 230
+      // of the #with get stopped sooner.  It reaches inside                     // 231
+      // our ReactiveVar to access its dep.                                      // 232
+                                                                                 // 233
+      Tracker.onInvalidate(function () {                                         // 234
+        argVar.dep.changed();                                                    // 235
+      });                                                                        // 236
+                                                                                 // 237
+      // Take the case of `{{#with A}}{{B}}{{/with}}`.  The goal                 // 238
+      // is to not re-render `B` if `A` changes to become falsy                  // 239
+      // and `B` is simultaneously invalidated.                                  // 240
+      //                                                                         // 241
+      // A series of autoruns are involved:                                      // 242
+      //                                                                         // 243
+      // 1. This autorun (argument to Spacebars.With)                            // 244
+      // 2. Argument to Blaze.If                                                 // 245
+      // 3. Blaze.If view re-render                                              // 246
+      // 4. Argument to Blaze.With                                               // 247
+      // 5. The template tag `{{B}}`                                             // 248
+      //                                                                         // 249
+      // When (3) is invalidated, it immediately stops (4) and (5)               // 250
+      // because of a Tracker.onInvalidate built into materializeView.           // 251
+      // (When a View's render method is invalidated, it immediately             // 252
+      // tears down all the subviews, via a Tracker.onInvalidate much            // 253
+      // like this one.                                                          // 254
+      //                                                                         // 255
+      // Suppose `A` changes to become falsy, and `B` changes at the             // 256
+      // same time (i.e. without an intervening flush).                          // 257
+      // Without the code above, this happens:                                   // 258
+      //                                                                         // 259
+      // - (1) and (5) are invalidated.                                          // 260
+      // - (1) runs, invalidating (2) and (4).                                   // 261
+      // - (5) runs.                                                             // 262
+      // - (2) runs, invalidating (3), stopping (4) and (5).                     // 263
+      //                                                                         // 264
+      // With the code above:                                                    // 265
+      //                                                                         // 266
+      // - (1) and (5) are invalidated, invalidating (2) and (4).                // 267
+      // - (1) runs.                                                             // 268
+      // - (2) runs, invalidating (3), stopping (4) and (5).                     // 269
+      //                                                                         // 270
+      // If the re-run of (5) is originally enqueued before (1), all             // 271
+      // bets are off, but typically that doesn't seem to be the                 // 272
+      // case.  Anyway, doing this is always better than not doing it,           // 273
+      // because it might save a bunch of DOM from being updated                 // 274
+      // needlessly.                                                             // 275
+    });                                                                          // 276
+  });                                                                            // 277
                                                                                  // 278
-// XXX COMPAT WITH 0.9.0                                                         // 279
-Spacebars.TemplateWith = Blaze._TemplateWith;                                    // 280
+  return view;                                                                   // 279
+};                                                                               // 280
                                                                                  // 281
+// XXX COMPAT WITH 0.9.0                                                         // 282
+Spacebars.TemplateWith = Blaze._TemplateWith;                                    // 283
+                                                                                 // 284
 ///////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -320,8 +325,11 @@ Spacebars.TemplateWith = Blaze._TemplateWith;                                   
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package.spacebars = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package.spacebars = {}, {
   Spacebars: Spacebars
-};
+});
 
 })();

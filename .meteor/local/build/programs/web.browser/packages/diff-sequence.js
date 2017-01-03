@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var _ = Package.underscore._;
 var EJSON = Package.ejson.EJSON;
 
@@ -285,8 +287,11 @@ DiffSequence.applyChanges = function (doc, changeFields) {                      
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package['diff-sequence'] = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package['diff-sequence'] = {}, {
   DiffSequence: DiffSequence
-};
+});
 
 })();

@@ -11,5 +11,3 @@ Exemple :
  _id: 'testAnimator'
 */
 }).call(this);
-
-//# sourceMappingURL=Users.js.map

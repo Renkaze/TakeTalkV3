@@ -24,5 +24,3 @@ Meteor.methods({
 });
 
 }).call(this);
-
-//# sourceMappingURL=methods.js.map

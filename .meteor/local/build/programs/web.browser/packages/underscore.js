@@ -1373,8 +1373,11 @@ _ = exports._;                                                                  
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package.underscore = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package.underscore = {}, {
   _: _
-};
+});
 
 })();

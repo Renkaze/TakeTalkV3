@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 var _ = Package.underscore._;
 var ReactiveDict = Package['reactive-dict'].ReactiveDict;
 var EJSON = Package.ejson.EJSON;
@@ -86,8 +88,11 @@ Session = new ReactiveDict('session');                                         /
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package.session = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package.session = {}, {
   Session: Session
-};
+});
 
 })();

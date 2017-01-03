@@ -15,5 +15,3 @@ Exemple:
  meeting: Session.get("meetingId")
  */
 }).call(this);
-
-//# sourceMappingURL=Speeches.js.map

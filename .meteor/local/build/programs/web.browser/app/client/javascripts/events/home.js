@@ -6,4 +6,10 @@ Template.home.events({
     }
 });
 
+Template.home.onRendered(function () {
+$(document).ready(function(){
+  $('#textareaRich').summernote();
+});
+});
+
 }).call(this);

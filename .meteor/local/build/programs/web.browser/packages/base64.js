@@ -12,6 +12,8 @@
 
 /* Imports */
 var Meteor = Package.meteor.Meteor;
+var global = Package.meteor.global;
+var meteorEnv = Package.meteor.meteorEnv;
 
 /* Package-scope variables */
 var Base64;
@@ -176,8 +178,11 @@ Base64.decode = function (str) {                                                
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package.base64 = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package.base64 = {}, {
   Base64: Base64
-};
+});
 
 })();

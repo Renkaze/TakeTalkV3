@@ -11,20 +11,19 @@
 (function () {
 
 /* Imports */
-var Meteor = Package.meteor.Meteor;
 var Tracker = Package.tracker.Tracker;
 var Deps = Package.tracker.Deps;
-
-/* Package-scope variables */
-var Tracker, Deps;
 
 
 
 /* Exports */
 if (typeof Package === 'undefined') Package = {};
-Package.deps = {
+(function (pkg, symbols) {
+  for (var s in symbols)
+    (s in pkg) || (pkg[s] = symbols[s]);
+})(Package.deps = {}, {
   Tracker: Tracker,
   Deps: Deps
-};
+});
 
 })();
