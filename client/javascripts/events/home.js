@@ -5,3 +5,9 @@ Template.home.events({
         Router.go('create');
     }
 });
+
+Template.home.onRendered(function () {
+$(document).ready(function(){
+  $('#textareaRich').summernote();
+});
+});

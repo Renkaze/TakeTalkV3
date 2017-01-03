@@ -1,4 +1,5 @@
 <template name="meeting">
+
   <!-- <div class="page-head">
   <h2>{{meeting}}</h2>
 </div> -->
@@ -13,7 +14,7 @@
         <div class="panel-heading"><span class="title">Meeting Report</span></div>
         <div class="panel-body">
           <div id="textareaRich">
-            Your Report's Meetings !!
+                Your Meeting Report !!
           </div>
         </div>
       </div>
@@ -50,11 +51,7 @@
                     <div class="list-group-item{{#if status}} active{{/if}}">
                       <h4 class="list-group-item-heading">
                         {{user}}
-                        {{#if isTimeNull time}}
-                        {{timeString}}
-                        {{else}}
-                        ({{timeLeft}}/{{time}})
-                        {{/if}}
+                        {{timeLeft}}
                       </h4>
                       <!-- <p class="list-group-item-text">
                         Subject: {{orderChoose}}
