@@ -57,22 +57,26 @@ Template["meeting"] = new Template("Template.meeting", (function() {
   return [ HTML.Raw('<!-- <div class="page-head">\n  <h2>{{meeting}}</h2>\n</div> -->\n'), HTML.DIV({
 =======
   return [ HTML.Raw('<!-- <div class="page-head">\n  <h2>{{meeting}}</h2>\n</div> -->\n<!-- include libraries(jQuery, bootstrap) -->\n'), HTML.DIV({
+<<<<<<< HEAD
 >>>>>>> simplification UI & add Zone text report meeting
     "class": "main-content"
+=======
+    class: "main-content"
+>>>>>>> version meteor
   }, "\n  ", HTML.DIV({
-    "class": "row"
-  }, "\n    ", HTML.Raw("<!-- ********************************************* -->"), "\n    ", HTML.Raw("<!-- Bloc d'affichage des sujets � l'ordre du jour -->"), "\n    ", HTML.Raw("<!-- ********************************************* -->"), "\n    ", HTML.Raw('<div class="col-md-8">\n      <div class="panel panel-default panel-heading-fullwidth panel-primary">\n        <div class="panel-heading"><span class="title">Meeting Report</span></div>\n        <div class="panel-body">\n          <div id="textareaRich">\n            Your Report\'s Meetings !!\n          </div>\n        </div>\n      </div>\n    </div>'), "\n\n    ", HTML.DIV({
-    "class": "col-md-4"
+    class: "row"
+  }, "\n    ", HTML.Raw("<!-- ********************************************* -->"), "\n    ", HTML.Raw("<!-- Bloc d'affichage des sujets � l'ordre du jour -->"), "\n    ", HTML.Raw("<!-- ********************************************* -->"), "\n    ", HTML.Raw('<div class="col-md-8">\n      <div class="panel panel-default panel-heading-fullwidth panel-primary">\n        <div class="panel-heading"><span class="title">Meeting Report</span></div>\n        <div class="panel-body">\n          <div id="textareaRich">\n                Your Meeting Report !!\n          </div>\n        </div>\n      </div>\n    </div>'), "\n\n    ", HTML.DIV({
+    class: "col-md-4"
   }, "\n      ", HTML.Raw("<!-- ****************************************** -->"), "\n      ", HTML.Raw("<!-- Bloc d'affichage des interventions pr�vues -->"), "\n      ", HTML.Raw("<!-- ****************************************** -->"), "\n      ", HTML.DIV({
-    "class": "row-md-4"
+    class: "row-md-4"
   }, "\n        ", HTML.DIV({
-    "class": "panel panel-default panel-heading-fullwidth panel-primary"
+    class: "panel panel-default panel-heading-fullwidth panel-primary"
   }, "\n          ", HTML.Raw('<div class="panel-heading"><span class="title">People lining up</span></div>'), "\n          ", HTML.DIV({
-    "class": "panel-body"
+    class: "panel-body"
   }, "\n            ", HTML.DIV({
-    "class": "row"
+    class: "row"
   }, "\n              ", HTML.Raw("<!-- Bouton pour cr�er une demande d'intervention -->"), "\n              ", HTML.DIV({
-    "class": "col-md-4"
+    class: "col-md-4"
   }, "\n                ", HTML.INPUT({
 >>>>>>> ajout zone de text riche
     type: "button",
@@ -91,7 +95,7 @@ Template["meeting"] = new Template("Template.meeting", (function() {
     }, "\n                                ", HTML.INPUT(HTML.Attrs({
 =======
     return [ "\n              ", HTML.Comment(" Boutons de gestion du don de temps de parole "), "\n              ", HTML.DIV({
-      "class": "col-md-8 text-right"
+      class: "col-md-8 text-right"
     }, "\n                ", HTML.INPUT(HTML.Attrs({
 >>>>>>> ajout zone de text riche
       type: "button",
@@ -118,8 +122,12 @@ Template["meeting"] = new Template("Template.meeting", (function() {
 =======
     })), "\n              "), "\n              " ];
   }), "\n            "), "\n            ", HTML.DIV({
+<<<<<<< HEAD
     "class": "row",
 >>>>>>> ajout zone de text riche
+=======
+    class: "row",
+>>>>>>> version meteor
     id: "speech-list"
   }, "\n              ", HTML.Raw('<div style="margin-top:10px"></div>'), "\n              ", Blaze.Each(function() {
     return Spacebars.call(view.lookup("speeches"));
@@ -129,8 +137,12 @@ Template["meeting"] = new Template("Template.meeting", (function() {
       class: function() {
 =======
     return [ "\n              ", HTML.DIV({
+<<<<<<< HEAD
       "class": function() {
 >>>>>>> ajout zone de text riche
+=======
+      class: function() {
+>>>>>>> version meteor
         return [ "speech-item ", Blaze.If(function() {
           return Spacebars.call(view.lookup("status"));
         }, function() {
@@ -146,10 +158,14 @@ Template["meeting"] = new Template("Template.meeting", (function() {
       class: function() {
 =======
     }, "\n                  ", HTML.Comment(" Liste des interventions "), "\n                  ", HTML.DIV({
-      "class": "list-group"
+      class: "list-group"
     }, "\n                    ", HTML.DIV({
+<<<<<<< HEAD
       "class": function() {
 >>>>>>> ajout zone de text riche
+=======
+      class: function() {
+>>>>>>> version meteor
         return [ "list-group-item", Blaze.If(function() {
           return Spacebars.call(view.lookup("status"));
         }, function() {
@@ -162,10 +178,11 @@ Template["meeting"] = new Template("Template.meeting", (function() {
     }, "\n                                            ", Blaze.View("lookup:user", function() {
 =======
     }, "\n                      ", HTML.H4({
-      "class": "list-group-item-heading"
+      class: "list-group-item-heading"
     }, "\n                        ", Blaze.View("lookup:user", function() {
 >>>>>>> ajout zone de text riche
       return Spacebars.mustache(view.lookup("user"));
+<<<<<<< HEAD
     }), "\n                        ", Blaze.If(function() {
       return Spacebars.dataMustache(view.lookup("isTimeNull"), view.lookup("time"));
     }, function() {
@@ -198,19 +215,28 @@ Template["meeting"] = new Template("Template.meeting", (function() {
         class: "input-group speechRemove",
 =======
       }), ")\n                        " ];
+=======
+    }), "\n                        ", Blaze.View("lookup:timeLeft", function() {
+      return Spacebars.mustache(view.lookup("timeLeft"));
+>>>>>>> version meteor
     }), "\n                      "), "\n                      ", HTML.Comment(' <p class="list-group-item-text">\n                        Subject: {{orderChoose}}\n                        {{#if isSubject _id}}\n                        <br/>Keywords: {{subject}}\n                        {{/if}}\n                      </p> '), "\n                      ", Blaze.If(function() {
       return Spacebars.call(view.lookup("isAnimator"));
     }, function() {
       return [ "\n                      ", HTML.Comment(" Actions possibles en rapport avec une intervention "), "\n                      ", HTML.DIV({
         style: "position:absolute; left:365px; bottom:20px;"
       }, "\n                        ", HTML.DIV({
+<<<<<<< HEAD
         "class": "input-group speechRemove",
 >>>>>>> ajout zone de text riche
+=======
+        class: "input-group speechRemove",
+>>>>>>> version meteor
         "speech-id": function() {
           return Spacebars.mustache(view.lookup("_id"));
         }
       }, "\n                          ", HTML.BUTTON({
         type: "button",
+<<<<<<< HEAD
 <<<<<<< HEAD
         class: "btn btn-danger btn-xs remove-speech"
       }, "\n                                                          ", HTML.SPAN({
@@ -240,30 +266,37 @@ Template["meeting"] = new Template("Template.meeting", (function() {
       class: "list-group-item-heading"
 =======
         "class": "btn btn-danger btn-xs remove-speech"
+=======
+        class: "btn btn-danger btn-xs remove-speech"
+>>>>>>> version meteor
       }, "\n                            ", HTML.SPAN({
-        "class": "glyphicon glyphicon-remove",
+        class: "glyphicon glyphicon-remove",
         "aria-hidden": "true"
       }), "\n                          "), "\n                        "), "\n                      "), "\n                      " ];
     }), "\n                    "), "\n                  "), "\n                "), "\n              "), "\n              " ];
   }), "\n            "), "\n          "), " ", HTML.Raw("<!-- panel-body -->"), "\n        "), "\n      "), "\n\n\n\n      ", HTML.Raw("<!-- ************************************************************** -->"), "\n      ", HTML.Raw("<!-- Bloc d'affichage des utilisateurs participants dans le meeting -->"), "\n      ", HTML.Raw("<!-- ************************************************************** -->"), "\n      ", HTML.DIV({
-    "class": "row-md-4"
+    class: "row-md-4"
   }, "\n        ", HTML.DIV({
-    "class": "panel panel-default panel-heading-fullwidth panel-primary"
+    class: "panel panel-default panel-heading-fullwidth panel-primary"
   }, "\n          ", HTML.Raw('<div class="panel-heading"><span class="title">People on this meeting</span></div>'), "\n          ", HTML.DIV({
-    "class": "panel-body"
+    class: "panel-body"
   }, "\n            ", HTML.DIV({
-    "class": "row"
+    class: "row"
   }, "\n              ", Blaze.Each(function() {
     return Spacebars.call(view.lookup("users"));
   }, function() {
     return [ "\n              ", HTML.Comment(" Liste des intervenant "), "\n              ", HTML.DIV({
-      "class": "col-md-11",
+      class: "col-md-11",
       style: "padding-right:0"
     }, "\n                ", HTML.DIV({
-      "class": "list-group"
+      class: "list-group"
     }, "\n                    ", HTML.H4({
+<<<<<<< HEAD
       "class": "list-group-item-heading"
 >>>>>>> ajout zone de text riche
+=======
+      class: "list-group-item-heading"
+>>>>>>> version meteor
     }, Blaze.View("lookup:name", function() {
       return Spacebars.mustache(view.lookup("name"));
     })), "\n                    ", HTML.P("\n                      ", Blaze.Each(function() {
@@ -276,8 +309,12 @@ Template["meeting"] = new Template("Template.meeting", (function() {
 =======
       return [ "\n                      ", Spacebars.include(view.lookupTemplate("parole")), "\n                      " ];
     }), "\n                    "), "\n                "), "\n              "), "\n              ", HTML.Comment(" Actions possibles en rapport avec l'intervenant "), "\n              ", HTML.DIV({
+<<<<<<< HEAD
       "class": "col-md-1",
 >>>>>>> ajout zone de text riche
+=======
+      class: "col-md-1",
+>>>>>>> version meteor
       style: "padding-left:0"
     }, "\n                ", Blaze.If(function() {
       return Spacebars.dataMustache(view.lookup("isSessionGuest"), view.lookup("name"));
@@ -287,13 +324,18 @@ Template["meeting"] = new Template("Template.meeting", (function() {
         class: "input-group guestRemove",
 =======
       return [ "\n                ", HTML.DIV({
+<<<<<<< HEAD
         "class": "input-group guestRemove",
 >>>>>>> ajout zone de text riche
+=======
+        class: "input-group guestRemove",
+>>>>>>> version meteor
         guest: function() {
           return Spacebars.mustache(view.lookup("name"));
         }
       }, "\n                  ", HTML.BUTTON({
         type: "button",
+<<<<<<< HEAD
 <<<<<<< HEAD
         class: "btn btn-danger btn-xs removeGuest"
       }, "\n                                            ", HTML.SPAN({
@@ -303,6 +345,11 @@ Template["meeting"] = new Template("Template.meeting", (function() {
       }, "\n                    ", HTML.SPAN({
         "class": "glyphicon glyphicon-remove",
 >>>>>>> ajout zone de text riche
+=======
+        class: "btn btn-danger btn-xs removeGuest"
+      }, "\n                    ", HTML.SPAN({
+        class: "glyphicon glyphicon-remove",
+>>>>>>> version meteor
         "aria-hidden": "true"
       }), "\n                  "), "\n                "), "\n                " ];
     }), "\n              "), "\n              " ];
@@ -337,7 +384,7 @@ Template["meeting"] = new Template("Template.meeting", (function() {
 >>>>>>> ajout zone de text riche
 =======
     return [ "\n    ", HTML.DIV({
-      "class": "row-md-4"
+      class: "row-md-4"
     }, "\n              ", HTML.BUTTON({
 >>>>>>> simplification UI & add Zone text report meeting
       type: "button",

@@ -109,12 +109,13 @@ Router.route('/meeting/:_meetingId', {
         if(seconds < 10) {
             seconds = "0" + seconds;
         }
+        console.log(Users.findOne({_id: speech.user}).name);
 
         speeches.push({
             user: Users.findOne({_id: speech.user}).name,
             timeLeft: minutesLeft + ":" + secondsLeft,
             //timeString: speech.timeString,
-            time: minutes + ":" + seconds,
+            //time: minutes + ":" + seconds,
             //orderChoose: speech.orderChoose,
             //subject: speech.subject,
             status: speech.status == "ongoing",

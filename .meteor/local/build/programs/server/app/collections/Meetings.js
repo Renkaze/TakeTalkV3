@@ -21,6 +21,9 @@ Meetings = new Mongo.Collection("meetings");
  // pwd : "",
 
 }).call(this);
+<<<<<<< HEAD
 >>>>>>> ajout zone de text riche
 
 }).call(this);
+=======
+>>>>>>> version meteor

@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "meteor-promise": "0.8.0",
     "fibers": "1.0.15",
     "promise": "7.1.1",
@@ -10,6 +11,11 @@
     "fibers": "https://github.com/meteor/node-fibers/tarball/d519f0c5971c33d99c902dad346b817e84bab001",
     "meteor-promise": "0.5.0",
 >>>>>>> ajout zone de text riche
+=======
+    "meteor-promise": "0.8.0",
+    "fibers": "1.0.15",
+    "promise": "7.1.1",
+>>>>>>> version meteor
     "underscore": "1.5.2",
     "source-map-support": "https://github.com/meteor/node-source-map-support/tarball/1912478769d76e5df4c365e147f25896aee6375e",
     "semver": "4.1.0",

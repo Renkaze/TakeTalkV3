@@ -314,7 +314,11 @@ Log.objFromText = function (line, override) {                                   
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
+<<<<<<< HEAD
 // ../npm/node_modules/cli-color/package.json                                          //
+=======
+// ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/package //
+>>>>>>> version meteor
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //
@@ -1360,7 +1364,11 @@ module.exports = new Function("return this")();                                 
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
+<<<<<<< HEAD
 // ../npm/node_modules/cli-color/node_modules/memoizee/package.json                    //
+=======
+// ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/node_mo //
+>>>>>>> version meteor
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //
@@ -2499,7 +2507,11 @@ exports.methods = methods;                                                      
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
+<<<<<<< HEAD
 // ../npm/node_modules/cli-color/node_modules/memoizee/node_modules/next-tick/package. //
+=======
+// ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/node_mo //
+>>>>>>> version meteor
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //

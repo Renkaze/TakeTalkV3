@@ -61,7 +61,11 @@ if (regeneratorRuntime &&
 
 ////////////////////////////////////////////////////////////////////////////////
 //                                                                            //
+<<<<<<< HEAD
 // ../npm/node_modules/meteor-babel-helpers/package.json                      //
+=======
+// ../../.1.0.1.y1vcb4++os+web.browser+web.cordova/npm/node_modules/meteor-ba //
+>>>>>>> version meteor
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
                                                                               //

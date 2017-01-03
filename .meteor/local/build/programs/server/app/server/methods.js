@@ -42,6 +42,9 @@ Meteor.methods({
 });
 
 }).call(this);
+<<<<<<< HEAD
 >>>>>>> simplification UI & add Zone text report meeting
 
 }).call(this);
+=======
+>>>>>>> version meteor

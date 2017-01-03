@@ -23,6 +23,10 @@ var Match = Package.check.Match;
 var _ = Package.underscore._;
 var ObserveSequence = Package['observe-sequence'].ObserveSequence;
 var ReactiveVar = Package['reactive-var'].ReactiveVar;
+<<<<<<< HEAD
+=======
+var OrderedDict = Package['ordered-dict'].OrderedDict;
+>>>>>>> version meteor
 var HTML = Package.htmljs.HTML;
 
 /* Package-scope variables */
@@ -43,6 +47,7 @@ var Blaze, AttributeHandler, ElementAttributesUpdater, UI, Handlebars;
 Blaze = {};                                                                                                            // 5
                                                                                                                        // 6
 // Utility to HTML-escape a string.  Included for legacy reasons.                                                      // 7
+<<<<<<< HEAD
 Blaze._escape = (function() {                                                                                          // 8
   var escape_map = {                                                                                                   // 9
     "<": "&lt;",                                                                                                       // 10
@@ -93,6 +98,60 @@ else {                                                                          
   Blaze._bind = _.bind;                                                                                                // 55
 }                                                                                                                      // 56
                                                                                                                        // 57
+=======
+// TODO: Should be replaced with _.escape once underscore is upgraded to a newer                                       // 8
+//       version which escapes ` (backtick) as well. Underscore 1.5.2 does not.                                        // 9
+Blaze._escape = (function() {                                                                                          // 10
+  var escape_map = {                                                                                                   // 11
+    "<": "&lt;",                                                                                                       // 12
+    ">": "&gt;",                                                                                                       // 13
+    '"': "&quot;",                                                                                                     // 14
+    "'": "&#x27;",                                                                                                     // 15
+    "`": "&#x60;", /* IE allows backtick-delimited attributes?? */                                                     // 16
+    "&": "&amp;"                                                                                                       // 17
+  };                                                                                                                   // 18
+  var escape_one = function(c) {                                                                                       // 19
+    return escape_map[c];                                                                                              // 20
+  };                                                                                                                   // 21
+                                                                                                                       // 22
+  return function (x) {                                                                                                // 23
+    return x.replace(/[&<>"'`]/g, escape_one);                                                                         // 24
+  };                                                                                                                   // 25
+})();                                                                                                                  // 26
+                                                                                                                       // 27
+Blaze._warn = function (msg) {                                                                                         // 28
+  msg = 'Warning: ' + msg;                                                                                             // 29
+                                                                                                                       // 30
+  if ((typeof console !== 'undefined') && console.warn) {                                                              // 31
+    console.warn(msg);                                                                                                 // 32
+  }                                                                                                                    // 33
+};                                                                                                                     // 34
+                                                                                                                       // 35
+var nativeBind = Function.prototype.bind;                                                                              // 36
+                                                                                                                       // 37
+// An implementation of _.bind which allows better optimization.                                                       // 38
+// See: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments                        // 39
+if (nativeBind) {                                                                                                      // 40
+  Blaze._bind = function (func, obj) {                                                                                 // 41
+    if (arguments.length === 2) {                                                                                      // 42
+      return nativeBind.call(func, obj);                                                                               // 43
+    }                                                                                                                  // 44
+                                                                                                                       // 45
+    // Copy the arguments so this function can be optimized.                                                           // 46
+    var args = new Array(arguments.length);                                                                            // 47
+    for (var i = 0; i < args.length; i++) {                                                                            // 48
+      args[i] = arguments[i];                                                                                          // 49
+    }                                                                                                                  // 50
+                                                                                                                       // 51
+    return nativeBind.apply(func, args.slice(1));                                                                      // 52
+  };                                                                                                                   // 53
+}                                                                                                                      // 54
+else {                                                                                                                 // 55
+  // A slower but backwards compatible version.                                                                        // 56
+  Blaze._bind = _.bind;                                                                                                // 57
+}                                                                                                                      // 58
+                                                                                                                       // 59
+>>>>>>> version meteor
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -1093,7 +1152,7 @@ AttributeHandler.extend = function (options) {                                  
 /// Apply the diff between the attributes of "oldValue" and "value" to "element."                                      // 59
 //                                                                                                                     // 60
 // Each subclass must implement a parseValue method which takes a string                                               // 61
-// as an input and returns a dict of attributes. The keys of the dict                                                  // 62
+// as an input and returns an ordered dict of attributes. The keys of the dict                                         // 62
 // are unique identifiers (ie. css properties in the case of styles), and the                                          // 63
 // values are the entire attribute which will be injected into the element.                                            // 64
 //                                                                                                                     // 65
@@ -1101,30 +1160,31 @@ AttributeHandler.extend = function (options) {                                  
                                                                                                                        // 67
 Blaze._DiffingAttributeHandler = AttributeHandler.extend({                                                             // 68
   update: function (element, oldValue, value) {                                                                        // 69
-    if (!this.getCurrentValue || !this.setValue || !this.parseValue)                                                   // 70
+    if (!this.getCurrentValue || !this.setValue || !this.parseValue || !this.joinValues)                               // 70
       throw new Error("Missing methods in subclass of 'DiffingAttributeHandler'");                                     // 71
                                                                                                                        // 72
-    var oldAttrsMap = oldValue ? this.parseValue(oldValue) : {};                                                       // 73
-    var newAttrsMap = value ? this.parseValue(value) : {};                                                             // 74
+    var oldAttrsMap = oldValue ? this.parseValue(oldValue) : new OrderedDict();                                        // 73
+    var attrsMap = value ? this.parseValue(value) : new OrderedDict();                                                 // 74
                                                                                                                        // 75
     // the current attributes on the element, which we will mutate.                                                    // 76
                                                                                                                        // 77
-    var attrString = this.getCurrentValue(element);                                                                    // 78
-    var attrsMap = attrString ? this.parseValue(attrString) : {};                                                      // 79
+    var currentAttrString = this.getCurrentValue(element);                                                             // 78
+    var currentAttrsMap = currentAttrString ? this.parseValue(currentAttrString) : new OrderedDict();                  // 79
                                                                                                                        // 80
-    _.each(_.keys(oldAttrsMap), function (t) {                                                                         // 81
-      if (! (t in newAttrsMap))                                                                                        // 82
-        delete attrsMap[t];                                                                                            // 83
-    });                                                                                                                // 84
-                                                                                                                       // 85
-    _.each(_.keys(newAttrsMap), function (t) {                                                                         // 86
-      attrsMap[t] = newAttrsMap[t];                                                                                    // 87
-    });                                                                                                                // 88
-                                                                                                                       // 89
-    this.setValue(element, _.values(attrsMap).join(' '));                                                              // 90
-  }                                                                                                                    // 91
-});                                                                                                                    // 92
+    // Any outside changes to attributes we add at the end.                                                            // 81
+    currentAttrsMap.forEach(function (value, key, i) {                                                                 // 82
+      // If the key already exists, we do not use the current value, but the new value.                                // 83
+      if (attrsMap.has(key)) {                                                                                         // 84
+        return;                                                                                                        // 85
+      }                                                                                                                // 86
+                                                                                                                       // 87
+      // Key does not already exist, but it existed before. Which means it was explicitly                              // 88
+      // removed, so we do not add it.                                                                                 // 89
+      if (oldAttrsMap.has(key)) {                                                                                      // 90
+        return;                                                                                                        // 91
+      }                                                                                                                // 92
                                                                                                                        // 93
+<<<<<<< HEAD
 var ClassHandler = Blaze._DiffingAttributeHandler.extend({                                                             // 94
   // @param rawValue {String}                                                                                          // 95
   getCurrentValue: function (element) {                                                                                // 96
@@ -1171,40 +1231,89 @@ var StyleHandler = Blaze._DiffingAttributeHandler.extend({                      
   // "color:red; foo:12px" produces a token {color: "color:red", foo:"foo:12px"}                                       // 137
   parseValue: function (attrString) {                                                                                  // 138
     var tokens = {};                                                                                                   // 139
+=======
+      attrsMap.append(key, value);                                                                                     // 94
+    });                                                                                                                // 95
+                                                                                                                       // 96
+    var values = [];                                                                                                   // 97
+    attrsMap.forEach(function (value, key, i) {                                                                        // 98
+      values.push(value);                                                                                              // 99
+    });                                                                                                                // 100
+                                                                                                                       // 101
+    this.setValue(element, this.joinValues(values));                                                                   // 102
+  }                                                                                                                    // 103
+});                                                                                                                    // 104
+                                                                                                                       // 105
+var ClassHandler = Blaze._DiffingAttributeHandler.extend({                                                             // 106
+  // @param rawValue {String}                                                                                          // 107
+  getCurrentValue: function (element) {                                                                                // 108
+    return element.className;                                                                                          // 109
+  },                                                                                                                   // 110
+  setValue: function (element, className) {                                                                            // 111
+    element.className = className;                                                                                     // 112
+  },                                                                                                                   // 113
+  parseValue: function (attrString) {                                                                                  // 114
+    var tokens = new OrderedDict();                                                                                    // 115
+                                                                                                                       // 116
+    _.each(attrString.split(' '), function(token) {                                                                    // 117
+      if (token) {                                                                                                     // 118
+        // Ordered dict requires unique keys.                                                                          // 119
+        if (! tokens.has(token)) {                                                                                     // 120
+          tokens.append(token, token);                                                                                 // 121
+        }                                                                                                              // 122
+      }                                                                                                                // 123
+    });                                                                                                                // 124
+    return tokens;                                                                                                     // 125
+  },                                                                                                                   // 126
+  joinValues: function (values) {                                                                                      // 127
+    return values.join(' ');                                                                                           // 128
+  }                                                                                                                    // 129
+});                                                                                                                    // 130
+                                                                                                                       // 131
+var SVGClassHandler = ClassHandler.extend({                                                                            // 132
+  getCurrentValue: function (element) {                                                                                // 133
+    return element.className.baseVal;                                                                                  // 134
+  },                                                                                                                   // 135
+  setValue: function (element, className) {                                                                            // 136
+    element.setAttribute('class', className);                                                                          // 137
+  }                                                                                                                    // 138
+});                                                                                                                    // 139
+>>>>>>> version meteor
                                                                                                                        // 140
-    // Regex for parsing a css attribute declaration, taken from css-parse:                                            // 141
-    // https://github.com/reworkcss/css-parse/blob/7cef3658d0bba872cde05a85339034b187cb3397/index.js#L219              // 142
+var StyleHandler = Blaze._DiffingAttributeHandler.extend({                                                             // 141
+  getCurrentValue: function (element) {                                                                                // 142
+    return element.getAttribute('style');                                                                              // 143
+  },                                                                                                                   // 144
+  setValue: function (element, style) {                                                                                // 145
+    if (style === '') {                                                                                                // 146
+      element.removeAttribute('style');                                                                                // 147
+    } else {                                                                                                           // 148
+      element.setAttribute('style', style);                                                                            // 149
+    }                                                                                                                  // 150
+  },                                                                                                                   // 151
+                                                                                                                       // 152
+  // Parse a string to produce a map from property to attribute string.                                                // 153
+  //                                                                                                                   // 154
+  // Example:                                                                                                          // 155
+  // "color:red; foo:12px" produces a token {color: "color:red", foo:"foo:12px"}                                       // 156
+  parseValue: function (attrString) {                                                                                  // 157
+    var tokens = new OrderedDict();                                                                                    // 158
+                                                                                                                       // 159
+    // Regex for parsing a css attribute declaration, taken from css-parse:                                            // 160
+    // https://github.com/reworkcss/css-parse/blob/7cef3658d0bba872cde05a85339034b187cb3397/index.js#L219              // 161
     var regex = /(\*?[-#\/\*\\\w]+(?:\[[0-9a-z_-]+\])?)\s*:\s*(?:\'(?:\\\'|.)*?\'|"(?:\\"|.)*?"|\([^\)]*?\)|[^};])+[;\s]*/g;
-    var match = regex.exec(attrString);                                                                                // 144
-    while (match) {                                                                                                    // 145
-      // match[0] = entire matching string                                                                             // 146
-      // match[1] = css property                                                                                       // 147
-      // Prefix the token to prevent conflicts with existing properties.                                               // 148
-                                                                                                                       // 149
-      // XXX No `String.trim` on Safari 4. Swap out $.trim if we want to                                               // 150
-      // remove strong dep on jquery.                                                                                  // 151
-      tokens[' ' + match[1]] = match[0].trim ?                                                                         // 152
-        match[0].trim() : $.trim(match[0]);                                                                            // 153
-                                                                                                                       // 154
-      match = regex.exec(attrString);                                                                                  // 155
-    }                                                                                                                  // 156
-                                                                                                                       // 157
-    return tokens;                                                                                                     // 158
-  }                                                                                                                    // 159
-});                                                                                                                    // 160
-                                                                                                                       // 161
-var BooleanHandler = AttributeHandler.extend({                                                                         // 162
-  update: function (element, oldValue, value) {                                                                        // 163
-    var name = this.name;                                                                                              // 164
-    if (value == null) {                                                                                               // 165
-      if (oldValue != null)                                                                                            // 166
-        element[name] = false;                                                                                         // 167
-    } else {                                                                                                           // 168
-      element[name] = true;                                                                                            // 169
-    }                                                                                                                  // 170
-  }                                                                                                                    // 171
-});                                                                                                                    // 172
+    var match = regex.exec(attrString);                                                                                // 163
+    while (match) {                                                                                                    // 164
+      // match[0] = entire matching string                                                                             // 165
+      // match[1] = css property                                                                                       // 166
+      // Prefix the token to prevent conflicts with existing properties.                                               // 167
+                                                                                                                       // 168
+      // We use the last value for the same key.                                                                       // 169
+      if (tokens.has(match[1])) {                                                                                      // 170
+        tokens.remove(match[1]);                                                                                       // 171
+      }                                                                                                                // 172
                                                                                                                        // 173
+<<<<<<< HEAD
 var DOMPropertyHandler = AttributeHandler.extend({                                                                     // 174
   update: function (element, oldValue, value) {                                                                        // 175
     var name = this.name;                                                                                              // 176
@@ -1418,6 +1527,230 @@ ElementAttributesUpdater.prototype.update = function(newAttrs) {                
   }                                                                                                                    // 384
 };                                                                                                                     // 385
                                                                                                                        // 386
+=======
+      // XXX No `String.trim` on Safari 4. Swap out $.trim if we want to                                               // 174
+      // remove strong dep on jquery.                                                                                  // 175
+      tokens.append(match[1], match[0].trim ? match[0].trim() : $.trim(match[0]));                                     // 176
+                                                                                                                       // 177
+      match = regex.exec(attrString);                                                                                  // 178
+    }                                                                                                                  // 179
+                                                                                                                       // 180
+    return tokens;                                                                                                     // 181
+  },                                                                                                                   // 182
+                                                                                                                       // 183
+  joinValues: function (values) {                                                                                      // 184
+    // TODO: Assure that there is always ; between values. But what is an example where it breaks?                     // 185
+    return values.join(' ');                                                                                           // 186
+  }                                                                                                                    // 187
+});                                                                                                                    // 188
+                                                                                                                       // 189
+var BooleanHandler = AttributeHandler.extend({                                                                         // 190
+  update: function (element, oldValue, value) {                                                                        // 191
+    var name = this.name;                                                                                              // 192
+    if (value == null) {                                                                                               // 193
+      if (oldValue != null)                                                                                            // 194
+        element[name] = false;                                                                                         // 195
+    } else {                                                                                                           // 196
+      element[name] = true;                                                                                            // 197
+    }                                                                                                                  // 198
+  }                                                                                                                    // 199
+});                                                                                                                    // 200
+                                                                                                                       // 201
+var DOMPropertyHandler = AttributeHandler.extend({                                                                     // 202
+  update: function (element, oldValue, value) {                                                                        // 203
+    var name = this.name;                                                                                              // 204
+    if (value !== element[name])                                                                                       // 205
+      element[name] = value;                                                                                           // 206
+  }                                                                                                                    // 207
+});                                                                                                                    // 208
+                                                                                                                       // 209
+// attributes of the type 'xlink:something' should be set using                                                        // 210
+// the correct namespace in order to work                                                                              // 211
+var XlinkHandler = AttributeHandler.extend({                                                                           // 212
+  update: function(element, oldValue, value) {                                                                         // 213
+    var NS = 'http://www.w3.org/1999/xlink';                                                                           // 214
+    if (value === null) {                                                                                              // 215
+      if (oldValue !== null)                                                                                           // 216
+        element.removeAttributeNS(NS, this.name);                                                                      // 217
+    } else {                                                                                                           // 218
+      element.setAttributeNS(NS, this.name, this.value);                                                               // 219
+    }                                                                                                                  // 220
+  }                                                                                                                    // 221
+});                                                                                                                    // 222
+                                                                                                                       // 223
+// cross-browser version of `instanceof SVGElement`                                                                    // 224
+var isSVGElement = function (elem) {                                                                                   // 225
+  return 'ownerSVGElement' in elem;                                                                                    // 226
+};                                                                                                                     // 227
+                                                                                                                       // 228
+var isUrlAttribute = function (tagName, attrName) {                                                                    // 229
+  // Compiled from http://www.w3.org/TR/REC-html40/index/attributes.html                                               // 230
+  // and                                                                                                               // 231
+  // http://www.w3.org/html/wg/drafts/html/master/index.html#attributes-1                                              // 232
+  var urlAttrs = {                                                                                                     // 233
+    FORM: ['action'],                                                                                                  // 234
+    BODY: ['background'],                                                                                              // 235
+    BLOCKQUOTE: ['cite'],                                                                                              // 236
+    Q: ['cite'],                                                                                                       // 237
+    DEL: ['cite'],                                                                                                     // 238
+    INS: ['cite'],                                                                                                     // 239
+    OBJECT: ['classid', 'codebase', 'data', 'usemap'],                                                                 // 240
+    APPLET: ['codebase'],                                                                                              // 241
+    A: ['href'],                                                                                                       // 242
+    AREA: ['href'],                                                                                                    // 243
+    LINK: ['href'],                                                                                                    // 244
+    BASE: ['href'],                                                                                                    // 245
+    IMG: ['longdesc', 'src', 'usemap'],                                                                                // 246
+    FRAME: ['longdesc', 'src'],                                                                                        // 247
+    IFRAME: ['longdesc', 'src'],                                                                                       // 248
+    HEAD: ['profile'],                                                                                                 // 249
+    SCRIPT: ['src'],                                                                                                   // 250
+    INPUT: ['src', 'usemap', 'formaction'],                                                                            // 251
+    BUTTON: ['formaction'],                                                                                            // 252
+    BASE: ['href'],                                                                                                    // 253
+    MENUITEM: ['icon'],                                                                                                // 254
+    HTML: ['manifest'],                                                                                                // 255
+    VIDEO: ['poster']                                                                                                  // 256
+  };                                                                                                                   // 257
+                                                                                                                       // 258
+  if (attrName === 'itemid') {                                                                                         // 259
+    return true;                                                                                                       // 260
+  }                                                                                                                    // 261
+                                                                                                                       // 262
+  var urlAttrNames = urlAttrs[tagName] || [];                                                                          // 263
+  return _.contains(urlAttrNames, attrName);                                                                           // 264
+};                                                                                                                     // 265
+                                                                                                                       // 266
+// To get the protocol for a URL, we let the browser normalize it for                                                  // 267
+// us, by setting it as the href for an anchor tag and then reading out                                                // 268
+// the 'protocol' property.                                                                                            // 269
+if (Meteor.isClient) {                                                                                                 // 270
+  var anchorForNormalization = document.createElement('A');                                                            // 271
+}                                                                                                                      // 272
+                                                                                                                       // 273
+var getUrlProtocol = function (url) {                                                                                  // 274
+  if (Meteor.isClient) {                                                                                               // 275
+    anchorForNormalization.href = url;                                                                                 // 276
+    return (anchorForNormalization.protocol || "").toLowerCase();                                                      // 277
+  } else {                                                                                                             // 278
+    throw new Error('getUrlProtocol not implemented on the server');                                                   // 279
+  }                                                                                                                    // 280
+};                                                                                                                     // 281
+                                                                                                                       // 282
+// UrlHandler is an attribute handler for all HTML attributes that take                                                // 283
+// URL values. It disallows javascript: URLs, unless                                                                   // 284
+// Blaze._allowJavascriptUrls() has been called. To detect javascript:                                                 // 285
+// urls, we set the attribute on a dummy anchor element and then read                                                  // 286
+// out the 'protocol' property of the attribute.                                                                       // 287
+var origUpdate = AttributeHandler.prototype.update;                                                                    // 288
+var UrlHandler = AttributeHandler.extend({                                                                             // 289
+  update: function (element, oldValue, value) {                                                                        // 290
+    var self = this;                                                                                                   // 291
+    var args = arguments;                                                                                              // 292
+                                                                                                                       // 293
+    if (Blaze._javascriptUrlsAllowed()) {                                                                              // 294
+      origUpdate.apply(self, args);                                                                                    // 295
+    } else {                                                                                                           // 296
+      var isJavascriptProtocol = (getUrlProtocol(value) === "javascript:");                                            // 297
+      var isVBScriptProtocol   = (getUrlProtocol(value) === "vbscript:");                                              // 298
+      if (isJavascriptProtocol || isVBScriptProtocol) {                                                                // 299
+        Blaze._warn("URLs that use the 'javascript:' or 'vbscript:' protocol are not " +                               // 300
+                    "allowed in URL attribute values. " +                                                              // 301
+                    "Call Blaze._allowJavascriptUrls() " +                                                             // 302
+                    "to enable them.");                                                                                // 303
+        origUpdate.apply(self, [element, oldValue, null]);                                                             // 304
+      } else {                                                                                                         // 305
+        origUpdate.apply(self, args);                                                                                  // 306
+      }                                                                                                                // 307
+    }                                                                                                                  // 308
+  }                                                                                                                    // 309
+});                                                                                                                    // 310
+                                                                                                                       // 311
+// XXX make it possible for users to register attribute handlers!                                                      // 312
+Blaze._makeAttributeHandler = function (elem, name, value) {                                                           // 313
+  // generally, use setAttribute but certain attributes need to be set                                                 // 314
+  // by directly setting a JavaScript property on the DOM element.                                                     // 315
+  if (name === 'class') {                                                                                              // 316
+    if (isSVGElement(elem)) {                                                                                          // 317
+      return new SVGClassHandler(name, value);                                                                         // 318
+    } else {                                                                                                           // 319
+      return new ClassHandler(name, value);                                                                            // 320
+    }                                                                                                                  // 321
+  } else if (name === 'style') {                                                                                       // 322
+    return new StyleHandler(name, value);                                                                              // 323
+  } else if ((elem.tagName === 'OPTION' && name === 'selected') ||                                                     // 324
+             (elem.tagName === 'INPUT' && name === 'checked') ||                                                       // 325
+             (elem.tagName === 'VIDEO' && name === 'muted')) {                                                         // 326
+    return new BooleanHandler(name, value);                                                                            // 327
+  } else if ((elem.tagName === 'TEXTAREA' || elem.tagName === 'INPUT')                                                 // 328
+             && name === 'value') {                                                                                    // 329
+    // internally, TEXTAREAs tracks their value in the 'value'                                                         // 330
+    // attribute just like INPUTs.                                                                                     // 331
+    return new DOMPropertyHandler(name, value);                                                                        // 332
+  } else if (name.substring(0,6) === 'xlink:') {                                                                       // 333
+    return new XlinkHandler(name.substring(6), value);                                                                 // 334
+  } else if (isUrlAttribute(elem.tagName, name)) {                                                                     // 335
+    return new UrlHandler(name, value);                                                                                // 336
+  } else {                                                                                                             // 337
+    return new AttributeHandler(name, value);                                                                          // 338
+  }                                                                                                                    // 339
+                                                                                                                       // 340
+  // XXX will need one for 'style' on IE, though modern browsers                                                       // 341
+  // seem to handle setAttribute ok.                                                                                   // 342
+};                                                                                                                     // 343
+                                                                                                                       // 344
+                                                                                                                       // 345
+ElementAttributesUpdater = function (elem) {                                                                           // 346
+  this.elem = elem;                                                                                                    // 347
+  this.handlers = {};                                                                                                  // 348
+};                                                                                                                     // 349
+                                                                                                                       // 350
+// Update attributes on `elem` to the dictionary `attrs`, whose                                                        // 351
+// values are strings.                                                                                                 // 352
+ElementAttributesUpdater.prototype.update = function(newAttrs) {                                                       // 353
+  var elem = this.elem;                                                                                                // 354
+  var handlers = this.handlers;                                                                                        // 355
+                                                                                                                       // 356
+  for (var k in handlers) {                                                                                            // 357
+    if (! _.has(newAttrs, k)) {                                                                                        // 358
+      // remove attributes (and handlers) for attribute names                                                          // 359
+      // that don't exist as keys of `newAttrs` and so won't                                                           // 360
+      // be visited when traversing it.  (Attributes that                                                              // 361
+      // exist in the `newAttrs` object but are `null`                                                                 // 362
+      // are handled later.)                                                                                           // 363
+      var handler = handlers[k];                                                                                       // 364
+      var oldValue = handler.value;                                                                                    // 365
+      handler.value = null;                                                                                            // 366
+      handler.update(elem, oldValue, null);                                                                            // 367
+      delete handlers[k];                                                                                              // 368
+    }                                                                                                                  // 369
+  }                                                                                                                    // 370
+                                                                                                                       // 371
+  for (var k in newAttrs) {                                                                                            // 372
+    var handler = null;                                                                                                // 373
+    var oldValue;                                                                                                      // 374
+    var value = newAttrs[k];                                                                                           // 375
+    if (! _.has(handlers, k)) {                                                                                        // 376
+      if (value !== null) {                                                                                            // 377
+        // make new handler                                                                                            // 378
+        handler = Blaze._makeAttributeHandler(elem, k, value);                                                         // 379
+        handlers[k] = handler;                                                                                         // 380
+        oldValue = null;                                                                                               // 381
+      }                                                                                                                // 382
+    } else {                                                                                                           // 383
+      handler = handlers[k];                                                                                           // 384
+      oldValue = handler.value;                                                                                        // 385
+    }                                                                                                                  // 386
+    if (oldValue !== value) {                                                                                          // 387
+      handler.value = value;                                                                                           // 388
+      handler.update(elem, oldValue, value);                                                                           // 389
+      if (value === null)                                                                                              // 390
+        delete handlers[k];                                                                                            // 391
+    }                                                                                                                  // 392
+  }                                                                                                                    // 393
+};                                                                                                                     // 394
+                                                                                                                       // 395
+>>>>>>> version meteor
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -1565,6 +1898,7 @@ var materializeTag = function (tag, parentView, workStack) {                    
       var flattenedAttrs = HTML.flattenAttributes(expandedAttrs);                                                      // 128
       var stringAttrs = {};                                                                                            // 129
       for (var attrName in flattenedAttrs) {                                                                           // 130
+<<<<<<< HEAD
         stringAttrs[attrName] = Blaze._toText(flattenedAttrs[attrName],                                                // 131
                                               parentView,                                                              // 132
                                               HTML.TEXTMODE.STRING);                                                   // 133
@@ -1627,6 +1961,76 @@ var isSVGAnchor = function (node) {                                             
           node.attrs["xlink:href"] !== undefined);                                                                     // 190
 };                                                                                                                     // 191
                                                                                                                        // 192
+=======
+        // map `null`, `undefined`, and `false` to null, which is important                                            // 131
+        // so that attributes with nully values are considered absent.                                                 // 132
+        // stringify anything else (e.g. strings, booleans, numbers including 0).                                      // 133
+        if (flattenedAttrs[attrName] == null || flattenedAttrs[attrName] === false)                                    // 134
+          stringAttrs[attrName] = null;                                                                                // 135
+        else                                                                                                           // 136
+          stringAttrs[attrName] = Blaze._toText(flattenedAttrs[attrName],                                              // 137
+                                                parentView,                                                            // 138
+                                                HTML.TEXTMODE.STRING);                                                 // 139
+      }                                                                                                                // 140
+      attrUpdater.update(stringAttrs);                                                                                 // 141
+    };                                                                                                                 // 142
+    var updaterComputation;                                                                                            // 143
+    if (parentView) {                                                                                                  // 144
+      updaterComputation =                                                                                             // 145
+        parentView.autorun(updateAttributes, undefined, 'updater');                                                    // 146
+    } else {                                                                                                           // 147
+      updaterComputation = Tracker.nonreactive(function () {                                                           // 148
+        return Tracker.autorun(function () {                                                                           // 149
+          Tracker._withCurrentView(parentView, updateAttributes);                                                      // 150
+        });                                                                                                            // 151
+      });                                                                                                              // 152
+    }                                                                                                                  // 153
+    Blaze._DOMBackend.Teardown.onElementTeardown(elem, function attrTeardown() {                                       // 154
+      updaterComputation.stop();                                                                                       // 155
+    });                                                                                                                // 156
+  }                                                                                                                    // 157
+                                                                                                                       // 158
+  if (children.length) {                                                                                               // 159
+    var childNodesAndRanges = [];                                                                                      // 160
+    // push this function first so that it's done last                                                                 // 161
+    workStack.push(function () {                                                                                       // 162
+      for (var i = 0; i < childNodesAndRanges.length; i++) {                                                           // 163
+        var x = childNodesAndRanges[i];                                                                                // 164
+        if (x instanceof Blaze._DOMRange)                                                                              // 165
+          x.attach(elem);                                                                                              // 166
+        else                                                                                                           // 167
+          elem.appendChild(x);                                                                                         // 168
+      }                                                                                                                // 169
+    });                                                                                                                // 170
+    // now push the task that calculates childNodesAndRanges                                                           // 171
+    workStack.push(Blaze._bind(Blaze._materializeDOM, null,                                                            // 172
+                          children, childNodesAndRanges, parentView,                                                   // 173
+                          workStack));                                                                                 // 174
+  }                                                                                                                    // 175
+                                                                                                                       // 176
+  return elem;                                                                                                         // 177
+};                                                                                                                     // 178
+                                                                                                                       // 179
+                                                                                                                       // 180
+var isSVGAnchor = function (node) {                                                                                    // 181
+  // We generally aren't able to detect SVG <a> elements because                                                       // 182
+  // if "A" were in our list of known svg element names, then all                                                      // 183
+  // <a> nodes would be created using                                                                                  // 184
+  // `document.createElementNS`. But in the special case of <a                                                         // 185
+  // xlink:href="...">, we can at least detect that attribute and                                                      // 186
+  // create an SVG <a> tag in that case.                                                                               // 187
+  //                                                                                                                   // 188
+  // However, we still have a general problem of knowing when to                                                       // 189
+  // use document.createElementNS and when to use                                                                      // 190
+  // document.createElement; for example, font tags will always                                                        // 191
+  // be created as SVG elements which can cause other                                                                  // 192
+  // problems. #1977                                                                                                   // 193
+  return (node.tagName === "a" &&                                                                                      // 194
+          node.attrs &&                                                                                                // 195
+          node.attrs["xlink:href"] !== undefined);                                                                     // 196
+};                                                                                                                     // 197
+                                                                                                                       // 198
+>>>>>>> version meteor
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);

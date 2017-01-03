@@ -7,6 +7,7 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/meteor/node_modules",
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/meteor/1.1.9/npm/node_modules",
@@ -45,10 +46,50 @@
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/email/1.0.7/npm/node_modules",
       "sourceMap": "packages/email.js.map",
+=======
+      "node_modules": "npm/node_modules/meteor/meteor/node_modules",
+      "path": "packages/meteor.js"
+    },
+    {
+      "path": "packages/autopublish.js"
+    },
+    {
+      "path": "packages/insecure.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/email/node_modules",
+>>>>>>> version meteor
       "path": "packages/email.js"
 >>>>>>> ajout zone de text riche
     },
     {
+<<<<<<< HEAD
+=======
+      "node_modules": "npm/node_modules/meteor/modules-runtime/node_modules",
+      "path": "packages/modules-runtime.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/modules/node_modules",
+      "path": "packages/modules.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/promise/node_modules",
+      "path": "packages/promise.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/ecmascript-runtime/node_modules",
+      "path": "packages/ecmascript-runtime.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/babel-compiler/node_modules",
+      "path": "packages/babel-compiler.js"
+    },
+    {
+      "sourceMap": "packages/ecmascript.js.map",
+      "path": "packages/ecmascript.js"
+    },
+    {
+>>>>>>> version meteor
       "path": "packages/base64.js"
     },
     {
@@ -56,11 +97,15 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/logging/node_modules",
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/logging/1.0.8/npm/node_modules",
       "sourceMap": "packages/logging.js.map",
 >>>>>>> ajout zone de text riche
+=======
+      "node_modules": "npm/node_modules/meteor/logging/node_modules",
+>>>>>>> version meteor
       "path": "packages/logging.js"
     },
     {
@@ -114,6 +159,12 @@
       "path": "packages/reactive-var.js"
     },
     {
+<<<<<<< HEAD
+=======
+      "path": "packages/ordered-dict.js"
+    },
+    {
+>>>>>>> version meteor
       "path": "packages/blaze.js"
     },
     {
@@ -135,10 +186,14 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/webapp/node_modules",
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/webapp/1.2.2/npm/node_modules",
 >>>>>>> ajout zone de text riche
+=======
+      "node_modules": "npm/node_modules/meteor/webapp/node_modules",
+>>>>>>> version meteor
       "sourceMap": "packages/webapp.js.map",
       "path": "packages/webapp.js"
     },
@@ -171,6 +226,7 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/npm-mongo/node_modules",
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/npm-mongo/1.4.39_1/npm/node_modules",
@@ -182,6 +238,12 @@
       "path": "packages/ordered-dict.js"
     },
     {
+=======
+      "node_modules": "npm/node_modules/meteor/npm-mongo/node_modules",
+      "path": "packages/npm-mongo.js"
+    },
+    {
+>>>>>>> version meteor
       "path": "packages/geojson-utils.js"
     },
     {
@@ -194,6 +256,7 @@
       "path": "packages/ddp-common.js"
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/ddp-client/node_modules",
       "path": "packages/ddp-client.js"
@@ -237,6 +300,16 @@
     {
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/ddp-server/1.2.1/npm/node_modules",
 >>>>>>> ajout zone de text riche
+=======
+      "node_modules": "npm/node_modules/meteor/ddp-client/node_modules",
+      "path": "packages/ddp-client.js"
+    },
+    {
+      "path": "packages/callback-hook.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/ddp-server/node_modules",
+>>>>>>> version meteor
       "sourceMap": "packages/ddp-server.js.map",
       "path": "packages/ddp-server.js"
     },
@@ -252,10 +325,14 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/mongo/node_modules",
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/mongo/1.1.2/npm/node_modules",
 >>>>>>> ajout zone de text riche
+=======
+      "node_modules": "npm/node_modules/meteor/mongo/node_modules",
+>>>>>>> version meteor
       "sourceMap": "packages/mongo.js.map",
       "path": "packages/mongo.js"
     },
@@ -268,6 +345,7 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/iron_router/node_modules",
       "path": "packages/iron_router.js"
 =======
@@ -277,17 +355,23 @@
       "assets": {
         "lib/templates.html": "assets/packages/iron_router/lib/templates.html"
       }
+=======
+      "node_modules": "npm/node_modules/meteor/iron_router/node_modules",
+      "path": "packages/iron_router.js"
+>>>>>>> version meteor
     },
     {
-      "sourceMap": "packages/twbs_bootstrap.js.map",
       "path": "packages/twbs_bootstrap.js"
     },
     {
+<<<<<<< HEAD
       "sourceMap": "packages/standard-minifiers.js.map",
       "path": "packages/standard-minifiers.js"
 >>>>>>> ajout zone de text riche
     },
     {
+=======
+>>>>>>> version meteor
       "path": "packages/meteor-base.js"
     },
     {
@@ -304,10 +388,13 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "path": "packages/mrt_jquery-ui.js"
     },
     {
 <<<<<<< HEAD
+=======
+>>>>>>> version meteor
       "path": "packages/standard-minifier-css.js"
     },
     {
@@ -316,6 +403,7 @@
     {
       "sourceMap": "packages/shell-server.js.map",
       "path": "packages/shell-server.js"
+<<<<<<< HEAD
     },
     {
       "path": "packages/stylus.js"
@@ -363,14 +451,21 @@
       "sourceMap": "packages/fortawesome_fontawesome.js.map",
       "path": "packages/fortawesome_fontawesome.js"
 >>>>>>> simplification UI & add Zone text report meeting
+=======
+>>>>>>> version meteor
     },
     {
-      "sourceMap": "packages/summernote_summernote.js.map",
       "path": "packages/summernote_summernote.js"
     },
     {
+<<<<<<< HEAD
       "sourceMap": "packages/livedata.js.map",
 >>>>>>> ajout zone de text riche
+=======
+      "path": "packages/stylus.js"
+    },
+    {
+>>>>>>> version meteor
       "path": "packages/livedata.js"
     },
     {
@@ -392,6 +487,7 @@
     },
     {
       "node_modules": "npm/node_modules",
+<<<<<<< HEAD
       "path": "app/lib/permissions.js"
     },
     {
@@ -400,6 +496,8 @@
     },
     {
       "node_modules": "npm/node_modules",
+=======
+>>>>>>> version meteor
       "path": "app/collections/Meetings.js"
     },
     {
@@ -412,6 +510,7 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules",
 =======
       "sourceMap": "app/server/fixtures.js.map",
@@ -420,6 +519,13 @@
     {
       "sourceMap": "app/server/methods.js.map",
 >>>>>>> ajout zone de text riche
+=======
+      "node_modules": "npm/node_modules",
+      "path": "app/server/fixtures.js"
+    },
+    {
+      "node_modules": "npm/node_modules",
+>>>>>>> version meteor
       "path": "app/server/methods.js"
     },
     {

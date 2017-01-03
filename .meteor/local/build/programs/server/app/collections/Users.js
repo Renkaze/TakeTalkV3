@@ -10,5 +10,8 @@ Exemple :
  meeting: id,
  _id: 'testAnimator'
 */
+<<<<<<< HEAD
 
+=======
+>>>>>>> version meteor
 }).call(this);
