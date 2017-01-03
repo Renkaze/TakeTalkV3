@@ -11,7 +11,10 @@ Exemple :
  _id: 'testAnimator'
 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 }).call(this);

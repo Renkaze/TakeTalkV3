@@ -24,9 +24,13 @@ var _ = Package.underscore._;
 var ObserveSequence = Package['observe-sequence'].ObserveSequence;
 var ReactiveVar = Package['reactive-var'].ReactiveVar;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 var OrderedDict = Package['ordered-dict'].OrderedDict;
 >>>>>>> version meteor
+=======
+var OrderedDict = Package['ordered-dict'].OrderedDict;
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 var HTML = Package.htmljs.HTML;
 
 /* Package-scope variables */
@@ -47,6 +51,7 @@ var Blaze, AttributeHandler, ElementAttributesUpdater, UI, Handlebars;
 Blaze = {};                                                                                                            // 5
                                                                                                                        // 6
 // Utility to HTML-escape a string.  Included for legacy reasons.                                                      // 7
+<<<<<<< HEAD
 <<<<<<< HEAD
 Blaze._escape = (function() {                                                                                          // 8
   var escape_map = {                                                                                                   // 9
@@ -99,6 +104,8 @@ else {                                                                          
 }                                                                                                                      // 56
                                                                                                                        // 57
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 // TODO: Should be replaced with _.escape once underscore is upgraded to a newer                                       // 8
 //       version which escapes ` (backtick) as well. Underscore 1.5.2 does not.                                        // 9
 Blaze._escape = (function() {                                                                                          // 10
@@ -151,7 +158,10 @@ else {                                                                          
   Blaze._bind = _.bind;                                                                                                // 57
 }                                                                                                                      // 58
                                                                                                                        // 59
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -1185,6 +1195,7 @@ Blaze._DiffingAttributeHandler = AttributeHandler.extend({                      
       }                                                                                                                // 92
                                                                                                                        // 93
 <<<<<<< HEAD
+<<<<<<< HEAD
 var ClassHandler = Blaze._DiffingAttributeHandler.extend({                                                             // 94
   // @param rawValue {String}                                                                                          // 95
   getCurrentValue: function (element) {                                                                                // 96
@@ -1232,6 +1243,8 @@ var StyleHandler = Blaze._DiffingAttributeHandler.extend({                      
   parseValue: function (attrString) {                                                                                  // 138
     var tokens = {};                                                                                                   // 139
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       attrsMap.append(key, value);                                                                                     // 94
     });                                                                                                                // 95
                                                                                                                        // 96
@@ -1278,7 +1291,10 @@ var SVGClassHandler = ClassHandler.extend({                                     
     element.setAttribute('class', className);                                                                          // 137
   }                                                                                                                    // 138
 });                                                                                                                    // 139
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
                                                                                                                        // 140
 var StyleHandler = Blaze._DiffingAttributeHandler.extend({                                                             // 141
   getCurrentValue: function (element) {                                                                                // 142
@@ -1313,6 +1329,7 @@ var StyleHandler = Blaze._DiffingAttributeHandler.extend({                      
         tokens.remove(match[1]);                                                                                       // 171
       }                                                                                                                // 172
                                                                                                                        // 173
+<<<<<<< HEAD
 <<<<<<< HEAD
 var DOMPropertyHandler = AttributeHandler.extend({                                                                     // 174
   update: function (element, oldValue, value) {                                                                        // 175
@@ -1528,6 +1545,8 @@ ElementAttributesUpdater.prototype.update = function(newAttrs) {                
 };                                                                                                                     // 385
                                                                                                                        // 386
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       // XXX No `String.trim` on Safari 4. Swap out $.trim if we want to                                               // 174
       // remove strong dep on jquery.                                                                                  // 175
       tokens.append(match[1], match[0].trim ? match[0].trim() : $.trim(match[0]));                                     // 176
@@ -1750,7 +1769,10 @@ ElementAttributesUpdater.prototype.update = function(newAttrs) {                
   }                                                                                                                    // 393
 };                                                                                                                     // 394
                                                                                                                        // 395
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);
@@ -1899,6 +1921,7 @@ var materializeTag = function (tag, parentView, workStack) {                    
       var stringAttrs = {};                                                                                            // 129
       for (var attrName in flattenedAttrs) {                                                                           // 130
 <<<<<<< HEAD
+<<<<<<< HEAD
         stringAttrs[attrName] = Blaze._toText(flattenedAttrs[attrName],                                                // 131
                                               parentView,                                                              // 132
                                               HTML.TEXTMODE.STRING);                                                   // 133
@@ -1962,6 +1985,8 @@ var isSVGAnchor = function (node) {                                             
 };                                                                                                                     // 191
                                                                                                                        // 192
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
         // map `null`, `undefined`, and `false` to null, which is important                                            // 131
         // so that attributes with nully values are considered absent.                                                 // 132
         // stringify anything else (e.g. strings, booleans, numbers including 0).                                      // 133
@@ -2030,7 +2055,10 @@ var isSVGAnchor = function (node) {                                             
           node.attrs["xlink:href"] !== undefined);                                                                     // 196
 };                                                                                                                     // 197
                                                                                                                        // 198
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }).call(this);

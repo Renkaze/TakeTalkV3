@@ -7,6 +7,7 @@ Template["layout"] = new Template("Template.layout", (function() {
   }, "\n\n    ", HTML.DIV({
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     class: "am-wrapper am-nosidebar-left"
   }, "\n      ", HTML.NAV({
     class: "navbar navbar-default navbar-fixed-top am-top-header",
@@ -23,6 +24,10 @@ Template["layout"] = new Template("Template.layout", (function() {
     class: "am-wrapper am-nosidebar-left"
 >>>>>>> version meteor
   }, "\n      ", HTML.NAV({
+=======
+    class: "am-wrapper am-nosidebar-left"
+  }, "\n      ", HTML.NAV({
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     class: "navbar navbar-default navbar-fixed-top am-top-header"
   }, "\n        ", HTML.DIV({
     class: "container-fluid"
@@ -30,17 +35,22 @@ Template["layout"] = new Template("Template.layout", (function() {
     class: "navbar-header"
   }, "\n            ", HTML.DIV({
 <<<<<<< HEAD
+<<<<<<< HEAD
     "class": "page-title"
 >>>>>>> ajout zone de text riche
 =======
     class: "page-title"
 >>>>>>> version meteor
+=======
+    class: "page-title"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
   }, "\n              ", HTML.A({
     href: function() {
       return Spacebars.mustache(view.lookup("pathFor"), Spacebars.kw({
         route: "home"
       }));
     },
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     class: "navbar-brand title-font"
@@ -65,6 +75,14 @@ Template["layout"] = new Template("Template.layout", (function() {
 =======
     class: "nav navbar-nav am-nav-right"
 >>>>>>> version meteor
+=======
+    class: "navbar-brand title-font"
+  }, HTML.Raw('<img src="/LOGO.png" height="" width="100%" style="display:inline">')), "\n            "), "\n          "), "\n          ", HTML.Raw('<a href="#" data-toggle="collapse" data-target="#am-navbar-collapse" class="am-toggle-top-header-menu collapsed">\n            <span class="icon s7-angle-down"></span>\n          </a>'), "\n          ", HTML.DIV({
+    id: "am-navbar-collapse",
+    class: "collapse navbar-collapse"
+  }, "\n            ", HTML.UL({
+    class: "nav navbar-nav am-nav-right"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
   }, "\n              ", HTML.LI(HTML.A({
     href: function() {
       return Spacebars.mustache(view.lookup("pathFor"), Spacebars.kw({
@@ -83,6 +101,7 @@ Template["layout"] = new Template("Template.layout", (function() {
         route: "downloads"
       }));
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   }, "Downloads")), "\n              ", HTML.LI(HTML.H2(Blaze.View("lookup:meeting", function() {
@@ -121,6 +140,22 @@ Template["layout"] = new Template("Template.layout", (function() {
   }), "\n          "), "\n\n      "), "\n\n  "), "\n\n\n  ", HTML.Raw('<div class="collapse navbar-collapse" id="navigation">\n    <ul class="nav navbar-nav navbar-right">\n    </ul>\n  </div>'), "\n"), "\n"), "\n", HTML.DIV({
     class: "am-content"
 >>>>>>> version meteor
+=======
+  }, "Downloads")), "\n\n            "), "\n              ", HTML.Raw('<!-- Pour l\'ajout d\'un menu d�roulant\n              <li class="dropdown">\n              <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">Services\n              <span class="angle-down s7-angle-down" aria-hidden="true"></span>\n            </a>\n            <ul role="menu" class="dropdown-menu">\n            <li><a href="{{pathFor route=\'tutorial\'}}">Tutorial</a></li>\n            <li><a href="{{pathFor route=\'downloads\'}}">Downloads</a></li>\n          </ul>\n        </li>\n      -->'), "\n      ", HTML.UL({
+    class: "nav navbar-text navbar-right"
+  }, "\n\n        ", HTML.LI({
+    class: "navbar-text"
+  }, "\n          ", Blaze.If(function() {
+    return Spacebars.call(view.lookup("isAnimator"));
+  }, function() {
+    return "Meeting Duration : / ";
+  }), "\n        "), "\n          ", HTML.LI({
+    class: "navbar-text h4"
+  }, "\n            ", Blaze.View("lookup:meeting", function() {
+    return Spacebars.mustache(view.lookup("meeting"));
+  }), "\n          "), "\n\n      "), "\n\n  "), "\n\n\n  ", HTML.Raw('<div class="collapse navbar-collapse" id="navigation">\n    <ul class="nav navbar-nav navbar-right">\n    </ul>\n  </div>'), "\n"), "\n"), "\n", HTML.DIV({
+    class: "am-content"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
   }, "\n  ", Spacebars.include(view.lookupTemplate("yield")), "\n"), "\n", HTML.Raw("<footer>\n  <p>\n    <!-- Ici ajout d'informations pour le footer (plan du site, formulaire de contact, copyrights....) -->\n  </p>\n</footer>"), "\n"), "\n", HTML.SCRIPT({
     type: "text/javascript"
   }, "\n$(document).ready(function(){\n  //initialize the javascript\n  //App.init();\n\n  //Runs prettify\n  prettyPrint();\n});\n"), "\n") ];

@@ -4,6 +4,7 @@
   "dependencies": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "meteor-promise": "0.8.0",
     "fibers": "1.0.15",
     "promise": "7.1.1",
@@ -16,6 +17,11 @@
     "fibers": "1.0.15",
     "promise": "7.1.1",
 >>>>>>> version meteor
+=======
+    "meteor-promise": "0.8.0",
+    "fibers": "1.0.15",
+    "promise": "7.1.1",
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     "underscore": "1.5.2",
     "source-map-support": "https://github.com/meteor/node-source-map-support/tarball/1912478769d76e5df4c365e147f25896aee6375e",
     "semver": "4.1.0",

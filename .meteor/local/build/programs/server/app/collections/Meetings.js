@@ -3,6 +3,7 @@ Meetings = new Mongo.Collection("meetings");
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
  name: 'test',
  status: "ongoing",
  ordres: ['ordre1', 'ordre2', 'ordre3'],
@@ -11,6 +12,8 @@ Meetings = new Mongo.Collection("meetings");
  pwd : ""
  */
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
  // Exemple :
  //
  // name: 'test',
@@ -19,6 +22,7 @@ Meetings = new Mongo.Collection("meetings");
  // ordreTimes: [90, 130, 268],
  // _id: id,
  // pwd : "",
+<<<<<<< HEAD
 
 }).call(this);
 <<<<<<< HEAD
@@ -27,3 +31,7 @@ Meetings = new Mongo.Collection("meetings");
 }).call(this);
 =======
 >>>>>>> version meteor
+=======
+
+}).call(this);
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6

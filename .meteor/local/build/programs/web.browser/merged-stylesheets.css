@@ -23,6 +23,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #login-dropdown-list .dropdown-menu {
   min-width: 300px;
   padding: 15px;
@@ -128,6 +129,8 @@
 .wide-text-edit,
 .text-area-edit {
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -135,7 +138,10 @@ html {
 }
 
 body {
+<<<<<<< HEAD
 >>>>>>> simplification UI & add Zone text report meeting
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
   margin: 0;
 }
 
@@ -284,10 +290,13 @@ input[type="submit"] {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .editable-text-save-button:hover {
   background: #eee;
 >>>>>>> ajout zone de text riche
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -9094,7 +9103,10 @@ button.close {
   cursor: pointer;
   background-color: #428bca;
   outline: 0;
+<<<<<<< HEAD
 >>>>>>> simplification UI & add Zone text report meeting
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 }
 
 .nano {

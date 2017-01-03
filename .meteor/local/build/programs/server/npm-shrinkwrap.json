@@ -15,6 +15,7 @@
     "fibers": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "version": "1.0.15",
       "from": "fibers@1.0.15",
       "resolved": "https://registry.npmjs.org/fibers/-/fibers-1.0.15.tgz"
@@ -33,6 +34,11 @@
       "from": "fibers@1.0.15",
       "resolved": "https://registry.npmjs.org/fibers/-/fibers-1.0.15.tgz"
 >>>>>>> version meteor
+=======
+      "version": "1.0.15",
+      "from": "fibers@1.0.15",
+      "resolved": "https://registry.npmjs.org/fibers/-/fibers-1.0.15.tgz"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     "meteor-promise": {
       "version": "0.8.0",

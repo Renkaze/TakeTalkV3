@@ -1,5 +1,6 @@
 0 info it worked if it ends with ok
 <<<<<<< HEAD
+<<<<<<< HEAD
 1 verbose cli [ 'C:\\Users\\tom\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.4.2_3\\mt-os.windows.x86_32\\dev_bundle\\bin\\node.exe',
 1 verbose cli   'C:\\Users\\tom\\AppData\\Local\\.meteor\\packages\\meteor-tool\\1.4.2_3\\mt-os.windows.x86_32\\dev_bundle\\lib\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'install',
@@ -47,6 +48,8 @@
 20 verbose headers   'x-cache-hits': '1',
 20 verbose headers   'x-timer': 'S1483183608.724899,VS0,VE10',
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
 1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'install',
@@ -93,11 +96,15 @@
 20 verbose headers   'x-cache': 'MISS',
 20 verbose headers   'x-cache-hits': '0',
 20 verbose headers   'x-timer': 'S1481883836.514572,VS0,VE19',
+<<<<<<< HEAD
 >>>>>>> simplification UI & add Zone text report meeting
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 20 verbose headers   vary: 'Accept-Encoding' }
 21 silly get cb [ 200,
 21 silly get   { server: 'nginx/1.10.1',
 21 silly get     'content-type': 'application/json',
+<<<<<<< HEAD
 <<<<<<< HEAD
 21 silly get     'last-modified': 'Fri, 30 Dec 2016 03:18:05 GMT',
 21 silly get     etag: 'W/"5865d1ed-16010"',
@@ -117,6 +124,8 @@
 22 verbose get saving bcrypt to C:\Users\tom\AppData\Local\.meteor\packages\meteor-tool\1.4.2_3\mt-os.windows.x86_32\dev_bundle\.npm\registry.npmjs.org\bcrypt\.cache.json
 23 verbose correctMkdir C:\Users\tom\AppData\Local\.meteor\packages\meteor-tool\1.4.2_3\mt-os.windows.x86_32\dev_bundle\.npm correctMkdir not in flight; initializing
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 21 silly get     'last-modified': 'Tue, 10 Feb 2015 00:42:23 GMT',
 21 silly get     etag: 'W/"54d953ef-16899"',
 21 silly get     'content-encoding': 'gzip',
@@ -134,7 +143,10 @@
 21 silly get     vary: 'Accept-Encoding' } ]
 22 verbose get saving meteorite to C:\Users\foretf\AppData\Roaming\npm-cache\registry.npmjs.org\meteorite\.cache.json
 23 verbose correctMkdir C:\Users\foretf\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+<<<<<<< HEAD
 >>>>>>> simplification UI & add Zone text report meeting
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 24 silly install normalizeTree
 25 silly loadCurrentTree Finishing
 26 silly loadIdealTree Starting
@@ -147,6 +159,7 @@
 33 silly loadShrinkwrap Finishing
 34 silly loadAllDepsIntoIdealTree Starting
 35 silly install loadAllDepsIntoIdealTree
+<<<<<<< HEAD
 <<<<<<< HEAD
 36 silly resolveWithNewModule bcrypt@1.0.1 checking installable status
 37 silly cache add args [ 'bcrypt', null ]
@@ -3888,6 +3901,8 @@
 1412 verbose headers   'x-cache-hits': '1',
 1412 verbose headers   'x-timer': 'S1483183609.264327,VS0,VE0',
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 36 silly resolveWithNewModule meteorite@0.9.3 checking installable status
 37 silly cache add args [ 'meteorite', null ]
 38 verbose cache add spec meteorite
@@ -7405,11 +7420,15 @@
 1412 verbose headers   'x-cache': 'HIT',
 1412 verbose headers   'x-cache-hits': '28',
 1412 verbose headers   'x-timer': 'S1481883838.858780,VS0,VE0',
+<<<<<<< HEAD
 >>>>>>> simplification UI & add Zone text report meeting
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 1412 verbose headers   vary: 'Accept-Encoding' }
 1413 silly get cb [ 200,
 1413 silly get   { server: 'nginx/1.10.1',
 1413 silly get     'content-type': 'application/json',
+<<<<<<< HEAD
 <<<<<<< HEAD
 1413 silly get     'last-modified': 'Sun, 04 Dec 2016 03:21:02 GMT',
 1413 silly get     etag: 'W/"58438b9e-4c21"',
@@ -19290,6 +19309,8 @@
 6199 error There is likely additional logging output above.
 6200 verbose exit [ 1, true ]
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 1413 silly get     'last-modified': 'Tue, 01 Nov 2016 18:48:39 GMT',
 1413 silly get     etag: 'W/"5818e387-11a5"',
 1413 silly get     'content-encoding': 'gzip',
@@ -25019,4 +25040,7 @@
 5536 error     npm owner ls meteorite
 5536 error There is likely additional logging output above.
 5537 verbose exit [ 1, true ]
+<<<<<<< HEAD
 >>>>>>> simplification UI & add Zone text report meeting
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6

@@ -23,6 +23,7 @@ Meteor.methods({
 
   //Permet de réinitiliser la base de données
 <<<<<<< HEAD
+<<<<<<< HEAD
   resetAll: function() {
     Session.set("meetingId", "");
     Session.set("userId", "");
@@ -48,3 +49,15 @@ Meteor.methods({
 }).call(this);
 =======
 >>>>>>> version meteor
+=======
+  // resetAll: function() {
+  //     Session.set("meetingId", "");
+  //     Session.set("userId", "");
+  //     Speeches.remove({});
+  //     Users.remove({});
+  //     Meetings.remove({});
+  // }
+});
+
+}).call(this);
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6

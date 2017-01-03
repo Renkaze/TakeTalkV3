@@ -12,9 +12,13 @@ var _ = Package.underscore._;
 var ObserveSequence = Package['observe-sequence'].ObserveSequence;
 var ReactiveVar = Package['reactive-var'].ReactiveVar;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 var OrderedDict = Package['ordered-dict'].OrderedDict;
 >>>>>>> version meteor
+=======
+var OrderedDict = Package['ordered-dict'].OrderedDict;
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 var HTML = Package.htmljs.HTML;
 
 /* Package-scope variables */
@@ -36,10 +40,15 @@ Blaze = {};
 
 // Utility to HTML-escape a string.  Included for legacy reasons.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // TODO: Should be replaced with _.escape once underscore is upgraded to a newer
 //       version which escapes ` (backtick) as well. Underscore 1.5.2 does not.
 >>>>>>> version meteor
+=======
+// TODO: Should be replaced with _.escape once underscore is upgraded to a newer
+//       version which escapes ` (backtick) as well. Underscore 1.5.2 does not.
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 Blaze._escape = (function() {
   var escape_map = {
     "<": "&lt;",

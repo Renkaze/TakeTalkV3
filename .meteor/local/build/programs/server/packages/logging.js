@@ -305,10 +305,14 @@ Log.objFromText = function (line, override) {
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
 <<<<<<< HEAD
+<<<<<<< HEAD
 // ../npm/node_modules/cli-color/package.json                                          //
 =======
 // ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/package //
 >>>>>>> version meteor
+=======
+// ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/package //
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //

@@ -315,10 +315,14 @@ Log.objFromText = function (line, override) {                                   
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
 <<<<<<< HEAD
+<<<<<<< HEAD
 // ../npm/node_modules/cli-color/package.json                                          //
 =======
 // ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/package //
 >>>>>>> version meteor
+=======
+// ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/package //
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //
@@ -1365,10 +1369,14 @@ module.exports = new Function("return this")();                                 
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
 <<<<<<< HEAD
+<<<<<<< HEAD
 // ../npm/node_modules/cli-color/node_modules/memoizee/package.json                    //
 =======
 // ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/node_mo //
 >>>>>>> version meteor
+=======
+// ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/node_mo //
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //
@@ -2508,10 +2516,14 @@ exports.methods = methods;                                                      
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
 <<<<<<< HEAD
+<<<<<<< HEAD
 // ../npm/node_modules/cli-color/node_modules/memoizee/node_modules/next-tick/package. //
 =======
 // ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/node_mo //
 >>>>>>> version meteor
+=======
+// ../../.1.1.16.1zhoov++os+web.browser+web.cordova/npm/node_modules/cli-color/node_mo //
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //

@@ -8,6 +8,7 @@
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/meteor/node_modules",
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/meteor/1.1.9/npm/node_modules",
@@ -47,6 +48,8 @@
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/email/1.0.7/npm/node_modules",
       "sourceMap": "packages/email.js.map",
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "node_modules": "npm/node_modules/meteor/meteor/node_modules",
       "path": "packages/meteor.js"
     },
@@ -58,7 +61,10 @@
     },
     {
       "node_modules": "npm/node_modules/meteor/email/node_modules",
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "packages/email.js"
 >>>>>>> ajout zone de text riche
     },
@@ -81,6 +87,25 @@
       "path": "packages/ecmascript-runtime.js"
     },
     {
+<<<<<<< HEAD
+=======
+      "node_modules": "npm/node_modules/meteor/modules-runtime/node_modules",
+      "path": "packages/modules-runtime.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/modules/node_modules",
+      "path": "packages/modules.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/promise/node_modules",
+      "path": "packages/promise.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/ecmascript-runtime/node_modules",
+      "path": "packages/ecmascript-runtime.js"
+    },
+    {
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "node_modules": "npm/node_modules/meteor/babel-compiler/node_modules",
       "path": "packages/babel-compiler.js"
     },
@@ -89,13 +114,17 @@
       "path": "packages/ecmascript.js"
     },
     {
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "packages/base64.js"
     },
     {
       "path": "packages/ejson.js"
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/logging/node_modules",
@@ -106,6 +135,9 @@
 =======
       "node_modules": "npm/node_modules/meteor/logging/node_modules",
 >>>>>>> version meteor
+=======
+      "node_modules": "npm/node_modules/meteor/logging/node_modules",
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "packages/logging.js"
     },
     {
@@ -160,11 +192,17 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       "path": "packages/ordered-dict.js"
     },
     {
 >>>>>>> version meteor
+=======
+      "path": "packages/ordered-dict.js"
+    },
+    {
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "packages/blaze.js"
     },
     {
@@ -187,6 +225,7 @@
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/webapp/node_modules",
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/webapp/1.2.2/npm/node_modules",
@@ -194,6 +233,9 @@
 =======
       "node_modules": "npm/node_modules/meteor/webapp/node_modules",
 >>>>>>> version meteor
+=======
+      "node_modules": "npm/node_modules/meteor/webapp/node_modules",
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "sourceMap": "packages/webapp.js.map",
       "path": "packages/webapp.js"
     },
@@ -227,6 +269,7 @@
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/npm-mongo/node_modules",
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/npm-mongo/1.4.39_1/npm/node_modules",
@@ -244,6 +287,12 @@
     },
     {
 >>>>>>> version meteor
+=======
+      "node_modules": "npm/node_modules/meteor/npm-mongo/node_modules",
+      "path": "packages/npm-mongo.js"
+    },
+    {
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "packages/geojson-utils.js"
     },
     {
@@ -256,6 +305,7 @@
       "path": "packages/ddp-common.js"
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/ddp-client/node_modules",
@@ -310,6 +360,16 @@
     {
       "node_modules": "npm/node_modules/meteor/ddp-server/node_modules",
 >>>>>>> version meteor
+=======
+      "node_modules": "npm/node_modules/meteor/ddp-client/node_modules",
+      "path": "packages/ddp-client.js"
+    },
+    {
+      "path": "packages/callback-hook.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/ddp-server/node_modules",
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "sourceMap": "packages/ddp-server.js.map",
       "path": "packages/ddp-server.js"
     },
@@ -326,6 +386,7 @@
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/mongo/node_modules",
 =======
       "node_modules": "/C/Users/foretf/AppData/Local/.meteor/packages/mongo/1.1.2/npm/node_modules",
@@ -333,6 +394,9 @@
 =======
       "node_modules": "npm/node_modules/meteor/mongo/node_modules",
 >>>>>>> version meteor
+=======
+      "node_modules": "npm/node_modules/meteor/mongo/node_modules",
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "sourceMap": "packages/mongo.js.map",
       "path": "packages/mongo.js"
     },
@@ -344,6 +408,7 @@
       "path": "packages/iron_controller.js"
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       "node_modules": "npm/node_modules/meteor/iron_router/node_modules",
@@ -372,6 +437,15 @@
     {
 =======
 >>>>>>> version meteor
+=======
+      "node_modules": "npm/node_modules/meteor/iron_router/node_modules",
+      "path": "packages/iron_router.js"
+    },
+    {
+      "path": "packages/twbs_bootstrap.js"
+    },
+    {
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "packages/meteor-base.js"
     },
     {
@@ -387,6 +461,7 @@
       "path": "packages/reload.js"
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       "path": "packages/mrt_jquery-ui.js"
@@ -466,6 +541,24 @@
     },
     {
 >>>>>>> version meteor
+=======
+      "path": "packages/standard-minifier-css.js"
+    },
+    {
+      "path": "packages/standard-minifier-js.js"
+    },
+    {
+      "sourceMap": "packages/shell-server.js.map",
+      "path": "packages/shell-server.js"
+    },
+    {
+      "path": "packages/summernote_summernote.js"
+    },
+    {
+      "path": "packages/stylus.js"
+    },
+    {
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "packages/livedata.js"
     },
     {
@@ -488,6 +581,7 @@
     {
       "node_modules": "npm/node_modules",
 <<<<<<< HEAD
+<<<<<<< HEAD
       "path": "app/lib/permissions.js"
     },
     {
@@ -498,6 +592,8 @@
       "node_modules": "npm/node_modules",
 =======
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "app/collections/Meetings.js"
     },
     {
@@ -509,6 +605,7 @@
       "path": "app/collections/Users.js"
     },
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       "node_modules": "npm/node_modules",
@@ -526,6 +623,13 @@
     {
       "node_modules": "npm/node_modules",
 >>>>>>> version meteor
+=======
+      "node_modules": "npm/node_modules",
+      "path": "app/server/fixtures.js"
+    },
+    {
+      "node_modules": "npm/node_modules",
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "app/server/methods.js"
     },
     {

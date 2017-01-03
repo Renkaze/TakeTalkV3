@@ -37,9 +37,12 @@ UI = Package.ui.UI;
 Handlebars = Package.ui.Handlebars;
 Template = Package['templating-runtime'].Template;
 <<<<<<< HEAD
+<<<<<<< HEAD
 Accounts = Package['accounts-base'].Accounts;
 =======
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 Autoupdate = Package.autoupdate.Autoupdate;
 HTML = Package.htmljs.HTML;
 

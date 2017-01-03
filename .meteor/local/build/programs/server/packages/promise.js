@@ -65,10 +65,14 @@ exports.Promise.prototype.done = function (onFulfilled, onRejected) {
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                           //
 <<<<<<< HEAD
+<<<<<<< HEAD
 // ../npm/node_modules/meteor-promise/package.json                           //
 =======
 // ../../.0.8.8.18b4j30++os+web.browser+web.cordova/npm/node_modules/meteor- //
 >>>>>>> version meteor
+=======
+// ../../.0.8.8.18b4j30++os+web.browser+web.cordova/npm/node_modules/meteor- //
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 //                                                                           //
 ///////////////////////////////////////////////////////////////////////////////
                                                                              //

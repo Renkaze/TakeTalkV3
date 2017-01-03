@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 email@1.1.18
 iron:router
 meteor-base@1.0.4
@@ -54,6 +55,11 @@ autopublish@1.0.7
 insecure@1.0.7
 email@1.1.18
 >>>>>>> version meteor
+=======
+autopublish@1.0.7
+insecure@1.0.7
+email@1.1.18
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
 iron:router
 twbs:bootstrap
 meteor-base@1.0.4
@@ -74,7 +80,11 @@ standard-minifier-js
 shell-server
 summernote:summernote
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> simplification UI & add Zone text report meeting
 =======
 stylus
 >>>>>>> version meteor
+=======
+stylus
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6

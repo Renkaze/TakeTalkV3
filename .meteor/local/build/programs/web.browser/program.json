@@ -25,6 +25,7 @@
       "type": "js",
       "cacheable": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/packages/email.js?hash=ffec1d26147328d1230a496251100a98dd10ec34",
       "size": 711,
       "hash": "ffec1d26147328d1230a496251100a98dd10ec34"
@@ -33,12 +34,18 @@
       "size": 717,
       "hash": "073bd4c42d2fb6182c944501b4f30e8d17bcceb3"
 >>>>>>> version meteor
+=======
+      "url": "/packages/autopublish.js?hash=073bd4c42d2fb6182c944501b4f30e8d17bcceb3",
+      "size": 717,
+      "hash": "073bd4c42d2fb6182c944501b4f30e8d17bcceb3"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/tracker.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
       "url": "/packages/tracker.js?hash=9f8a0cec09c662aad5a5e224447b2d4e88d011ef",
       "size": 85367,
@@ -48,12 +55,18 @@
       "size": 714,
       "hash": "a0e5f17c280f4c7b05178d36a7ceb07cb7b086c6"
 >>>>>>> version meteor
+=======
+      "url": "/packages/insecure.js?hash=a0e5f17c280f4c7b05178d36a7ceb07cb7b086c6",
+      "size": 714,
+      "hash": "a0e5f17c280f4c7b05178d36a7ceb07cb7b086c6"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/deps.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
       "url": "/packages/deps.js?hash=7313f5a2685c6c2c673c78c15c8ce86ff59ab0c9",
       "size": 932,
@@ -63,12 +76,18 @@
       "size": 711,
       "hash": "ffec1d26147328d1230a496251100a98dd10ec34"
 >>>>>>> version meteor
+=======
+      "url": "/packages/email.js?hash=ffec1d26147328d1230a496251100a98dd10ec34",
+      "size": 711,
+      "hash": "ffec1d26147328d1230a496251100a98dd10ec34"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/modules-runtime.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
       "url": "/packages/modules-runtime.js?hash=637cb12b6fd3acf3ffbfcf0f2ee1cf3988a7f1fe",
       "size": 40108,
@@ -78,6 +97,11 @@
       "size": 85367,
       "hash": "9f8a0cec09c662aad5a5e224447b2d4e88d011ef"
 >>>>>>> version meteor
+=======
+      "url": "/packages/tracker.js?hash=9f8a0cec09c662aad5a5e224447b2d4e88d011ef",
+      "size": 85367,
+      "hash": "9f8a0cec09c662aad5a5e224447b2d4e88d011ef"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/modules.js",
@@ -107,10 +131,34 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/packages/modules.js?hash=d7a742943e48f4a5c1486a959b0c97e87ef09321",
       "size": 356997,
       "hash": "d7a742943e48f4a5c1486a959b0c97e87ef09321"
 >>>>>>> version meteor
+=======
+      "url": "/packages/deps.js?hash=7313f5a2685c6c2c673c78c15c8ce86ff59ab0c9",
+      "size": 932,
+      "hash": "7313f5a2685c6c2c673c78c15c8ce86ff59ab0c9"
+    },
+    {
+      "path": "packages/modules-runtime.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/modules-runtime.js?hash=637cb12b6fd3acf3ffbfcf0f2ee1cf3988a7f1fe",
+      "size": 40108,
+      "hash": "637cb12b6fd3acf3ffbfcf0f2ee1cf3988a7f1fe"
+    },
+    {
+      "path": "packages/modules.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/modules.js?hash=d7a742943e48f4a5c1486a959b0c97e87ef09321",
+      "size": 356997,
+      "hash": "d7a742943e48f4a5c1486a959b0c97e87ef09321"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/jquery.js",
@@ -160,6 +208,7 @@
     {
       "path": "packages/promise.js",
 <<<<<<< HEAD
+<<<<<<< HEAD
       "where": "client",
       "type": "js",
       "cacheable": true,
@@ -176,6 +225,8 @@
       "size": 519496,
       "hash": "fffe20ae20ade1111a96909b90dde7ba91923e92"
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "where": "client",
       "type": "js",
       "cacheable": true,
@@ -191,7 +242,10 @@
       "url": "/packages/ecmascript-runtime.js?hash=642beae50ba6d113025bc2ea9900a294323b5bd2",
       "size": 519496,
       "hash": "642beae50ba6d113025bc2ea9900a294323b5bd2"
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/babel-compiler.js",
@@ -217,6 +271,7 @@
       "type": "js",
       "cacheable": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/packages/babel-runtime.js?hash=81591737f14ce07f210dfca6637615da6aca10aa",
       "size": 11132,
       "hash": "81591737f14ce07f210dfca6637615da6aca10aa"
@@ -225,6 +280,11 @@
       "size": 11132,
       "hash": "c2c96ef2f07e2d0e83016c68e00e43b50f7ca462"
 >>>>>>> version meteor
+=======
+      "url": "/packages/babel-runtime.js?hash=c2c96ef2f07e2d0e83016c68e00e43b50f7ca462",
+      "size": 11132,
+      "hash": "c2c96ef2f07e2d0e83016c68e00e43b50f7ca462"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/random.js",
@@ -275,7 +335,10 @@
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "packages/ordered-dict.js",
       "where": "client",
       "type": "js",
@@ -285,7 +348,10 @@
       "hash": "bacdd1852075630a01f7de783e5e8e8aa8541cdc"
     },
     {
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "path": "packages/htmljs.js",
       "where": "client",
       "type": "js",
@@ -300,6 +366,7 @@
       "type": "js",
       "cacheable": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/packages/blaze.js?hash=10a350f1c0d55cf44d3c99989b04ef2e7e0d23f6",
       "size": 470812,
       "hash": "10a350f1c0d55cf44d3c99989b04ef2e7e0d23f6"
@@ -308,6 +375,11 @@
       "size": 473007,
       "hash": "9d08dd7dde99958947679827a947134cdf2e4f12"
 >>>>>>> version meteor
+=======
+      "url": "/packages/blaze.js?hash=9d08dd7dde99958947679827a947134cdf2e4f12",
+      "size": 473007,
+      "hash": "9d08dd7dde99958947679827a947134cdf2e4f12"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/ui.js",
@@ -408,6 +480,7 @@
       "size": 51917,
       "hash": "1a6ee647a94fae1d34d1b5074ec4dfebfe6f1bd3"
 <<<<<<< HEAD
+<<<<<<< HEAD
     },
     {
       "path": "packages/ordered-dict.js",
@@ -419,6 +492,8 @@
       "hash": "bacdd1852075630a01f7de783e5e8e8aa8541cdc"
 =======
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/geojson-utils.js",
@@ -541,6 +616,7 @@
       "cacheable": true,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/packages/iron_router.js?hash=017cbcf91efe3e433391e5dcfa2f6ae06a124b46",
       "size": 210518,
       "hash": "017cbcf91efe3e433391e5dcfa2f6ae06a124b46"
@@ -567,12 +643,18 @@
       "sourceMapUrl": "/packages/20709815119654bca7a453fd23e60cb1c149fbe1.map",
       "size": 300893,
       "hash": "20709815119654bca7a453fd23e60cb1c149fbe1"
+=======
+      "url": "/packages/iron_router.js?hash=017cbcf91efe3e433391e5dcfa2f6ae06a124b46",
+      "size": 210518,
+      "hash": "017cbcf91efe3e433391e5dcfa2f6ae06a124b46"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
-      "path": "packages/standard-minifiers.js",
+      "path": "packages/twbs_bootstrap.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
       "url": "/packages/standard-minifiers.js?b02a7937678c6058031ee7b2f45b5a617518335d",
       "sourceMap": "packages/standard-minifiers.js.map",
       "sourceMapUrl": "/packages/b02a7937678c6058031ee7b2f45b5a617518335d.map",
@@ -584,6 +666,11 @@
       "size": 300971,
       "hash": "2ee228e6c80c1d9a4b1e67e10006f8a5a425ddda"
 >>>>>>> version meteor
+=======
+      "url": "/packages/twbs_bootstrap.js?hash=2ee228e6c80c1d9a4b1e67e10006f8a5a425ddda",
+      "size": 300971,
+      "hash": "2ee228e6c80c1d9a4b1e67e10006f8a5a425ddda"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "packages/meteor-base.js",
@@ -626,6 +713,7 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
       "url": "/packages/logging.js?hash=532b25d978658fe9d6ae3bccd1c52eb105fb7d5b",
       "size": 225072,
@@ -830,6 +918,53 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
+=======
+      "url": "/packages/logging.js?hash=1ae503f865ffed5b0f2ec7a19de60ffad479958b",
+      "size": 225072,
+      "hash": "1ae503f865ffed5b0f2ec7a19de60ffad479958b"
+    },
+    {
+      "path": "packages/standard-minifier-css.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/standard-minifier-css.js?hash=cfe82682f4394d3ffc6335555c1f9f3f73294507",
+      "size": 730,
+      "hash": "cfe82682f4394d3ffc6335555c1f9f3f73294507"
+    },
+    {
+      "path": "packages/standard-minifier-js.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/standard-minifier-js.js?hash=041bab58c8a89172eaab795deb5d96e38b64ec37",
+      "size": 729,
+      "hash": "041bab58c8a89172eaab795deb5d96e38b64ec37"
+    },
+    {
+      "path": "packages/shell-server.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/shell-server.js?hash=6ff1313e4bf7618e577eb2604a580b2ea9b7631f",
+      "size": 721,
+      "hash": "6ff1313e4bf7618e577eb2604a580b2ea9b7631f"
+    },
+    {
+      "path": "packages/summernote_summernote.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/packages/summernote_summernote.js?hash=5f2b71ea5b6543a863a6f35944090344ec5a44e1",
+      "size": 868501,
+      "hash": "5f2b71ea5b6543a863a6f35944090344ec5a44e1"
+    },
+    {
+      "path": "packages/stylus.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "url": "/packages/stylus.js?hash=dcbbc27dc6329f453854e5b19bd0f8aefa82fb05",
       "size": 712,
       "hash": "dcbbc27dc6329f453854e5b19bd0f8aefa82fb05"
@@ -889,6 +1024,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/packages/global-imports.js?hash=90f0b00ebbe3637d4a296cce64bd454db6d3db1c",
       "size": 1148,
       "hash": "90f0b00ebbe3637d4a296cce64bd454db6d3db1c"
@@ -907,6 +1043,11 @@
       "size": 1018,
       "hash": "c59453713d555bbe3b6c53374422d9680557f97a"
 >>>>>>> version meteor
+=======
+      "url": "/packages/global-imports.js?hash=c59453713d555bbe3b6c53374422d9680557f97a",
+      "size": 1018,
+      "hash": "c59453713d555bbe3b6c53374422d9680557f97a"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/views/animator/template.create.js",
@@ -935,6 +1076,7 @@
       "size": 1124,
       "hash": "c35b1f2c5c90e938b9f7da292d1985f8a93a4b1f"
 <<<<<<< HEAD
+<<<<<<< HEAD
     },
     {
       "path": "app/client/views/application/template.group_submit.js",
@@ -955,6 +1097,8 @@
       "hash": "757de0aa88288e9fdf8b0d07cdab120185e928c3"
 =======
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/views/application/template.home.js",
@@ -964,6 +1108,7 @@
       "url": "/app/client/views/application/template.home.js?hash=17f5b721a1082f6d7dc145d6935e1ef6ac14c2a7",
       "size": 1306,
       "hash": "17f5b721a1082f6d7dc145d6935e1ef6ac14c2a7"
+<<<<<<< HEAD
 <<<<<<< HEAD
     },
     {
@@ -976,12 +1121,15 @@
       "hash": "6cb4dc3e442ccfea24b4664dbf1cb137aa2a746d"
 =======
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/views/application/template.meeting.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1007,6 +1155,11 @@
       "size": 15086,
       "hash": "3a236c73ef9e6bacc9379055651e84d9caf61982"
 >>>>>>> version meteor
+=======
+      "url": "/app/client/views/application/template.meeting.js?hash=3a236c73ef9e6bacc9379055651e84d9caf61982",
+      "size": 15086,
+      "hash": "3a236c73ef9e6bacc9379055651e84d9caf61982"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/views/application/template.tutorial.js",
@@ -1016,6 +1169,7 @@
       "url": "/app/client/views/application/template.tutorial.js?hash=9176dad2366d0af2124f923d6adb80ef3a5c453e",
       "size": 1309,
       "hash": "9176dad2366d0af2124f923d6adb80ef3a5c453e"
+<<<<<<< HEAD
 <<<<<<< HEAD
     },
     {
@@ -1046,6 +1200,8 @@
       "hash": "62da222a6e7e323f1466c1626b7d5f528003443f"
 =======
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/views/participants/template.join.js",
@@ -1063,6 +1219,7 @@
       "cacheable": true,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/app/client/views/participants/template.lineup.js?hash=8523ad30314ead58107339ae79d33089e89dbb61",
       "size": 5455,
       "hash": "8523ad30314ead58107339ae79d33089e89dbb61"
@@ -1078,12 +1235,18 @@
       "size": 5279,
       "hash": "88d583b8dfb4a5c1bb98fdc2239b9f77d75872ee"
 >>>>>>> version meteor
+=======
+      "url": "/app/client/views/participants/template.lineup.js?hash=88d583b8dfb4a5c1bb98fdc2239b9f77d75872ee",
+      "size": 5279,
+      "hash": "88d583b8dfb4a5c1bb98fdc2239b9f77d75872ee"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/views/template.layout.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       "url": "/app/client/views/template.layout.js?hash=0e1124b0a67d632230c45c8b2d41fa529c91dba2",
@@ -1110,12 +1273,18 @@
       "size": 4420,
       "hash": "1639d6d3e7cc387aa286ee7cdedbb4b3009be280"
 >>>>>>> version meteor
+=======
+      "url": "/app/client/views/template.layout.js?hash=1639d6d3e7cc387aa286ee7cdedbb4b3009be280",
+      "size": 4420,
+      "hash": "1639d6d3e7cc387aa286ee7cdedbb4b3009be280"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/javascripts/lib/02_qrcode.min.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
       "url": "/app/client/javascripts/lib/02_qrcode.min.js?hash=a744991d44ced620f41bb4a2a4a505b077bf672a",
       "size": 19955,
@@ -1125,6 +1294,11 @@
       "size": 19956,
       "hash": "f0a13800884d9931e10382d4803bb52fe4ec9429"
 >>>>>>> version meteor
+=======
+      "url": "/app/client/javascripts/lib/02_qrcode.min.js?hash=f0a13800884d9931e10382d4803bb52fe4ec9429",
+      "size": 19956,
+      "hash": "f0a13800884d9931e10382d4803bb52fe4ec9429"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/javascripts/lib/bootstrap.min.js",
@@ -1162,6 +1336,7 @@
       "size": 23887,
       "hash": "2d72b5cbaa2d455a270210172098d59a0f43f894"
 <<<<<<< HEAD
+<<<<<<< HEAD
     },
     {
       "path": "app/client/javascripts/lib/jquery.nanoscroller.min.js",
@@ -1173,6 +1348,8 @@
       "hash": "c9fe8dc1f129ee07aa13828113cacb7b6e4b948e"
 =======
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/javascripts/lib/lang-css.js",
@@ -1209,6 +1386,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/app/lib/Router.js?hash=00bd050b59ce784084bd0ead96fd64b6e4895702",
       "size": 7180,
       "hash": "00bd050b59ce784084bd0ead96fd64b6e4895702"
@@ -1240,12 +1418,18 @@
       "size": 6824,
       "hash": "5d32b0e45a642830236a8843839ab72a152bc72d"
 >>>>>>> version meteor
+=======
+      "url": "/app/lib/Router.js?hash=5d32b0e45a642830236a8843839ab72a152bc72d",
+      "size": 6824,
+      "hash": "5d32b0e45a642830236a8843839ab72a152bc72d"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/javascripts/events/create.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
       "url": "/app/client/javascripts/events/create.js?hash=c9c3645a809c473dd673b592691e1ec72482d1ee",
       "size": 5134,
@@ -1264,12 +1448,18 @@
       "size": 5138,
       "hash": "b75ae3d5c0da06a33b9cbce535890e4f14777ab9"
 >>>>>>> version meteor
+=======
+      "url": "/app/client/javascripts/events/create.js?hash=b75ae3d5c0da06a33b9cbce535890e4f14777ab9",
+      "size": 5138,
+      "hash": "b75ae3d5c0da06a33b9cbce535890e4f14777ab9"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/javascripts/events/home.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       "url": "/app/client/javascripts/events/home.js?hash=19fc43ecbe16b803e6c099321b05df844a67c435",
@@ -1287,6 +1477,11 @@
       "size": 336,
       "hash": "3dde7464d7e7a0b97689735d8728a20bc072e0d6"
 >>>>>>> version meteor
+=======
+      "url": "/app/client/javascripts/events/home.js?hash=3dde7464d7e7a0b97689735d8728a20bc072e0d6",
+      "size": 336,
+      "hash": "3dde7464d7e7a0b97689735d8728a20bc072e0d6"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/javascripts/events/join.js",
@@ -1304,6 +1499,7 @@
       "cacheable": true,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/app/client/javascripts/events/lineup.js?hash=fbc83e66556ef1374629b3b16290aaa803ac2d21",
       "size": 2801,
       "hash": "fbc83e66556ef1374629b3b16290aaa803ac2d21"
@@ -1319,12 +1515,18 @@
       "size": 2837,
       "hash": "4c43f2e250248f84588922a3830f2f986e77441f"
 >>>>>>> version meteor
+=======
+      "url": "/app/client/javascripts/events/lineup.js?hash=4c43f2e250248f84588922a3830f2f986e77441f",
+      "size": 2837,
+      "hash": "4c43f2e250248f84588922a3830f2f986e77441f"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/javascripts/events/meeting.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1403,12 +1605,18 @@
       "size": 14198,
       "hash": "b711af9a98dc8d629a9a5cbe257895ed0304f4bc"
 >>>>>>> version meteor
+=======
+      "url": "/app/client/javascripts/events/meeting.js?hash=b711af9a98dc8d629a9a5cbe257895ed0304f4bc",
+      "size": 14198,
+      "hash": "b711af9a98dc8d629a9a5cbe257895ed0304f4bc"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/collections/Meetings.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       "url": "/app/collections/Meetings.js?hash=e061c620061ed6b192096949f74c2004c0553740",
@@ -1426,6 +1634,11 @@
       "size": 286,
       "hash": "53ddfae1cbfb4f4512fff21ec9ffec929f464774"
 >>>>>>> version meteor
+=======
+      "url": "/app/collections/Meetings.js?hash=53ddfae1cbfb4f4512fff21ec9ffec929f464774",
+      "size": 286,
+      "hash": "53ddfae1cbfb4f4512fff21ec9ffec929f464774"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/collections/Speeches.js",
@@ -1442,6 +1655,7 @@
       "type": "js",
       "cacheable": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "/app/collections/Users.js?hash=635dcb23aa9b7fa0132bc045de55bf7f82035363",
       "size": 240,
       "hash": "635dcb23aa9b7fa0132bc045de55bf7f82035363"
@@ -1450,6 +1664,11 @@
       "size": 237,
       "hash": "11d485f18cbb98a8486ebdab79b052aca6db94ae"
 >>>>>>> version meteor
+=======
+      "url": "/app/collections/Users.js?hash=11d485f18cbb98a8486ebdab79b052aca6db94ae",
+      "size": 237,
+      "hash": "11d485f18cbb98a8486ebdab79b052aca6db94ae"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/client/javascripts/lib/main.js",
@@ -1459,6 +1678,7 @@
       "url": "/app/client/javascripts/lib/main.js?hash=d607941b50301647df0e29ed32532c018dc2e9a1",
       "size": 71914,
       "hash": "d607941b50301647df0e29ed32532c018dc2e9a1"
+<<<<<<< HEAD
 <<<<<<< HEAD
     },
     {
@@ -1480,12 +1700,15 @@
       "hash": "42ac9ae8eb44f3e73762f9cb0003410397021984"
 =======
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "merged-stylesheets.css",
       "where": "client",
       "type": "css",
       "cacheable": true,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1507,6 +1730,10 @@
       "url": "/merged-stylesheets.css?hash=b8056daacd232bce1e3338b0a7204413a8d92987",
 >>>>>>> version meteor
       "sourceMap": "merged-stylesheets.css.map",
+=======
+      "url": "/merged-stylesheets.css?hash=b8056daacd232bce1e3338b0a7204413a8d92987",
+      "sourceMap": "merged-stylesheets.css.map",
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "sourceMapUrl": "/b8056daacd232bce1e3338b0a7204413a8d92987.map",
       "size": 591499,
       "hash": "b8056daacd232bce1e3338b0a7204413a8d92987"
@@ -1582,9 +1809,12 @@
       "url": "/packages/summernote_summernote/dist/font/summernote.woff",
       "size": 8332,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "hash": "39d8c8dba1bf995e4b214c13a7b9c8afb013affa"
 >>>>>>> simplification UI & add Zone text report meeting
 =======
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
       "hash": "834a8c2cf3cf8679ba80c0ee2ef0eddd01628724"
     },
     {
@@ -1595,7 +1825,10 @@
       "url": "/LOGO.png",
       "size": 5153,
       "hash": "4f17b849add684133543437c1da98f92ac433828"
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/Presentation_V1.pdf",
@@ -1651,6 +1884,7 @@
       "size": 180903,
       "hash": "e26a85710749843a7a5daa4120993b26c8951a9b"
 <<<<<<< HEAD
+<<<<<<< HEAD
     },
     {
 <<<<<<< HEAD
@@ -1673,12 +1907,24 @@
       "size": 16720,
       "hash": "fdbd8718b1ad16ac876710e060636ea9eff1af53"
 =======
+=======
     },
     {
       "path": "app/firstslide.png",
       "where": "client",
       "type": "asset",
       "cacheable": false,
+      "url": "/firstslide.png",
+      "size": 104374,
+      "hash": "586add738d8e73b3e766544f71f5a41a56d29bca"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
+    },
+    {
+      "path": "app/flavicon.ico",
+      "where": "client",
+      "type": "asset",
+      "cacheable": false,
+<<<<<<< HEAD
       "url": "/firstslide.png",
       "size": 104374,
       "hash": "586add738d8e73b3e766544f71f5a41a56d29bca"
@@ -1698,6 +1944,11 @@
       "size": 11894,
       "hash": "3590bffd67f8e5c7ae85d3c54efebf9b2206cc69"
 >>>>>>> version meteor
+=======
+      "url": "/flavicon.ico",
+      "size": 11894,
+      "hash": "3590bffd67f8e5c7ae85d3c54efebf9b2206cc69"
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/frontpage.png",
@@ -1751,7 +2002,10 @@
 =======
       "size": 118259,
       "hash": "c18ac634c9bca60bbb48c42e76212d1deeaea3cb"
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/fonts/OpenSans-Bold-webfont.woff",
@@ -1787,7 +2041,10 @@
 =======
       "size": 121112,
       "hash": "cb10ee646318c39a6851f4c2351ea798a6d54ebe"
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/fonts/OpenSans-BoldItalic-webfont.woff",
@@ -1823,7 +2080,10 @@
 =======
       "size": 122495,
       "hash": "b954a888cc012a1b93d7613d2eb3bcb22944dc57"
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/fonts/OpenSans-Italic-webfont.woff",
@@ -1859,7 +2119,10 @@
 =======
       "size": 117270,
       "hash": "be5434ca73651bdfbc8c7241cce0cda38f528355"
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/fonts/OpenSans-Light-webfont.woff",
@@ -1895,7 +2158,10 @@
 =======
       "size": 122968,
       "hash": "42f7ebf8d0028d195739bfa48a6d9bcf39e3e29e"
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/fonts/OpenSans-LightItalic-webfont.woff",
@@ -1931,7 +2197,10 @@
 =======
       "size": 119399,
       "hash": "eb6b7126484e9966aa23b8158e2cf8dd9120b53a"
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/fonts/OpenSans-Regular-webfont.woff",
@@ -2012,7 +2281,10 @@
 =======
       "size": 108738,
       "hash": "79a351a269ccbdab7745962bfd40cf86c2b9bc95"
+<<<<<<< HEAD
 >>>>>>> version meteor
+=======
+>>>>>>> 298f81063a0c3cabba57b2734c858f7319c695c6
     },
     {
       "path": "app/fonts/glyphicons-halflings-regular.ttf",
