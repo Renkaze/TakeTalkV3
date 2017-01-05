@@ -46,11 +46,11 @@ function computeSortable(element) {
 Template.meeting.rendered = function () {
     sortableList = this.$('#speech-list');
     sortableList.disableSelection();
-    if (Users.findOne({_id: Session.get("userId")}).type == "animator") {
+    if (MeetingUsers.findOne({_id: Session.get("userId")}).type == "animator") {
         computeSortable(sortableList);
     }
 };
-  
+
 /** The events that meeting template contains */
 Template.meeting.events({
     /** A click on talk opens the lineup page */
@@ -79,7 +79,7 @@ Template.meeting.events({
             //Lancement du timer
             timerId = Meteor.setInterval(function() {
                 var currentSpeech = Speeches.findOne({meeting: Session.get("meetingId"), status: "ongoing"});
-                var user = Users.findOne({_id:currentSpeech.user});
+                var user = MeetingUsers.findOne({_id:currentSpeech.user});
                 var paroles = [];
                 var time = 1;
 
@@ -100,7 +100,7 @@ Template.meeting.events({
                     }
                 }
 
-                Users.update(user._id,  {$set: {paroles: paroles}});
+                MeetingUsers.update(user._id,  {$set: {paroles: paroles}});
 
                 //Update du temps restant du speech
                 Speeches.update(
@@ -212,7 +212,7 @@ Template.meeting.events({
         var userId = "";
         for(var i = 0; i < participantsEmails.length; i++) {
             //Création des utilisateurs invités
-            userId = Users.insert({
+            userId = MeetingUsers.insert({
                 name: 'participant pending',
                 email: participantsEmails[i],
                 type: "participant",
@@ -271,7 +271,7 @@ Template.meeting.events({
 
         //Création des utilisateurs ajoutés en local
         for (i = 0; i < participantsName.length; i++) {
-            Users.insert({
+            MeetingUsers.insert({
                 name: participantsName[i],
                 type: "",
                 status: "online",
@@ -287,7 +287,7 @@ Template.meeting.events({
         var guestToRemove = $(e.target).parents( ".guestRemove" ).attr("guest");
         guests.splice(guests.indexOf(guestToRemove),1);
         Session.set("guests", guests);
-        Users.remove({_id: guestToRemove});
+        MeetingUsers.remove({_id: guestToRemove});
     },
 
     'click .remove-speech': function(e) {
@@ -342,7 +342,7 @@ Template.meeting.helpers ({
 
     //Retourne vrai si l'utilisateur local est animateur
     isAnimator: function() {
-        return Users.findOne({_id: Session.get("userId")}).type == "animator";
+        return MeetingUsers.findOne({_id: Session.get("userId")}).type == "animator";
     },
 
     //Retourne vrai si le speech a des mots clé

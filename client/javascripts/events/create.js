@@ -1,3 +1,12 @@
+Template.create.helpers({
+  ownGroup:function(){
+    return this.userId === Meteor.userId();
+  }
+});
+
+
+
+
 /** The events that create template contains */
 Template.create.events({
 
@@ -55,6 +64,8 @@ Template.create.events({
                 participantsEmails.push(participantsInputs[i].value);
             }
         }
+        console.log(participantsEmails);
+
         for (i = 0; i < ordreInputs.length; i++) {
             if (ordreInputs[i].value != "") {
                 ordres.push(ordreInputs[i].value);
@@ -83,7 +94,7 @@ Template.create.events({
         });
 
         //Création de l'utilisateur animateur
-        var userId = Users.insert({
+        var userId = MeetingUsers.insert({
             name: e.target.animatorName.value,
             email: e.target.animatorEmail.value,
             type: "animator",
@@ -114,7 +125,7 @@ Template.create.events({
 
         //Envoi des mails aux invités
         for(var i = 0; i < participantsEmails.length; i++) {
-            userId = Users.insert({name: 'participant pending', email: participantsEmails[i], type: "participant", status: "pending", meeting: meetingId});
+            userId = MeetingUsers.insert({name: 'participant pending', email: participantsEmails[i], type: "participant", status: "pending", meeting: meetingId});
             Meteor.call('sendEmail', participantsEmails[i], 'noreply@taketalk.com', 'TakeTalk invitation',
                 'You are invited to a session of TakeTalk. \n\n' + emailBody
             );
@@ -122,5 +133,6 @@ Template.create.events({
 
         //Redirection vers la page du meeting
         Router.go('/meeting/' + meetingId);
+
     }
 });

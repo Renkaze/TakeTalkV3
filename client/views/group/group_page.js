@@ -69,5 +69,8 @@ Template.groupPage.events({
     Groups.update(currentGroupId,{$push : {members : AddedMember.value}} );
 
     AddedMember.value="";
+  },
+  'click #open': function(e){
+      Router.go('create', this);
   }
 });

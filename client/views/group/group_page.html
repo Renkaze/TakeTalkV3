@@ -8,22 +8,24 @@
             {{#each members}}
 
             <div class="input-group">
-                {{this}}
-                <span class="input-group-addon" id='min-input' role="button"><b>-</b></span>
+              {{this}}
+              <span class="input-group-addon" id='min-input' role="button"><b>-</b></span>
 
             </div>
             <br/>
 
             {{/each}}
-
             <div class="input-group"><span class="input-group-addon">@</span>
-                <input name="AddedMember" type="email" parsley-type="email" value="{{value}}" placeholder="member mail" class="form-control"/>
-                <span class="input-group-addon" id='add-member' role="button"><b>+</b></span>
+              <input name="AddedMember" type="email" parsley-type="email" value="{{value}}" placeholder="member mail" class="form-control"/>
+              <span class="input-group-addon" id='add-member' role="button"><b>+</b></span>
             </div>
 
             <br/><br/>
-
-            <p><button type="button" class="btn btn-primary">Launch meeting</button> </p>
+            <div class="text-center">
+              <button type="button" class="btn btn-space btn-primary btn-rounded btn-lg" id="open">
+                <a style="color:#fff" href="{{pathFor 'create'}}"><i class="icon icon-left s7-users"></i> Open a meeting</a>
+              </button>
+            </div>
           </div>
           <div class="panel-heading"></div>
           <div class="panel-body">

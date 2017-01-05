@@ -314,7 +314,7 @@ Log.objFromText = function (line, override) {                                   
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
-// ../npm/node_modules/cli-color/package.json                                          //
+// ../../.1.1.16.1tp874u++os+web.browser+web.cordova/npm/node_modules/cli-color/packag //
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //
@@ -1360,7 +1360,7 @@ module.exports = new Function("return this")();                                 
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
-// ../npm/node_modules/cli-color/node_modules/memoizee/package.json                    //
+// ../../.1.1.16.1tp874u++os+web.browser+web.cordova/npm/node_modules/cli-color/node_m //
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //
@@ -2499,7 +2499,7 @@ exports.methods = methods;                                                      
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                     //
-// ../npm/node_modules/cli-color/node_modules/memoizee/node_modules/next-tick/package. //
+// ../../.1.1.16.1tp874u++os+web.browser+web.cordova/npm/node_modules/cli-color/node_m //
 //                                                                                     //
 /////////////////////////////////////////////////////////////////////////////////////////
                                                                                        //

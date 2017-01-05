@@ -18,7 +18,7 @@ Meteor.methods({
     Session.set("meetingId", "");
     Session.set("userId", "");
     Speeches.remove({});
-    Users.remove({});
+    MeetingUsers.remove({});
     Meetings.remove({});
   }
 });

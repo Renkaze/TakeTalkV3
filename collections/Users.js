@@ -1,5 +1,6 @@
 /** The collection that contains the users */
 //Users = new Mongo.Collection("users");
+MeetingUsers = new Mongo.Collection("meetingUsers");
 
 /*
 Exemple :

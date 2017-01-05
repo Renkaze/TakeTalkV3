@@ -114,18 +114,18 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/promise.js?hash=0479747265c445049e05be3a06bbbb37ea295b80",
+      "url": "/packages/promise.js?hash=d33dfe2c4ba20393154f419ebfceeaf610499291",
       "size": 65658,
-      "hash": "0479747265c445049e05be3a06bbbb37ea295b80"
+      "hash": "d33dfe2c4ba20393154f419ebfceeaf610499291"
     },
     {
       "path": "packages/ecmascript-runtime.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/ecmascript-runtime.js?hash=fffe20ae20ade1111a96909b90dde7ba91923e92",
+      "url": "/packages/ecmascript-runtime.js?hash=f7e181e2f8dad8ea7cdf1faaf8f3c1b47de11272",
       "size": 519496,
-      "hash": "fffe20ae20ade1111a96909b90dde7ba91923e92"
+      "hash": "f7e181e2f8dad8ea7cdf1faaf8f3c1b47de11272"
     },
     {
       "path": "packages/babel-compiler.js",
@@ -150,9 +150,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/babel-runtime.js?hash=81591737f14ce07f210dfca6637615da6aca10aa",
+      "url": "/packages/babel-runtime.js?hash=1db3784a7268156b770997413c0a7a82d866994a",
       "size": 11132,
-      "hash": "81591737f14ce07f210dfca6637615da6aca10aa"
+      "hash": "1db3784a7268156b770997413c0a7a82d866994a"
     },
     {
       "path": "packages/random.js",
@@ -491,9 +491,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/packages/logging.js?hash=532b25d978658fe9d6ae3bccd1c52eb105fb7d5b",
+      "url": "/packages/logging.js?hash=8dad5f8e6b9d1c7b8ff634da6ffbd796263af840",
       "size": 225072,
-      "hash": "532b25d978658fe9d6ae3bccd1c52eb105fb7d5b"
+      "hash": "8dad5f8e6b9d1c7b8ff634da6ffbd796263af840"
     },
     {
       "path": "packages/mrt_jquery-ui.js",
@@ -695,9 +695,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/animator/template.create.js?hash=21f63bd57558537f06dc45146b54b2fa51ee01fe",
-      "size": 3846,
-      "hash": "21f63bd57558537f06dc45146b54b2fa51ee01fe"
+      "url": "/app/client/views/animator/template.create.js?hash=6abd7535019b4f548a6e24299e10bf5bc2880f47",
+      "size": 5522,
+      "hash": "6abd7535019b4f548a6e24299e10bf5bc2880f47"
     },
     {
       "path": "app/client/views/application/template.downloads.js",
@@ -758,9 +758,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/application/template.meeting.js?hash=c8e54fdb89436ddbf94badb77bcdcb062e8ff6ef",
-      "size": 19153,
-      "hash": "c8e54fdb89436ddbf94badb77bcdcb062e8ff6ef"
+      "url": "/app/client/views/application/template.meeting.js?hash=4372ca954c2d055fdf0af428905cf79de799cc76",
+      "size": 19160,
+      "hash": "4372ca954c2d055fdf0af428905cf79de799cc76"
     },
     {
       "path": "app/client/views/application/template.tutorial.js",
@@ -794,9 +794,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/group/template.group_page.js?hash=62da222a6e7e323f1466c1626b7d5f528003443f",
-      "size": 2643,
-      "hash": "62da222a6e7e323f1466c1626b7d5f528003443f"
+      "url": "/app/client/views/group/template.group_page.js?hash=c3979ac50c8a2c13450ad7eb3daec08c1b749fbd",
+      "size": 2984,
+      "hash": "c3979ac50c8a2c13450ad7eb3daec08c1b749fbd"
     },
     {
       "path": "app/client/views/participants/template.join.js",
@@ -920,9 +920,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/lib/Router.js?hash=00bd050b59ce784084bd0ead96fd64b6e4895702",
-      "size": 7180,
-      "hash": "00bd050b59ce784084bd0ead96fd64b6e4895702"
+      "url": "/app/lib/Router.js?hash=ad189bbde619863b6264af4b70c908057761be0f",
+      "size": 7336,
+      "hash": "ad189bbde619863b6264af4b70c908057761be0f"
     },
     {
       "path": "app/lib/permissions.js",
@@ -938,9 +938,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/javascripts/events/create.js?hash=c9c3645a809c473dd673b592691e1ec72482d1ee",
-      "size": 5134,
-      "hash": "c9c3645a809c473dd673b592691e1ec72482d1ee"
+      "url": "/app/client/javascripts/events/create.js?hash=f9f781ab32c080e77d2161b3b6bea42667e0a980",
+      "size": 5296,
+      "hash": "f9f781ab32c080e77d2161b3b6bea42667e0a980"
     },
     {
       "path": "app/client/javascripts/events/group_submit.js",
@@ -965,27 +965,27 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/javascripts/events/join.js?hash=5303ef9403d887fd0684b552a50df7779a0bc6bc",
-      "size": 1132,
-      "hash": "5303ef9403d887fd0684b552a50df7779a0bc6bc"
+      "url": "/app/client/javascripts/events/join.js?hash=1e94a877b817c8a9b5259077f20a0ea8dcc7fcf8",
+      "size": 1138,
+      "hash": "1e94a877b817c8a9b5259077f20a0ea8dcc7fcf8"
     },
     {
       "path": "app/client/javascripts/events/lineup.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/javascripts/events/lineup.js?hash=fbc83e66556ef1374629b3b16290aaa803ac2d21",
-      "size": 2801,
-      "hash": "fbc83e66556ef1374629b3b16290aaa803ac2d21"
+      "url": "/app/client/javascripts/events/lineup.js?hash=66814f7f901c754f622c2380f55d979bbf4600cd",
+      "size": 2807,
+      "hash": "66814f7f901c754f622c2380f55d979bbf4600cd"
     },
     {
       "path": "app/client/javascripts/events/meeting.js",
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/javascripts/events/meeting.js?hash=cc5de24928c7a4357fb309800202192cbc080099",
-      "size": 15725,
-      "hash": "cc5de24928c7a4357fb309800202192cbc080099"
+      "url": "/app/client/javascripts/events/meeting.js?hash=7dea378cbea7521f61bed78891e76cc8ec743d64",
+      "size": 15772,
+      "hash": "7dea378cbea7521f61bed78891e76cc8ec743d64"
     },
     {
       "path": "app/client/views/group/group_item.js",
@@ -1010,9 +1010,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/group/group_page.js?hash=5df21debf82e17d224f393f345cf77e1cd654d49",
-      "size": 1735,
-      "hash": "5df21debf82e17d224f393f345cf77e1cd654d49"
+      "url": "/app/client/views/group/group_page.js?hash=203d41cf35548fcf41d3e9c2fb28c7bf0c26e677",
+      "size": 1803,
+      "hash": "203d41cf35548fcf41d3e9c2fb28c7bf0c26e677"
     },
     {
       "path": "app/client/helpers/config.js",
@@ -1055,9 +1055,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/collections/Users.js?hash=635dcb23aa9b7fa0132bc045de55bf7f82035363",
-      "size": 240,
-      "hash": "635dcb23aa9b7fa0132bc045de55bf7f82035363"
+      "url": "/app/collections/Users.js?hash=0eab2955c8195c7d7f7a432c34c4c58093fba188",
+      "size": 293,
+      "hash": "0eab2955c8195c7d7f7a432c34c4c58093fba188"
     },
     {
       "path": "app/client/javascripts/lib/main.js",
@@ -1220,8 +1220,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Bold-webfont.svg",
-      "size": 120088,
-      "hash": "e34021d46721f99c4b9dd82c8246d7c0394e7227"
+      "size": 118259,
+      "hash": "c18ac634c9bca60bbb48c42e76212d1deeaea3cb"
     },
     {
       "path": "app/fonts/OpenSans-Bold-webfont.woff",
@@ -1247,8 +1247,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-BoldItalic-webfont.svg",
-      "size": 122941,
-      "hash": "290145de3bd375376d6a147faf9b460a54a879f8"
+      "size": 121112,
+      "hash": "cb10ee646318c39a6851f4c2351ea798a6d54ebe"
     },
     {
       "path": "app/fonts/OpenSans-BoldItalic-webfont.woff",
@@ -1274,8 +1274,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Italic-webfont.svg",
-      "size": 124324,
-      "hash": "a04d45ccf5e35497f0fb145cb567fd7b45b75b1c"
+      "size": 122495,
+      "hash": "b954a888cc012a1b93d7613d2eb3bcb22944dc57"
     },
     {
       "path": "app/fonts/OpenSans-Italic-webfont.woff",
@@ -1301,8 +1301,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Light-webfont.svg",
-      "size": 119100,
-      "hash": "e4540ddec1a09ae2a152dbe4612a4410f55cf2ff"
+      "size": 117270,
+      "hash": "be5434ca73651bdfbc8c7241cce0cda38f528355"
     },
     {
       "path": "app/fonts/OpenSans-Light-webfont.woff",
@@ -1328,8 +1328,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-LightItalic-webfont.svg",
-      "size": 124802,
-      "hash": "78ea4250f31d13aade366be9cf5039a4e951de7e"
+      "size": 122968,
+      "hash": "42f7ebf8d0028d195739bfa48a6d9bcf39e3e29e"
     },
     {
       "path": "app/fonts/OpenSans-LightItalic-webfont.woff",
@@ -1355,8 +1355,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/OpenSans-Regular-webfont.svg",
-      "size": 121229,
-      "hash": "9aa3daf84b07cee719b302e2333b76f01fc475cb"
+      "size": 119399,
+      "hash": "eb6b7126484e9966aa23b8158e2cf8dd9120b53a"
     },
     {
       "path": "app/fonts/OpenSans-Regular-webfont.woff",
@@ -1427,8 +1427,8 @@
       "type": "asset",
       "cacheable": false,
       "url": "/fonts/glyphicons-halflings-regular.svg",
-      "size": 109025,
-      "hash": "c5a029a138d8ea5237d92ddd80e8e21b4c42aea8"
+      "size": 108738,
+      "hash": "79a351a269ccbdab7745962bfd40cf86c2b9bc95"
     },
     {
       "path": "app/fonts/glyphicons-halflings-regular.ttf",

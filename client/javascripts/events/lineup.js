@@ -19,7 +19,7 @@ Template.lineup.events({
         if (speeches.length > 0) {
             rank = speeches[0].rank+1;
         }
-		
+
         if (submitTime == 'rapide') {
             submitTime = "intervention rapide"
         }
@@ -88,6 +88,6 @@ Template.lineup.helpers ({
 
     //Retourne l'utilisateur local
     currentUser: function(){
-        return Users.findOne({_id: Session.get("userId")});
+        return MeetingUsers.findOne({_id: Session.get("userId")});
     }
 });

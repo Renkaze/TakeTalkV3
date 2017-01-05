@@ -161,7 +161,7 @@ Template["meeting"] = new Template("Template.meeting", (function() {
   }, "\n                        ", HTML.DIV({
     class: "row"
   }, "\n                        ", Blaze.Each(function() {
-    return Spacebars.call(view.lookup("users"));
+    return Spacebars.call(view.lookup("meetingUsers"));
   }, function() {
     return [ "\n                        ", HTML.Comment(" Liste des intervenant "), "\n                            ", HTML.DIV({
       class: "col-md-11",

@@ -61,7 +61,7 @@ if (regeneratorRuntime &&
 
 ////////////////////////////////////////////////////////////////////////////////
 //                                                                            //
-// ../npm/node_modules/meteor-babel-helpers/package.json                      //
+// ../../.1.0.1.9s0oar++os+web.browser+web.cordova/npm/node_modules/meteor-ba //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
                                                                               //
