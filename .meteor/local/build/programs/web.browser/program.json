@@ -1055,9 +1055,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/collections/Users.js?hash=0eab2955c8195c7d7f7a432c34c4c58093fba188",
-      "size": 293,
-      "hash": "0eab2955c8195c7d7f7a432c34c4c58093fba188"
+      "url": "/app/collections/Users.js?hash=d06f9f5d68937bde2c0b96d6e34ca63486dbde8a",
+      "size": 299,
+      "hash": "d06f9f5d68937bde2c0b96d6e34ca63486dbde8a"
     },
     {
       "path": "app/client/javascripts/lib/main.js",
