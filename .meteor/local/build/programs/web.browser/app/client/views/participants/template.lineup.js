@@ -10,13 +10,23 @@ Template["lineup"] = new Template("Template.lineup", (function() {
     class: "col-md-8 col-md-offset-2"
   }, "\n            ", HTML.DIV({
     class: "panel panel-default"
-  }, "\n                ", HTML.Raw('<div class="panel-heading"><span class="title">Line up to talk</span></div>'), "\n                ", HTML.DIV({
+  }, "\n                ", HTML.DIV({
+    class: "panel-heading"
+  }, HTML.SPAN({
+    class: "title"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "lineupTitle");
+  }))), "\n                ", HTML.DIV({
     class: "panel-body"
   }, "\n                    ", HTML.FORM({
     role: "form"
   }, "\n                        ", HTML.DIV({
     class: "form-group"
-  }, "\n                            ", HTML.Raw('<label for="order">Order</label>'), "\n                            ", HTML.SELECT({
+  }, "\n                            ", HTML.LABEL({
+    for: "order"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "lineupOrder");
+  })), "\n                            ", HTML.SELECT({
     name: "order",
     id: "order",
     class: "form-control"
@@ -24,12 +34,32 @@ Template["lineup"] = new Template("Template.lineup", (function() {
     return Spacebars.call(view.lookup("ordres"));
   }, function() {
     return [ "\n                                    ", Spacebars.include(view.lookupTemplate("selectOrdre")), "\n                                " ];
-  }), "\n                            "), "\n                        "), "\n\n                        ", HTML.Raw("<!-- Les informations importantes de la prise de parole de l'intervenant -->"), "\n                        ", HTML.Raw('<div class="form-group">\n                            <label for="keywords">Keywords</label>\n                            <input id="keywords" name="keywords" type="text" class="form-control" autofocus="">\n                        </div>'), "\n\n                        ", HTML.Raw('<div class="form-group">\n                            <label style="padding-right:5em">Speach time</label>\n                            <div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="300" value="300" checked="">\n                                <label for="300">5 minutes</label>\n                            </div>\n                            <div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="600" value="600">\n                                <label for="600">10 minutes</label>\n                            </div>\n                            <div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="plus" value="plus">\n                                <label for="plus">10 minutes +</label>\n                            </div>\n                            <div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="rapide" value="rapide">\n                                <label for="rapide">Quick line up</label>\n                            </div>\n                        </div>'), "\n\n                        ", HTML.DIV({
+  }), "\n                            "), "\n                        "), "\n\n                        ", HTML.Raw("<!-- Les informations importantes de la prise de parole de l'intervenant -->"), "\n                        ", HTML.DIV({
+    class: "form-group"
+  }, "\n                            ", HTML.LABEL({
+    for: "keywords"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "lineupKeywords");
+  })), "\n                            ", HTML.Raw('<input id="keywords" name="keywords" type="text" class="form-control" autofocus="">'), "\n                        "), "\n\n                        ", HTML.DIV({
+    class: "form-group"
+  }, "\n                            ", HTML.LABEL({
+    style: "padding-right:5em"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "lineupSpeach");
+  })), "\n                            ", HTML.Raw('<div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="300" value="300" checked="">\n                                <label for="300">5 minutes</label>\n                            </div>'), "\n                            ", HTML.Raw('<div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="600" value="600">\n                                <label for="600">10 minutes</label>\n                            </div>'), "\n                            ", HTML.Raw('<div class="am-radio inline">\n                                <input type="radio" class="timeButton" name="speachtime" id="plus" value="plus">\n                                <label for="plus">10 minutes +</label>\n                            </div>'), "\n                            ", HTML.DIV({
+    class: "am-radio inline"
+  }, "\n                                ", HTML.Raw('<input type="radio" class="timeButton" name="speachtime" id="rapide" value="rapide">'), "\n                                ", HTML.LABEL({
+    for: "rapide"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "lineupQuick");
+  })), "\n                            "), "\n                        "), "\n\n                        ", HTML.DIV({
     class: "spacer text-right"
   }, "\n                            ", Blaze.If(function() {
     return Spacebars.call(view.lookup("hasGuest"));
   }, function() {
-    return [ "\n                                ", HTML.SPAN("Line up as : "), HTML.CharRef({
+    return [ "\n                                ", HTML.SPAN(Blaze.View("lookup:_", function() {
+      return Spacebars.mustache(view.lookup("_"), "lineupAs");
+    })), HTML.CharRef({
       html: "&nbsp;",
       str: " "
     }), HTML.CharRef({
@@ -55,8 +85,16 @@ Template["lineup"] = new Template("Template.lineup", (function() {
       "user-id": function() {
         return Spacebars.mustache(Spacebars.dot(view.lookup("currentUser"), "_id"));
       }
-    }, "Line Up"), "\n                            " ];
-  }), "\n                            ", HTML.Raw('<button id="cancelLineup" name="cancelLineup" class="btn btn-space btn-danger">Cancel</button>'), "\n                        "), "\n                    "), "\n                "), "\n            "), "\n        "), "\n    "), "\n");
+    }, Blaze.View("lookup:_", function() {
+      return Spacebars.mustache(view.lookup("_"), "lineupSubmit");
+    })), "\n                            " ];
+  }), "\n                            ", HTML.BUTTON({
+    id: "cancelLineup",
+    name: "cancelLineup",
+    class: "btn btn-space btn-danger"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "lineupCancel");
+  })), "\n                        "), "\n                    "), "\n                "), "\n            "), "\n        "), "\n    "), "\n");
 }));
 
 Template.__checkName("guestButton");

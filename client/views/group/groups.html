@@ -3,28 +3,29 @@
     <div class="am-scroller nano has-scrollbar">
       <div class="nano-content" tabindex="0" style="right: -17px;">
         <div class="content">
-          <h2>Menu</h2>
+          <h2>{{_ "menu"}}</h2>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#">My groups</a></li>
-            <li><a href="{{pathFor route='groupSubmit'}}">Create a Group</a></li>
+            <li class="active"><a href="#">{{_ "menuGroup"}}</a></li>
+            <li><a href="{{pathFor route='groupSubmit'}}">{{_ "createGroup"}}</a></li>
           </ul>
         </div>
       </div>
       <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 268px; transform: translate(0px, 0px);"></div></div></div>
     </aside>
     <div class="page-head" style="left:250px">
-      <h2>Groups</h2>
+      <h2>{{_ "groupTitle"}}</h2>
     </div>
     <div class="main-content">
       <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-3">
 
+
           <div class="panel panel-default">
             {{#if currentUser}}
-            <div class="panel-heading"><span class="title">Your groups</span></div>
+            <div class="panel-heading"><span class="title">{{_ "groupBodyTitle"}}</span></div>
 
             <div class="panel-body">
-              <u> managed groups</u>
+              <u> {{_ "groupInfo"}}</u>
               <br/><br/><br/>
               {{> groupsList}}
             </div>
@@ -32,7 +33,7 @@
 
             {{else}}
             <div class="panel-body">
-              <p class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span><strong>Warning! </strong>You should be log in for viewing this features</p>
+              <p class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span><strong>{{_ "warning"}}</strong>{{_ "warningLogInfo"}}</p>
             </div>
             {{/if}}
 

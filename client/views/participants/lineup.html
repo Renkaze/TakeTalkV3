@@ -3,11 +3,11 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><span class="title">Line up to talk</span></div>
+                <div class="panel-heading"><span class="title">{{_ "lineupTitle"}}</span></div>
                 <div class="panel-body">
                     <form role="form">
                         <div class="form-group">
-                            <label for="order">Order</label>
+                            <label for="order">{{_ "lineupOrder"}}</label>
                             <select name="order" id="order" class="form-control">
                                 {{#each ordres}}
                                     {{> selectOrdre}}
@@ -17,12 +17,12 @@
 
                         <!-- Les informations importantes de la prise de parole de l'intervenant -->
                         <div class="form-group">
-                            <label for="keywords">Keywords</label>
+                            <label for="keywords">{{_ "lineupKeywords"}}</label>
                             <input id="keywords" name="keywords" type="text" class="form-control" autofocus>
                         </div>
 
                         <div class="form-group">
-                            <label style="padding-right:5em">Speach time</label>
+                            <label style="padding-right:5em">{{_ "lineupSpeach"}}</label>
                             <div class="am-radio inline">
                                 <input type="radio" class="timeButton" name="speachtime" id="300" value="300" checked="">
                                 <label for="300">5 minutes</label>
@@ -37,21 +37,21 @@
                             </div>
                             <div class="am-radio inline">
                                 <input type="radio" class="timeButton" name="speachtime" id="rapide" value="rapide">
-                                <label for="rapide">Quick line up</label>
+                                <label for="rapide">{{_ "lineupQuick"}}</label>
                             </div>
                         </div>
 
                         <div class="spacer text-right">
                             {{#if hasGuest}}
-                                <span>Line up as : </span>&nbsp;&nbsp;
+                                <span>{{_ "lineupAs"}}</span>&nbsp;&nbsp;
                                 <button type="submit" class="btn btn-space btn-success lineUp" user-id="{{ currentUser._id }}">{{ currentUser.name }}</button>
                                 {{#each guests}}
                                     {{> guestButton}}
                                 {{/each}}
                             {{else}}
-                                <button type="submit" class="btn btn-space btn-success lineUp" user-id="{{ currentUser._id }}">Line Up</button>
+                                <button type="submit" class="btn btn-space btn-success lineUp" user-id="{{ currentUser._id }}">{{_ "lineupSubmit"}}</button>
                             {{/if}}
-                            <button id="cancelLineup" name="cancelLineup" class="btn btn-space btn-danger">Cancel</button>
+                            <button id="cancelLineup" name="cancelLineup" class="btn btn-space btn-danger">{{_ "lineupCancel"}}</button>
                         </div>
                     </form>
                 </div>
@@ -66,5 +66,5 @@
 </template>
 
 <template name="selectOrdre">
-	<option value="{{this}}">{{this}}</option> 		  
+	<option value="{{this}}">{{this}}</option>
 </template>

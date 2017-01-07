@@ -10,7 +10,13 @@ Template["join"] = new Template("Template.join", (function() {
     class: "col-md-8 col-md-offset-2"
   }, "\n    ", HTML.DIV({
     class: "panel panel-default"
-  }, "\n        ", HTML.Raw('<div class="panel-heading"><span class="title">Join a meeting</span></div>'), "\n        ", HTML.DIV({
+  }, "\n        ", HTML.DIV({
+    class: "panel-heading"
+  }, HTML.SPAN({
+    class: "title"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "joinTitle");
+  }))), "\n        ", HTML.DIV({
     class: "panel-body"
   }, "\n            ", Blaze.If(function() {
     return Spacebars.call(view.lookup("joinError"));
@@ -31,7 +37,31 @@ Template["join"] = new Template("Template.join", (function() {
     }), "\n                    ", HTML.STRONG("!"), " ", Blaze.View("lookup:joinError", function() {
       return Spacebars.mustache(view.lookup("joinError"));
     }), "\n                "), "\n            " ];
-  }), "\n            ", HTML.Raw('<form role="form">\n                <div class="form-group">\n                    <label for="participantName">Your name</label>\n                    <input id="participantName" name="participantName" type="text" class="form-control" required="" autofocus="">\n                </div>\n                <div class="form-group">\n                    <label for="pass">Meeting\'s password</label>\n                    <input id="pass" name="pass" type="password" class="form-control" required="">\n                </div>\n\n                <div class="spacer text-right">\n                    <button id="join" type="submit" name="join" class="btn btn-space btn-primary" disabled="disabled">Join</button>\n                </div>\n            </form>'), "\n        "), "\n    "), "\n")));
+  }), "\n            ", HTML.FORM({
+    role: "form"
+  }, "\n                ", HTML.DIV({
+    class: "form-group"
+  }, "\n                    ", HTML.LABEL({
+    for: "participantName"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "joinName");
+  })), "\n                    ", HTML.Raw('<input id="participantName" name="participantName" type="text" class="form-control" required="" autofocus="">'), "\n                "), "\n                ", HTML.DIV({
+    class: "form-group"
+  }, "\n                    ", HTML.LABEL({
+    for: "pass"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "joinPwd");
+  })), "\n                    ", HTML.Raw('<input id="pass" name="pass" type="password" class="form-control" required="">'), "\n                "), "\n\n                ", HTML.DIV({
+    class: "spacer text-right"
+  }, "\n                    ", HTML.BUTTON({
+    id: "join",
+    type: "submit",
+    name: "join",
+    class: "btn btn-space btn-primary",
+    disabled: "disabled"
+  }, Blaze.View("lookup:_", function() {
+    return Spacebars.mustache(view.lookup("_"), "joinSubmit");
+  })), "\n                "), "\n            "), "\n        "), "\n    "), "\n")));
 }));
 
 }).call(this);

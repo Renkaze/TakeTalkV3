@@ -265,6 +265,25 @@
       "path": "packages/ian_accounts-ui-bootstrap-3.js"
     },
     {
+      "path": "packages/coffeescript.js"
+    },
+    {
+      "path": "packages/raix_eventemitter.js"
+    },
+    {
+      "path": "packages/meteorspark_util.js"
+    },
+    {
+      "path": "packages/cfs_http-methods.js"
+    },
+    {
+      "sourceMap": "packages/tap_i18n.js.map",
+      "path": "packages/tap_i18n.js"
+    },
+    {
+      "path": "packages/tap_i18n-ui.js"
+    },
+    {
       "path": "packages/livedata.js"
     },
     {
@@ -303,6 +322,14 @@
     {
       "node_modules": "npm/node_modules",
       "path": "app/collections/Users.js"
+    },
+    {
+      "node_modules": "npm/node_modules",
+      "path": "app/i18n/en.i18n.json"
+    },
+    {
+      "node_modules": "npm/node_modules",
+      "path": "app/i18n/fr.i18n.json"
     },
     {
       "node_modules": "npm/node_modules",

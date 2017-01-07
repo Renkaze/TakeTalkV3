@@ -5,35 +5,35 @@
         <div class="content">
           <h2>Menu</h2>
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="{{pathFor route='groups'}}">My groups</a></li>
-            <li class="active"><a href="#">Create a Group</a></li>
+            <li><a href="{{pathFor route='groups'}}">{{_ "menuGroup"}}</a></li>
+            <li class="active"><a href="#">{{_ "createGroup"}}</a></li>
           </ul>
         </div>
       </div>
       <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 268px; transform: translate(0px, 0px);"></div></div></div>
     </aside>
     <div class="page-head" style="left:250px">
-      <h2>Groups</h2>
+      <h2>{{_ "groupSubTitle"}}</h2>
     </div>
     <div class="main-content">
       <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-3">
           <div class="panel panel-default">
             {{#if currentUser}}
-            <div class="panel-heading"><span class="title">Submit a group</span></div>
+            <div class="panel-heading"><span class="title">{{_ "groupSubmit"}}</span></div>
             <div class="panel-body">
 
               <form class="main form page">
                 <div class="form-group">
-                  <label class="control-label" for="url">Name</label>
+                  <label class="control-label" for="url">{{_ "name"}}</label>
                   <div class="controls">
                     <input name="name" id="groupName" type="text" value="" placeholder="Group name" class="form-control"/>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="control-label" for="title">Members</label>
+                  <label class="control-label" for="title">{{_ "members"}}</label>
                   <div class="controls">
-                    <span> Add members </span>
+                    <span> {{_ "addMembers"}} </span>
                     <span class="glyphicon glyphicon-plus" id='add-input' role="button"></span>
                   </div>
                   <!--
@@ -51,7 +51,7 @@
 
             {{else}}
             <div class="panel-body">
-              <p class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span><strong>Warning! </strong>You should be log in for viewing this features</p>
+              <p class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign"></span><strong>{{_ "warning"}}</strong>{{_ "warningLogInfo"}}</p>
             </div>
             {{/if}}
 

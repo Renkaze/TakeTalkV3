@@ -23,13 +23,13 @@
             <br/><br/>
             <div class="text-center">
               <button type="button" class="btn btn-space btn-primary btn-rounded btn-lg" id="open">
-                <a style="color:#fff" href="{{pathFor 'create'}}"><i class="icon icon-left s7-users"></i> Open a meeting</a>
+                <a style="color:#fff" href="{{pathFor 'create'}}"><i class="icon icon-left s7-users"></i> {{_ "openMeeting"}}</a>
               </button>
             </div>
           </div>
           <div class="panel-heading"></div>
           <div class="panel-body">
-            <span> managed by {{authorName}} - {{authorAdress}} </span>
+            <span> {{_ "managedBy"}} {{authorName}} - {{authorAdress}} </span>
           </div>
         </div>
       </div>
