@@ -39,7 +39,7 @@ Les packages utilisés sont :
     * tap:i18n-ui    
     
 ## Branches
-Les branches ne sont pas encore unifier. Une réunion de projet afin de savoir quelles fonctionnalités garder est prévue prochainement.
+Les branches ne sont pas encore unifiées. Une réunion de projet afin de savoir quelles fonctionnalités garder est prévue prochainement.
 
 * https://github.com/Renkaze/TakeTalkV3/tree/devTom
     * internationalisation
@@ -47,12 +47,21 @@ Les branches ne sont pas encore unifier. Une réunion de projet afin de savoir q
 * https://github.com/franckforet/TakeTalk
     * éditeur de texte
     * optimisation de l'interface
+
+## Sites
+Site de présentation de TakeTalk:
+franckforet.fr
+
+## Présentation
+english: http://alturl.com/vc257
+
+français: http://alturl.com/z35um
+
+Business plan (english only): https://github.com/Renkaze/TakeTalkV3/blob/master/public/TakeTake%20BP.pdf
     
 ## Auteurs
 
-POLIGNY Laurent - SMAIL Arezki - EL GAAD Hasnae - GLAVAS Karlo - CORBEAU Théodore - HAZEM Amar
-
-V3:BERRIAU Thomas - CONTOZ Lionel - FORET Franck
+POLIGNY Laurent - BERRIAU Thomas - CONTOZ Lionel - FORET Franck
 
 </content>
 </snippet>
