@@ -1,34 +1,34 @@
 <template name="create">
 <div class="page-head">
-    <h2>Create a meeting</h2>
+    <h2>{{_ "createTitle"}}</h2>
 </div>
 <div class="main-content">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading"><span class="title">Create a meeting</span></div>
+                <div class="panel-heading"><span class="title">{{_ "createTitle"}}</span></div>
                 <div class="panel-body">
                     <form role="form" id="create-form">
 
                         <div class="form-group">
-                          <label for="animatorName">Your name *</label>
+                          <label for="animatorName">{{_ "createAnimatorName"}}</label>
                           <input id="animatorName" name="animatorName" type="text" class="form-control" value={{authorName}} required autofocus>
                         </div>
 
                         <div class="form-group">
-                            <label for="animatorEmail">Your e-mail *</label>
+                            <label for="animatorEmail">{{_ "createMail"}}</label>
                             <div class="input-group"><span class="input-group-addon">@</span>
                                 <input id="animatorEmail" name="animatorEmail" type="email" parsley-type="email" class="form-control" value={{authorAdress}} required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="meetingName">Your meeting's name *</label>
+                            <label for="meetingName">{{_ "createMeetingName"}}</label>
                             <input id="meetingName" name="meetingName" type="text" class="form-control" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="reportLink">Link of the report</label>
+                            <label for="reportLink">{{_ "createLink"}}</label>
                             <input id="reportLink" name="reportLink" type="url" class="form-control">
                         </div>
 
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="form-group participant-email-group">
-                            <label>Your participants' e-mails</label>
+                            <label>{{_ "createParticipantsMail"}}</label>
 
                             {{#each members}}
 
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         <div class="spacer text-right">
-                            <button type="submit" class="btn btn-space btn-primary">Create your meeting</button>
+                            <button type="submit" class="btn btn-space btn-primary">{{_ "createMeeting"}}</button>
                         </div>
                     </form>
                 </div>

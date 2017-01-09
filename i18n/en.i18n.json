@@ -39,9 +39,33 @@
   "endThanks":"Thank you for having choose TakeTalk!",
   "endSum":"Here a summary of what happened during this meeting",
   "warning":"Warning ! ",
-  "warningLogInfo":"You should be log in for viewing this features"
+  "warningLogInfo":"You should be log in for viewing this features",
 
+  "meetingLink":"Link of the report",
+  "meetingLineUp":"People lining up",
+  "meetingKeywords":"Keywords:",
+  "meetingMembers":"People on this meeting",
+  "meetingAdd":"Add local participant",
+  "meetingInvite":"Invite participants",
+  "meetingClose":"Close meeting",
+  "meetingNewParticipant":"New Local Participant",
+  "meetingParticipantsName":"Participants' Name",
+  "meetingParticipantsMail":"Your participants' e-mails",
+  "meetingByMail":"By email address",
+  "meetingSpeechDeleted":"Your speech have been deleted",
+  "meetingMinEstimated":"min estimated",
+  "meetingNoDuration":"no duration scheduled",
 
+  "createTitle":"Create a meeting",
+  "createAnimatorName":"Your name *",
+  "createMail":"Your e-mail *",
+  "createMeetingName":"Your meeting's name *",
+  "createLink":"Link of the report",
+  "createParticipantsMail":"Your participants' e-mails",
+  "createMeeting":"Create your meeting",
 
+  "close":"Close",
+  "add":"Add",
+  "invite":"Invite"
 
  }

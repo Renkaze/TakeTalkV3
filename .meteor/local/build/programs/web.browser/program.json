@@ -753,9 +753,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/animator/template.create.js?hash=6abd7535019b4f548a6e24299e10bf5bc2880f47",
-      "size": 5522,
-      "hash": "6abd7535019b4f548a6e24299e10bf5bc2880f47"
+      "url": "/app/client/views/animator/template.create.js?hash=4bf141d32edd9c7a3056a8e9ff6007d24200d2d6",
+      "size": 6325,
+      "hash": "4bf141d32edd9c7a3056a8e9ff6007d24200d2d6"
     },
     {
       "path": "app/client/views/application/template.downloads.js",
@@ -798,9 +798,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/views/application/template.meeting.js?hash=4372ca954c2d055fdf0af428905cf79de799cc76",
-      "size": 19160,
-      "hash": "4372ca954c2d055fdf0af428905cf79de799cc76"
+      "url": "/app/client/views/application/template.meeting.js?hash=7a593bc04faa745572110c9992a374928a1215a7",
+      "size": 21869,
+      "hash": "7a593bc04faa745572110c9992a374928a1215a7"
     },
     {
       "path": "app/client/views/application/template.tutorial.js",
@@ -1082,6 +1082,15 @@
       "hash": "affb0a2216fb59129c22b6cd5515a6c669652e01"
     },
     {
+      "path": "app/client/javascripts/layout.js",
+      "where": "client",
+      "type": "js",
+      "cacheable": true,
+      "url": "/app/client/javascripts/layout.js?hash=2692f6786359bdc0755c365b5c55ed1cb840f4f8",
+      "size": 244,
+      "hash": "2692f6786359bdc0755c365b5c55ed1cb840f4f8"
+    },
+    {
       "path": "app/collections/Groups.js",
       "where": "client",
       "type": "js",
@@ -1122,9 +1131,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/i18n/en.i18n.json?hash=d48fc9e74f36e65c08bb59e886416555e75c1d3b",
-      "size": 1893,
-      "hash": "d48fc9e74f36e65c08bb59e886416555e75c1d3b"
+      "url": "/app/i18n/en.i18n.json?hash=e6336f9de8eb8708178755c0e0fa631d277ee3c5",
+      "size": 2776,
+      "hash": "e6336f9de8eb8708178755c0e0fa631d277ee3c5"
     },
     {
       "path": "app/i18n/fr.i18n.json",
@@ -1149,9 +1158,9 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/client/javascripts/main.js?hash=f042f63903b2f526780c77901a6ad128b6f33955",
-      "size": 56,
-      "hash": "f042f63903b2f526780c77901a6ad128b6f33955"
+      "url": "/app/client/javascripts/main.js?hash=3e7df39bdbe77a68d7768644a5732a7f1b9ca9b8",
+      "size": 947,
+      "hash": "3e7df39bdbe77a68d7768644a5732a7f1b9ca9b8"
     },
     {
       "path": "packages/service-configuration.js",

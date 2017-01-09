@@ -15,7 +15,7 @@
                         {{#if isReportLink}}
                             <!-- Lien du document collaboratif -->
                             <div class="col-md-12">
-                                <p><a href="{{reportLink}}" title="Collaborative document" target="_blank">Link of the report</a></p>
+                                <p><a href="{{reportLink}}" title="Collaborative document" target="_blank">{{_ "meetingLink"}}</a></p>
                             </div>
                         {{/if}}
                         <!-- Liste des sujets � l'ordre du jour -->
@@ -41,7 +41,7 @@
         <!-- ****************************************** -->
         <div class="col-md-4">
             <div class="panel panel-default panel-heading-fullwidth panel-primary">
-                <div class="panel-heading"><span class="title">People lining up</span></div>
+                <div class="panel-heading"><span class="title">{{_ "meetingLineUp"}}</span></div>
                 <div class="panel-body">
                     <div class="row">
                         <!-- Bouton pour cr�er une demande d'intervention -->
@@ -75,7 +75,7 @@
                                           <p class="list-group-item-text">
                                               Subject: {{orderChoose}}
                                               {{#if isSubject _id}}
-                                                  <br/>Keywords: {{subject}}
+                                                  <br/>{{_ "meetingKeywords"}} {{subject}}
                                               {{/if}}
                                           </p>
                                           {{#if isAnimator}}
@@ -102,7 +102,7 @@
         <!-- ************************************************************** -->
         <div class="col-md-4">
             <div class="panel panel-default panel-heading-fullwidth panel-primary">
-                <div class="panel-heading"><span class="title">People on this meeting</span></div>
+                <div class="panel-heading"><span class="title">{{_ "meetingMembers"}}</span></div>
                     <div class="panel-body">
                         <div class="row">
                         {{#each meetingUsers}}
@@ -143,9 +143,9 @@
             <div class="panel panel-default panel-transparent">
                 <div class="panel-body">
                     <p class="text-right">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#localModal">Add local participant</button>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#invitationModal">Invite participants</button>
-                        <button type="button" class="btn btn-danger" role="button" id="closeMeeting">Close meeting</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#localModal">{{_ "meetingAdd"}}</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#invitationModal">{{_ "meetingInvite"}}</button>
+                        <button type="button" class="btn btn-danger" role="button" id="closeMeeting">{{_ "meetingClose"}}</button>
                     </p>
                 </div>
             </div>
@@ -162,12 +162,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="localModalLabel">New Local Participant</h4>
+                <h4 class="modal-title" id="localModalLabel">{{_ "meetingNewParticipant"}}</h4>
             </div>
             <div class="modal-body">
                 <form role="form" id="localForm">
                     <div class="form-group name-input-group">
-                        <label class="control-label">Participants' Name</label>
+                        <label class="control-label">{{_ "meetingParticipantsName"}}</label>
                         <div class="participantNameInput" rank="1">
                             <div class="xs-mb-15">
                                 <input type="text" class="participantsName form-control" name="participantsName">
@@ -175,8 +175,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button id="localSubmit" type="submit" class="btn btn-primary">Add</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
+                        <button id="localSubmit" type="submit" class="btn btn-primary">{{_ "add"}}</button>
                     </div>
                 </form>
             </div>
@@ -192,17 +192,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="invitationModalLabel">Invite Participants</h4>
+                <h4 class="modal-title" id="invitationModalLabel">{{_ "meetingInvite"}}</h4>
             </div>
             <div class="modal-body">
                 <!--
                 <h3>By QR Code</h3>
                 <div id="qrcode"></div>
                  -->
-                <h3>By email address</h3>
+                <h3>{{_ "meetingByMail"}}</h3>
                 <form role="form" id="inviteForm">
                     <div class="form-group email-input-group">
-                        <label class="control-label">Your participants' e-mails</label>
+                        <label class="control-label">{{_ "meetingParticipantsMail"}}</label>
                         <div class="participantEmailInput" rank="1">
                             <div class="input-group xs-mb-15"><span class="input-group-addon">@</span>
                                 <input class="participantsEmails form-control" name="participantsEmails" type="email" parsley-type="email">
@@ -210,8 +210,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button id="inviteSubmit" type="submit" class="btn btn-primary">Invite</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
+                        <button id="inviteSubmit" type="submit" class="btn btn-primary">{{_ "invite"}}</button>
                     </div>
                 </form>
             </div>
@@ -227,10 +227,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="speech-delete-label">Invite Participants</h4>
+                <h4 class="modal-title" id="speech-delete-label">{{_ "meetingInvite"}} </h4>
             </div>
             <div class="modal-body">
-                Your speech have been deleted
+                {{_ "meetingSpeechDeleted"}}
             </div>
         </div>
     </div>
@@ -238,7 +238,7 @@
 </template>
 
 <template name="ordre">
-    <h4 class="list-group-item-heading"><b>{{ordre}}</b> - {{#if time}}{{time}} min estimated{{else}} no duration scheduled{{/if}}</h4>
+    <h4 class="list-group-item-heading"><b>{{ordre}}</b> - {{#if time}}{{time}} {{_ "meetingMinEstimated"}}{{else}} {{_ "meetingNoDuration"}}{{/if}}</h4>
 </template>
 
 <template name="parole">
