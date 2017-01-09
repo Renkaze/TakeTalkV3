@@ -39,9 +39,34 @@
   "endThanks":"Merci d'avoir choisit TakeTalk!",
   "endSum":"Voici un résumé du déroulé de la réunion",
   "warning":"Attention ! ",
-  "warningLogInfo":"Vous devez être connecté pour pouvoir accéder à ces fonctionnalitées"
+  "warningLogInfo":"Vous devez être connecté pour pouvoir accéder à ces fonctionnalitées",
 
+  "meetingLink":"Lien du rapport",
+  "meetingLineUp":"Liste des participants",
+  "meetingKeywords":"Mots clés:",
+  "meetingMembers":"Participants de cette réunion",
+  "meetingAdd":"Ajouter un participant local",
+  "meetingInvite":"Inviter des participants",
+  "meetingClose":"Fermer la réunion",
+  "meetingNewParticipant":"Nouveau particpant local",
+  "meetingParticipantsName":"Nom du participant",
+  "meetingParticipantsMail":"Your participants' e-mails",
+  "meetingByMail":"Par adresse mail",
+  "meetingSpeechDeleted":"Votre discour a été supprimé",
+  "meetingMinEstimated":"min éstimée",
+  "meetingNoDuration":"pas de durée programmée",
 
+  "createTitle":"Créer une réunion",
+  "createAnimatorName":"Votre nom *",
+  "createMail":"Votre e-mail *",
+  "createMeetingName":"Nom de la réunion *",
+  "createLink":"Lien du rapport",
+  "createParticipantsMail":"E-mails des participants",
+  "createMeeting":"Créer votre réunion",
+
+  "close":"Fermer",
+  "add":"Ajouter",
+  "invite":"Inviter"
 
 
  }
