@@ -36,7 +36,8 @@ Les packages utilisés sont :
     * accounts-password
  * internationalisation  
     * tap:i18n
-    * tap:i18n-ui       
+    * tap:i18n-ui    
+    
 ## Branches
 Les branches ne sont pas encore unifier. Une réunion de projet afin de savoir quelles fonctionnalités garder est prévue prochainement.
 
