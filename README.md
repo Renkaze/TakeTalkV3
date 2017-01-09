@@ -15,7 +15,7 @@ Votre appli est maintenant fonctionnelle sur le localhost.
 ## Tutoriel
 
 Le tutoriel est disponible sur: https://github.com/bertrandquequeville/taketalk/wiki/Tutoriel
-
+(V3 lien actuelement KO, un nouveau tutoriel sera réalisé)
 ## Contribuez !
 
 Vous pouvez contribuer sur cette page, merci d'avance !
@@ -36,7 +36,17 @@ Les packages utilisés sont :
     * accounts-password
  * internationalisation  
     * tap:i18n
-    * tap:i18n-ui       
+    * tap:i18n-ui    
+    
+## Branches
+Les branches ne sont pas encore unifier. Une réunion de projet afin de savoir quelles fonctionnalités garder est prévue prochainement.
+
+* https://github.com/Renkaze/TakeTalkV3/tree/devTom
+    * internationalisation
+    * groupes
+* https://github.com/franckforet/TakeTalk
+    * éditeur de texte
+    * optimisation de l'interface
     
 ## Auteurs
 
