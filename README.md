@@ -39,7 +39,7 @@ Les packages utilisés sont :
     * tap:i18n-ui    
     
 ## Branches
-Les branches ne sont pas encore unifier. Une réunion de projet afin de savoir quelles fonctionnalités garder est prévue prochainement.
+Les branches ne sont pas encore unifiées. Une réunion de projet afin de savoir quelles fonctionnalités garder est prévue prochainement.
 
 * https://github.com/Renkaze/TakeTalkV3/tree/devTom
     * internationalisation
